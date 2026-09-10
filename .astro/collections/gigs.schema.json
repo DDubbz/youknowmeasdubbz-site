@@ -1,0 +1,103 @@
+{
+  "$ref": "#/definitions/gigs",
+  "definitions": {
+    "gigs": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "booked",
+            "actual",
+            "expected",
+            "pipeline"
+          ]
+        },
+        "fee": {
+          "type": "number"
+        },
+        "feeType": {
+          "type": "string",
+          "enum": [
+            "cash",
+            "check",
+            "venmo",
+            "invoice"
+          ]
+        },
+        "contactName": {
+          "type": "string"
+        },
+        "contactPhone": {
+          "type": "string"
+        },
+        "contactEmail": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "recordingUrl": {
+          "type": "string"
+        },
+        "debriefUrl": {
+          "type": "string"
+        },
+        "isRecurring": {
+          "type": "boolean",
+          "default": false
+        },
+        "recurringPattern": {
+          "type": "string"
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "venue",
+        "date",
+        "startTime",
+        "status"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

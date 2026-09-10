@@ -1,0 +1,402 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+---
+
+<BaseLayout title="Mixes — You Know Me As Dubbz" description="Discover a dynamic collection of music mixes and DJ sets, featuring a blend of the hottest tracks across various genres.">
+  <Header />
+
+  <main id="main-content">
+    <section class="section section-hero">
+      <div class="container">
+        <header class="page-header">
+          <h1 class="page-title">Mixes</h1>
+          <p class="page-description">Discover a dynamic collection of music mixes and DJ sets, featuring a blend of the hottest tracks across various genres. From curated playlists to live sets, explore the beats that keep the party going.</p>
+        </header>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="mix-filters" id="mix-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="house">House</button>
+          <button class="filter-btn" data-filter="hip-hop">Hip-Hop</button>
+          <button class="filter-btn" data-filter="afrobeats">Afrobeats</button>
+          <button class="filter-btn" data-filter="dancehall">Dancehall</button>
+          <button class="filter-btn" data-filter="latin">Latin</button>
+          <button class="filter-btn" data-filter="open-format">Open Format</button>
+        </div>
+
+        <div class="mixes-grid grid grid-3" id="mixes-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="load-more-container">
+          <button class="btn btn-secondary" id="load-more">Load More</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <style>
+    .section-hero {
+      padding: var(--space-20) 0 var(--space-12);
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin-bottom: var(--space-4);
+    }
+
+    .page-description {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+    }
+
+    .mix-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+      margin-bottom: var(--space-10);
+    }
+
+    .filter-btn {
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--space-1);
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .mix-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--space-4);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .mix-card.hidden {
+      display: none;
+    }
+
+    .mix-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .mix-cover {
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mix-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .mix-card:hover .mix-cover img {
+      transform: scale(1.05);
+    }
+
+    .mix-play-btn {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .mix-card:hover .mix-play-btn {
+      opacity: 1;
+    }
+
+    .mix-play-btn svg {
+      width: 64px;
+      height: 64px;
+      color: var(--color-white);
+      transform: scale(0.8);
+      transition: transform var(--transition-base);
+    }
+
+    .mix-play-btn:hover svg {
+      transform: scale(1);
+    }
+
+    .mix-info {
+      padding: var(--space-4);
+    }
+
+    .mix-title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+    }
+
+    .mix-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .mix-meta span {
+      background: var(--color-primary);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--space-1);
+    }
+
+    .mix-actions {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .mix-actions a {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-xs);
+      border-radius: var(--space-1);
+      transition: all var(--transition-fast);
+    }
+
+    .mix-actions .btn-play {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .mix-actions .btn-play:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .mix-actions .btn-download {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .mix-actions .btn-download:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .load-more-container {
+      text-align: center;
+      margin-top: var(--space-10);
+    }
+
+    @media (max-width: 640px) {
+      .mix-filters {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: var(--space-2);
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    let allMixes = [];
+    let currentFilter = 'all';
+    let visibleCount = 9;
+    const PER_PAGE = 9;
+
+    async function loadMixes() {
+      try {
+        const res = await fetch('/api/mixes?limit=50');
+        allMixes = await res.json();
+        renderMixes();
+      } catch (e) {
+        console.log('Mix API not ready, using static fallbacks');
+        loadStaticMixes();
+      }
+    }
+
+    function loadStaticMixes() {
+      // Fallback static data from Odoo export
+      allMixes = [
+        {
+          id: '1',
+          title: 'FLAVAR Call Collect - Summer 2024',
+          description: 'Live set from FLAVAR Call Collect monthly Sunday day party',
+          date: '2024-08-25',
+          genre: ['afrobeats', 'dancehall', 'hip-hop'],
+          duration: '2:15:00',
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: true,
+          featured: true
+        },
+        {
+          id: '2',
+          title: 'Avacado Cantina - Saturday Sessions',
+          description: 'Weekly residency set - house, top 40, latin vibes',
+          date: '2024-09-05',
+          genre: ['house', 'top-40', 'latin'],
+          duration: '3:00:00',
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: true,
+          featured: true
+        },
+        {
+          id: '3',
+          title: 'Camelot Yacht Club - All White Party',
+          description: 'Opening + closing sets, Southern hip-hop + R&B + Dancehall/Kompa',
+          date: '2024-09-06',
+          genre: ['hip-hop', 'r&b', 'dancehall', 'kompa'],
+          duration: '6:53:00',
+          bpmRange: '69-136',
+          trackCount: 125,
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: true,
+          featured: true
+        },
+        {
+          id: '4',
+          title: 'Wedding Reception Mix - Summer 2024',
+          description: 'Ceremony to last dance - curated for 200 guest wedding',
+          date: '2024-07-12',
+          genre: ['open-format', 'top-40', 'classics'],
+          duration: '4:30:00',
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: false
+        },
+        {
+          id: '5',
+          title: 'Corporate Holiday Party 2023',
+          description: 'Brand-aligned programming for 500+ person corporate event',
+          date: '2023-12-15',
+          genre: ['top-40', 'house', 'classics'],
+          duration: '3:00:00',
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: false
+        },
+        {
+          id: '6',
+          title: 'FLAVAR Call Collect - Anniversary Edition',
+          description: '6 Year Anniversary special - 221 tickets sold',
+          date: '2024-03-15',
+          genre: ['afrobeats', 'dancehall', 'hip-hop', 'house'],
+          duration: '3:00:00',
+          coverImage: '/mix-placeholder.jpg',
+          youtubeUrl: '#',
+          soundcloudUrl: '#',
+          downloadable: true,
+          featured: true
+        }
+      ];
+      renderMixes();
+    }
+
+    function renderMixes() {
+      const container = document.getElementById('mixes-grid');
+      if (!container) return;
+
+      const filtered = currentFilter === 'all'
+        ? allMixes
+        : allMixes.filter(m => m.genre?.includes(currentFilter));
+
+      const visible = filtered.slice(0, visibleCount);
+
+      container.innerHTML = visible.map(mix => `
+        <article class="mix-card" data-genres="${mix.genre?.join(' ') || ''}">
+          <div class="mix-cover">
+            <img src="${mix.coverImage || '/mix-placeholder.jpg'}" alt="${mix.title}" loading="lazy">
+            <div class="mix-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="mix-info">
+            <h3 class="mix-title">${mix.title}</h3>
+            <div class="mix-meta">
+              ${mix.genre?.map(g => `<span>${g}</span>`).join('') || ''}
+              ${mix.duration ? `<span>${mix.duration}</span>` : ''}
+              ${mix.bpmRange ? `<span>${mix.bpmRange} BPM</span>` : ''}
+            </div>
+            <div class="mix-actions">
+              <a href="${mix.youtubeUrl || '#'}" class="btn btn-play" target="_blank" rel="noopener">▶ Play</a>
+              ${mix.downloadable ? `<a href="${mix.audioFile || '#'}" class="btn btn-download">⬇ Download</a>` : ''}
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      // Update load more button
+      const loadMoreBtn = document.getElementById('load-more');
+      if (loadMoreBtn) {
+        loadMoreBtn.style.display = visible.length >= filtered.length ? 'none' : 'block';
+      }
+    }
+
+    function filterMixes(genre) {
+      currentFilter = genre;
+      visibleCount = PER_PAGE;
+      renderMixes();
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === genre);
+      });
+    }
+
+    function loadMore() {
+      visibleCount += PER_PAGE;
+      renderMixes();
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMixes();
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => filterMixes(btn.dataset.filter));
+      });
+
+      document.getElementById('load-more')?.addEventListener('click', loadMore);
+    });
+  </script>
+</BaseLayout>

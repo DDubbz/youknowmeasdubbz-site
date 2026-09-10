@@ -1,0 +1,221 @@
+---
+// Header.astro
+---
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="You Know Me As Dubbz Home">
+      <svg viewBox="0 0 96 66" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+        <path d="M0 43.34C0 55.31 9.7 65.01 21.67 65.01V21.67C9.7 21.67 0 31.37 0 43.34Z" fill="currentColor"/>
+        <path d="M24.63 21.67V65.01H46.3V0C34.33 0 24.63 9.7 24.63 21.67Z" fill="currentColor"/>
+        <path d="M49.25 21.67V43.34V65.01H70.92V43.34V21.67V0H49.25V21.67Z" fill="currentColor"/>
+        <path d="M73.88 21.67V65.01H95.55V43.34C95.55 31.37 85.85 21.67 73.88 21.67Z" fill="currentColor"/>
+      </svg>
+      <span class="logo-text">You Know Me As Dubbz</span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/mixes">Mixes</a></li>
+        <li><a href="/gigs">Gigs</a></li>
+        <li><a href="/contact" class="btn btn-primary">Book Now</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <ul class="mobile-nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/mixes">Mixes</a></li>
+      <li><a href="/gigs">Gigs</a></li>
+      <li><a href="/contact" class="btn btn-primary">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    background: rgba(var(--color-primary-rgb, 26, 26, 46), 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+    transition: all var(--transition-base);
+  }
+
+  .site-header.scrolled {
+    background: rgba(var(--color-primary-rgb, 26, 26, 46), 0.98);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 28px;
+    color: var(--color-accent);
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    letter-spacing: 0.05em;
+    font-weight: 400;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    list-style: none;
+  }
+
+  .nav-list a {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width var(--transition-base);
+  }
+
+  .nav-list a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-list a:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-primary);
+    padding: var(--space-20) var(--space-6) var(--space-6);
+    z-index: var(--z-modal);
+  }
+
+  .mobile-nav:not([hidden]) {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .mobile-nav-list a {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .mobile-nav-list .btn {
+    margin-top: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Header scroll effect
+  const header = document.querySelector('.site-header');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu.hasAttribute('hidden');
+    if (isOpen) {
+      mobileMenu.removeAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

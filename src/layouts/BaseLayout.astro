@@ -1,0 +1,48 @@
+---
+// BaseLayout.astro
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" />
+    <title>{title} | You Know Me As Dubbz</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com').toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "You Know Me As Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "jobTitle": "Professional DJ",
+      "description": "South Florida DJ providing professional DJ services for weddings, corporate events, clubs, and private parties."
+    })} />
+  </head>
+  <body class="lenis">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <slot />
+    <script is:inline>
+      // Lenis smooth scroll init
+      import Lenis from '@studio-freight/lenis';
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>

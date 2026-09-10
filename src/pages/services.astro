@@ -1,0 +1,567 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="DJ Services — You Know Me As Dubbz" description="Professional DJ services for weddings, corporate events, nightclubs, and private parties in South Florida. Custom playlists, MC services, full production.">
+  <Header />
+
+  <main id="main-content">
+    <section class="section section-hero">
+      <div class="container">
+        <header class="page-header">
+          <h1 class="page-title">DJ Services</h1>
+          <p class="page-description">Professional DJ services tailored for your event. From intimate weddings to high-energy club nights, corporate galas to custom music production.</p>
+        </header>
+      </div>
+    </section>
+
+    <section class="section" id="weddings">
+      <div class="container">
+        <div class="service-detail grid grid-2">
+          <div class="service-image">
+            <div class="service-image-placeholder">
+              <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="500" height="400" fill="var(--color-surface)"/>
+                <path d="M250 100L150 300h200L250 100Z" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <circle cx="250" cy="180" r="30" fill="var(--color-accent)"/>
+                <rect x="200" y="250" width="100" height="5" rx="2.5" fill="var(--color-accent)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-content">
+            <span class="service-category">Weddings & Private Events</span>
+            <h2>Tailored Music From Ceremony to Last Dance</h2>
+            <p class="service-lead">Your wedding day deserves a soundtrack as unique as your love story. We work with you to curate every moment — from the walk down the aisle to the final song of the night.</p>
+            <ul class="service-features">
+              <li><strong>Custom Playlist Consultation</strong> — Two included sessions to nail every song choice</li>
+              <li><strong>Professional MC Services</strong> — Announcements, introductions, timeline management</li>
+              <li><strong>Ceremony → Cocktail → Reception Flow</strong> — Seamless transitions, zero dead air</li>
+              <li><strong>Wireless Mic for Speeches</strong> — Crystal clear audio for toasts and vows</li>
+              <li><strong>Setup & Breakdown Included</strong> — We handle the gear, you enjoy the party</li>
+              <li><strong>Backup Equipment On-Site</strong> — Redundancy for peace of mind</li>
+              <li><strong>South Florida Travel Included</strong> — No hidden fees within service area</li>
+            </ul>
+            <div class="service-pricing">
+              <span class="price">Starting at <strong>$1,500</strong></span>
+              <span class="price-note">50% deposit to hold date · Balance due day-of</span>
+            </div>
+            <div class="service-addons">
+              <h4>Popular Add-ons</h4>
+              <ul>
+                <li>Live streaming for remote guests — +$200</li>
+                <li>Custom remix of first dance song — +$300</li>
+                <li>Photo booth coordination — +$150</li>
+                <li>Uplighting / dance floor lighting — +$400</li>
+              </ul>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-lg">Inquire About Your Wedding</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="corporate">
+      <div class="container">
+        <div class="service-detail grid grid-2 reverse">
+          <div class="service-image">
+            <div class="service-image-placeholder">
+              <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="500" height="400" fill="var(--color-surface)"/>
+                <rect x="50" y="80" width="400" height="200" rx="8" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <rect x="70" y="100" width="120" height="30" rx="4" fill="var(--color-accent)"/>
+                <rect x="70" y="140" width="200" height="16" rx="2" fill="var(--color-gray-600)"/>
+                <rect x="70" y="165" width="180" height="16" rx="2" fill="var(--color-gray-600)"/>
+                <circle cx="400" cy="300" r="60" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <path d="M370 300l15 15 25-25" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-content">
+            <span class="service-category">Corporate Events</span>
+            <h2>Brand-Aligned Music Programming</h2>
+            <p class="service-lead">From product launches to holiday galas, conferences to team builders — we deliver professional, on-brand music experiences that elevate your event without overshadowing your message.</p>
+            <ul class="service-features">
+              <li><strong>Pre-Event Brand Consultation</strong> — We learn your culture, values, and vibe</li>
+              <li><strong>Custom Walk-In / Walk-Out Music</strong> — Branded intros, transitions, stings</li>
+              <li><strong>Presentation Audio Support</strong> — Wireless mics, mixer integration, recording</li>
+              <li><strong>Dress Code Compliant</strong> — Black tie, business casual, themed attire</li>
+              <li><strong>Corporate Liability Insurance</strong> — COI provided, venue requirements met</li>
+              <li><strong>Invoice / Net-30 Terms</strong> — Procurement-friendly billing</li>
+            </ul>
+            <div class="service-pricing">
+              <span class="price">Starting at <strong>$2,000</strong></span>
+              <span class="price-note">Custom quotes based on scope, duration, location</span>
+            </div>
+            <div class="service-addons">
+              <h4>Popular Add-ons</h4>
+              <ul>
+                <li>Live streaming / hybrid event support — +$500</li>
+                <li>Custom branded transition audio — +$300</li>
+                <li>Multi-room audio zones — +$400/zone</li>
+                <li>Post-event highlight reel with licensed music — +$600</li>
+              </ul>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-lg">Request Corporate Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="nightlife">
+      <div class="container">
+        <div class="service-detail grid grid-2">
+          <div class="service-image">
+            <div class="service-image-placeholder">
+              <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="500" height="400" fill="var(--color-surface)"/>
+                <circle cx="250" cy="180" r="80" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <path d="M250 100L200 260M250 100L300 260" stroke="var(--color-accent)" stroke-width="3"/>
+                <circle cx="250" cy="180" r="30" fill="var(--color-accent)"/>
+                <rect x="220" y="280" width="60" height="40" rx="4" fill="var(--color-accent)"/>
+                <circle cx="180" cy="180" r="15" fill="var(--color-gray-600)"/>
+                <circle cx="320" cy="180" r="15" fill="var(--color-gray-600)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-content">
+            <span class="service-category">Nightlife & Clubs</span>
+            <h2>High-Energy Sets That Pack the Dance Floor</h2>
+            <p class="service-lead">Genre-fluid, crowd-reading, energy-management — we keep the floor moving and the bar ringing. Open format, house, hip-hop, afrobeats, dancehall, latin, top 40.</p>
+            <ul class="service-features">
+              <li><strong>Genre-Flexible</strong> — House, Hip-Hop, Afrobeats, Dancehall, Top 40, Latin, Open Format</li>
+              <li><strong>Crowd Reading & Energy Management</strong> — Build, peak, sustain, bring down</li>
+              <li><strong>Professional Rider Provided</strong> — Technical specs, hospitality, logistics</li>
+              <li><strong>Promo Support</strong> — Social posts, stories, flyer assets, ticket push</li>
+              <li><strong>Recording / Live Stream Available</strong> — Content for your channels</li>
+            </ul>
+            <div class="service-pricing">
+              <span class="price"><strong>Residency & Guest Spot Rates</strong></span>
+              <span class="price-note">Custom per venue, date, duration, market</span>
+            </div>
+            <div class="current-residencies">
+              <h4>Current Residencies</h4>
+              <ul>
+                <li><strong>Avacado Cantina</strong> — Saturdays, 8-11 PM (Palm Beach Gardens)</li>
+                <li><strong>FLAVAR Call Collect</strong> — Monthly Sundays, 3 PM-Close (Northwood Village, WPB)</li>
+              </ul>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-lg">Book a Guest Spot</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="production">
+      <div class="container">
+        <div class="service-detail grid grid-2 reverse">
+          <div class="service-image">
+            <div class="service-image-placeholder">
+              <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="500" height="400" fill="var(--color-surface)"/>
+                <path d="M50 300 Q250 50 450 300" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
+                <circle cx="150" cy="200" r="10" fill="var(--color-accent)"/>
+                <circle cx="250" cy="120" r="10" fill="var(--color-accent)"/>
+                <circle cx="350" cy="200" r="10" fill="var(--color-accent)"/>
+                <rect x="230" y="280" width="40" height="80" rx="4" fill="var(--color-accent)"/>
+                <rect x="220" y="360" width="60" height="20" rx="2" fill="var(--color-gray-600)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-content">
+            <span class="service-category">Music Production (as DWBEATBEAST)</span>
+            <h2>Custom Productions, Remixes & Beats</h2>
+            <p class="service-lead">Original productions, official remixes, custom beats for artists and content creators. Sync-licensing ready, stems delivered, revisions included.</p>
+            <div class="production-services grid grid-3">
+              <article class="production-item card">
+                <h4>Custom Beat Production</h4>
+                <p class="price">$300–800 / track</p>
+                <ul>
+                  <li>Exclusive rights</li>
+                  <li>Stems + WAV + MP3</li>
+                  <li>2 revisions included</li>
+                  <li>Sync licensing ready</li>
+                </ul>
+              </article>
+              <article class="production-item card">
+                <h4>Official Remix</h4>
+                <p class="price">$500–1,500</p>
+                <ul>
+                  <li>Stem separation from original</li>
+                  <li>Genre of your choice</li>
+                  <li>Radio + extended edits</li>
+                  <li>Cleared for release</li>
+                </ul>
+              </article>
+              <article class="production-item card">
+                <h4>Mixing & Mastering</h4>
+                <p class="price">$150–300 / song</p>
+                <ul>
+                  <li>Analog-modeled processing</li>
+                  <li>Streaming platform optimized</li>
+                  <li>Revision rounds included</li>
+                  <li>DDP / WAV / MP3 delivery</li>
+                </ul>
+              </article>
+            </div>
+            <a href="/contact" class="btn btn-primary btn-lg">Discuss Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Process -->
+    <section class="section" id="booking-process">
+      <div class="container">
+        <h2 class="section-title">Booking Process</h2>
+        <div class="process-steps grid grid-4">
+          <article class="process-step">
+            <div class="step-number">1</div>
+            <h3>Inquire</h3>
+            <p>Fill out the contact form with date, venue, event type, and vision.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">2</div>
+            <h3>Consult</h3>
+            <p>15-min call to discuss logistics, budget, and musical direction.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">3</div>
+            <h3>Proposal</h3>
+            <p>Detailed quote with rider, timeline, payment schedule, and contract.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">4</div>
+            <h3>Deposit</h3>
+            <p>50% holds your date (Venmo, Zelle, Check, Wire). Date locked.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">5</div>
+            <h3>Plan</h3>
+            <p>Playlist collaboration, timeline finalization, vendor coordination.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">6</div>
+            <h3>Perform</h3>
+            <p>Show up early, deliver flawlessly, exceed expectations.</p>
+          </article>
+          <article class="process-step">
+            <div class="step-number">7</div>
+            <h3>Balance</h3>
+            <p>Remaining balance due day-of or per corporate terms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Area -->
+    <section class="section section-alt" id="service-area">
+      <div class="container">
+        <h2 class="section-title">Service Area</h2>
+        <div class="area-grid grid grid-3">
+          <div class="area-card card">
+            <h3>Primary (No Travel Fee)</h3>
+            <ul>
+              <li>West Palm Beach</li>
+              <li>Palm Beach Gardens</li>
+              <li>Jupiter</li>
+              <li>Boca Raton</li>
+              <li>Fort Lauderdale</li>
+              <li>Miami / Miami Beach</li>
+              <li>Key Biscayne</li>
+            </ul>
+          </div>
+          <div class="area-card card">
+            <h3>Extended (Travel Fee Applies)</h3>
+            <ul>
+              <li>Florida Keys</li>
+              <li>Naples</li>
+              <li>Orlando</li>
+              <li>Tampa</li>
+              <li>All of South FL</li>
+            </ul>
+          </div>
+          <div class="area-card card">
+            <h3>Destination</h3>
+            <ul>
+              <li>Domestic US</li>
+              <li>Caribbean</li>
+              <li>International</li>
+              <li>Custom quote</li>
+              <li>All logistics handled</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <style>
+    .section-hero {
+      padding: var(--space-20) 0 var(--space-12);
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin-bottom: var(--space-4);
+    }
+
+    .page-description {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+    }
+
+    .service-detail {
+      gap: var(--space-12);
+      align-items: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .service-detail.reverse {
+      direction: rtl;
+    }
+
+    .service-detail.reverse > * {
+      direction: ltr;
+    }
+
+    @media (max-width: 1024px) {
+      .service-detail,
+      .service-detail.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+    }
+
+    .service-image-placeholder {
+      width: 100%;
+      aspect-ratio: 5/4;
+      border-radius: var(--space-4);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .service-image-placeholder svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-category {
+      display: inline-block;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      font-family: var(--font-display);
+      margin-bottom: var(--space-3);
+    }
+
+    .service-content h2 {
+      margin-bottom: var(--space-4);
+    }
+
+    .service-lead {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: var(--space-6);
+    }
+
+    .service-features li {
+      margin-bottom: var(--space-3);
+      padding-left: var(--space-6);
+      position: relative;
+      font-size: var(--text-base);
+    }
+
+    .service-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+
+    .service-pricing {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      margin-bottom: var(--space-6);
+    }
+
+    .price {
+      font-size: var(--text-2xl);
+      font-family: var(--font-display);
+      color: var(--color-white);
+    }
+
+    .price-note {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    .service-addons h4 {
+      margin-bottom: var(--space-3);
+      font-size: var(--text-base);
+    }
+
+    .service-addons ul {
+      list-style: none;
+    }
+
+    .service-addons li {
+      margin-bottom: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    .production-services {
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+
+    .production-item {
+      padding: var(--space-6);
+      text-align: center;
+    }
+
+    .production-item h4 {
+      margin-bottom: var(--space-2);
+    }
+
+    .production-item .price {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+
+    .production-item ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .production-item li {
+      margin-bottom: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding-left: var(--space-6);
+      position: relative;
+    }
+
+    .production-item li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    .process-steps {
+      gap: var(--space-6);
+    }
+
+    .process-step {
+      text-align: center;
+      padding: var(--space-6);
+      position: relative;
+    }
+
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -50%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+      z-index: -1;
+    }
+
+    .process-step:last-child::after {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .process-step::after {
+        display: none;
+      }
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-4);
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+    }
+
+    .process-step h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+    }
+
+    .process-step p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    .area-grid {
+      gap: var(--space-6);
+    }
+
+    .area-card {
+      padding: var(--space-6);
+    }
+
+    .area-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+    }
+
+    .area-card ul {
+      list-style: none;
+    }
+
+    .area-card li {
+      margin-bottom: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding-left: var(--space-6);
+      position: relative;
+    }
+
+    .area-card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    .btn-lg {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-lg);
+    }
+  </style>
+</BaseLayout>
