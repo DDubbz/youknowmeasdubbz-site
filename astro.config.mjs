@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://dwbeatbeast.com',
+  site: 'https://youknowmeasdubbz.com',
   integrations: [mdx(), sitemap()],
   output: 'static',
   dev: {
