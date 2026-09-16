@@ -1,9 +1,9 @@
 ---
-title: "Cultural Council - Open Format Mix"
+title: "Cultural Council - Corporate Event"
 description: "Cultural Council of Palm Beach County Event"
 date: 2026-07-16
-genre: ["deep-house", "r&b", "afrobeats", "amapiano", "top-40", "classics", "afro-house"]
-duration: "2:30:00"
+genre: ["deep-house", "r&b", "afrobeats", "amapiano", "top-40", "open-format", "classics", "afro-house"]
+duration: "110:15"
 bpmRange: "70-130"
 trackCount: 55
 live: false

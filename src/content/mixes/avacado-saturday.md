@@ -3,7 +3,7 @@ title: "Avacado Cantina - Saturday Sessions"
 description: "Weekly residency set at Avacado Cantina - Latin vibes"
 date: 2024-09-05
 genre: ["afrobeats", "latin", "classics"]
-duration: "3:00:00"
+duration: "88:32"
 bpmRange: "100-128"
 trackCount: 68
 live: false
