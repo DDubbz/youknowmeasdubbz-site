@@ -1,0 +1,668 @@
+<!-- Dubbz Illustration Component - Original illustrated DJ character -->
+<!-- Usage: <DubbzIllustration class="hero-illustration" /> -->
+
+<script>
+  // Illustration configuration - easily customizable
+  const config = {
+    // Colors matching brand palette
+    colors: {
+      skin: '#F5D6BA',
+      skinShadow: '#E8C4A8',
+      hair: '#1A1A2E',
+      cap: '#1A1A2E',
+      capBrim: '#0F0F1A',
+      headphones: '#00D4FF',
+      headphonesAccent: '#FFD700',
+      jacket: '#16213E',
+      jacketHighlight: '#1F2D50',
+      collar: '#FFD700',
+      collarShadow: '#CCAC00',
+      shirt: '#0F0F1A',
+      background: 'transparent'
+    },
+    // Animation settings
+    animate: true
+  };
+</script>
+
+<svg
+  viewBox="0 0 600 800"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class="dubbz-illustration"
+  role="img"
+  aria-label="You Know Me As Dubbz - DJ illustration"
+>
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="capGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{config.colors.cap}" />
+      <stop offset="100%" stop-color="{config.colors.capBrim}" />
+    </linearGradient>
+    
+    <linearGradient id="headphonesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="{config.colors.headphones}" />
+      <stop offset="100%" stop-color="{config.colors.headphonesAccent}" />
+    </linearGradient>
+    
+    <linearGradient id="jacketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{config.colors.jacket}" />
+      <stop offset="100%" stop-color="{config.colors.jacketHighlight}" />
+    </linearGradient>
+    
+    <linearGradient id="collarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{config.colors.collar}" />
+      <stop offset="100%" stop-color="{config.colors.collarShadow}" />
+    </linearGradient>
+    
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{config.colors.skin}" />
+      <stop offset="100%" stop-color="{config.colors.skinShadow}" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Subtle texture pattern -->
+    <pattern id="noise" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="url(#noiseGradient)"/>
+    </pattern>
+    <linearGradient id="noiseGradient">
+      <stop offset="0%" stop-color="white" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background glow elements -->
+  <circle cx="300" cy="600" r="180" fill="{config.colors.headphones}" opacity="0.08" filter="url(#glur)"/>
+  <circle cx="300" cy="400" r="120" fill="{config.colors.collar}" opacity="0.05"/>
+  
+  <!-- JACKET / TORSO (base layer) -->
+  <g class="torso-group">
+    <!-- Jacket main body -->
+    <path
+      d="M180 520 
+         L160 720 
+         Q160 760 190 780 
+         L410 780 
+         Q440 760 440 720 
+         L420 520 
+         Q420 480 380 460 
+         Q300 440 220 460 
+         Q180 480 180 520 Z"
+      fill="url(#jacketGradient)"
+      stroke="{config.colors.cap}"
+      stroke-width="4"
+      class="jacket-body"
+    />
+    
+    <!-- Jacket lapels -->
+    <path
+      d="M220 460 
+         Q250 450 280 480 
+         L280 560 
+         Q250 540 220 520 Z"
+      fill="{config.colors.jacketHighlight}"
+      stroke="{config.colors.cap}"
+      stroke-width="2"
+      opacity="0.6"
+    />
+    <path
+      d="M380 460 
+         Q350 450 320 480 
+         L320 560 
+         Q350 540 380 520 Z"
+      fill="{config.colors.jacketHighlight}"
+      stroke="{config.colors.cap}"
+      stroke-width="2"
+      opacity="0.6"
+    />
+    
+    <!-- Gold collar / chain -->
+    <path
+      d="M260 450 
+         Q300 430 340 450 
+         Q345 470 340 490 
+         Q300 500 260 490 
+         Q255 470 260 450 Z"
+      fill="url(#collarGradient)"
+      stroke="{config.colors.collarShadow}"
+      stroke-width="3"
+      class="gold-collar"
+    />
+    
+    <!-- Collar detail lines -->
+    <line x1="275" y1="455" x2="325" y2="455" stroke="{config.colors.collarShadow}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="275" y1="470" x2="325" y2="470" stroke="{config.colors.collarShadow}" stroke-width="1.5" opacity="0.5"/>
+    <line x1="275" y1="485" x2="325" y2="485" stroke="{config.colors.collarShadow}" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Shirt visible at neck -->
+    <path
+      d="M285 450 
+         Q300 440 315 450 
+         Q318 475 310 500 
+         Q300 510 290 500 
+         Q282 475 285 450 Z"
+      fill="{config.colors.shirt}"
+      stroke="{config.colors.cap}"
+      stroke-width="1.5"
+    />
+    
+    <!-- Zipper line -->
+    <line x1="300" y1="460" x2="300" y2="680" stroke="{config.colors.cap}" stroke-width="2" opacity="0.3" stroke-dasharray="8,6"/>
+  </g>
+  
+  <!-- NECK -->
+  <path
+    d="M265 420 Q270 400 285 385 L315 385 Q330 400 335 420"
+    fill="url(#skinGradient)"
+    stroke="{config.colors.skinShadow}"
+    stroke-width="2"
+  />
+  
+  <!-- HEAD -->
+  <g class="head-group">
+    <!-- Head base shape -->
+    <ellipse
+      cx="300" cy="320"
+      rx="95" ry="105"
+      fill="url(#skinGradient)"
+      stroke="{config.colors.skinShadow}"
+      stroke-width="3"
+      class="head-base"
+    />
+    
+    <!-- Ear left -->
+    <path
+      d="M205 330 Q190 325 185 310 Q195 315 205 325"
+      fill="url(#skinGradient)"
+      stroke="{config.colors.skinShadow}"
+      stroke-width="2"
+    />
+    <!-- Ear right -->
+    <path
+      d="M395 330 Q410 325 415 310 Q405 315 395 325"
+      fill="url(#skinGradient)"
+      stroke="{config.colors.skinShadow}"
+      stroke-width="2"
+    />
+    
+    <!-- Ear details -->
+    <path d="M198 320 Q200 315 202 310" stroke="{config.colors.skinShadow}" stroke-width="1.5" fill="none"/>
+    <path d="M402 320 Q400 315 398 310" stroke="{config.colors.skinShadow}" stroke-width="1.5" fill="none"/>
+    
+    <!-- FACE FEATURES -->
+    <!-- Eyebrows -->
+    <path
+      d="M240 285 Q260 275 280 285"
+      stroke="{config.colors.hair}"
+      stroke-width="4"
+      stroke-linecap="round"
+      fill="none"
+      class="eyebrow-left"
+    />
+    <path
+      d="M360 285 Q340 275 320 285"
+      stroke="{config.colors.hair}"
+      stroke-width="4"
+      stroke-linecap="round"
+      fill="none"
+      class="eyebrow-right"
+    />
+    
+    <!-- Eyes - behind glasses -->
+    <ellipse cx="255" cy="305" rx="18" ry="14" fill="#FFFFFF"/>
+    <ellipse cx="345" cy="305" rx="18" ry="14" fill="#FFFFFF"/>
+    <!-- Pupils -->
+    <ellipse cx="258" cy="308" rx="7" ry="9" fill="{config.colors.hair}"/>
+    <ellipse cx="348" cy="308" rx="7" ry="9" fill="{config.colors.hair}"/>
+    <!-- Eye shine -->
+    <ellipse cx="255" cy="302" rx="3" ry="3" fill="#FFFFFF" opacity="0.8"/>
+    <ellipse cx="345" cy="302" rx="3" ry="3" fill="#FFFFFF" opacity="0.8"/>
+    
+    <!-- Glasses frames -->
+    <g class="glasses" filter="url(#glow)">
+      <!-- Left lens frame -->
+      <ellipse
+        cx="255" cy="305"
+        rx="28" ry="22"
+        fill="none"
+        stroke="{config.colors.cap}"
+        stroke-width="4"
+      />
+      <!-- Right lens frame -->
+      <ellipse
+        cx="345" cy="305"
+        rx="28" ry="22"
+        fill="none"
+        stroke="{config.colors.cap}"
+        stroke-width="4"
+      />
+      <!-- Bridge -->
+      <path
+        d="M283 305 Q300 300 317 305"
+        stroke="{config.colors.cap}"
+        stroke-width="4"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <!-- Temple left -->
+      <path
+        d="M227 300 Q210 295 195 310"
+        stroke="{config.colors.cap}"
+        stroke-width="4"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <!-- Temple right -->
+      <path
+        d="M373 300 Q390 295 405 310"
+        stroke="{config.colors.cap}"
+        stroke-width="4"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <!-- Lens subtle tint -->
+      <ellipse cx="255" cy="305" rx="24" ry="18" fill="{config.colors.headphones}" opacity="0.08"/>
+      <ellipse cx="345" cy="305" rx="24" ry="18" fill="{config.colors.headphones}" opacity="0.08"/>
+    </g>
+    
+    <!-- Nose -->
+    <path
+      d="M295 335 Q300 350 305 335 Q305 345 300 345 Q295 345 295 335"
+      fill="none"
+      stroke="{config.colors.skinShadow}"
+      stroke-width="2"
+    />
+    <!-- Nose highlight -->
+    <path d="M297 335 Q300 342 302 335" stroke="#FFFFFF" stroke-width="1" opacity="0.4" fill="none"/>
+    
+    <!-- Mouth / Smile -->
+    <path
+      d="M260 365 Q300 385 340 365"
+      stroke="{config.colors.hair}"
+      stroke-width="3"
+      stroke-linecap="round"
+      fill="none"
+      class="mouth"
+    />
+    <!-- Smile line -->
+    <path
+      d="M265 362 Q300 375 335 362"
+      stroke="{config.colors.skinShadow}"
+      stroke-width="1.5"
+      fill="none"
+      opacity="0.5"
+    />
+    
+    <!-- Facial hair / stubble suggestion -->
+    <g opacity="0.3" stroke="{config.colors.hair}" stroke-width="1" fill="none">
+      <line x1="250" y1="375" x2="255" y2="380"/>
+      <line x1="270" y1="375" x2="275" y2="380"/>
+      <line x1="290" y1="375" x2="295" y2="380"/>
+      <line x1="310" y1="375" x2="315" y2="380"/>
+      <line x1="330" y1="375" x2="335" y2="380"/>
+      <line x1="350" y1="375" x2="355" y2="380"/>
+    </g>
+  </g>
+  
+  <!-- HAIR (visible at sides/back) -->
+  <g class="hair-group">
+    <!-- Sideburns -->
+    <path
+      d="M210 310 Q200 330 205 350 Q215 340 220 320"
+      fill="{config.colors.hair}"
+    />
+    <path
+      d="M390 310 Q400 330 395 350 Q385 340 380 320"
+      fill="{config.colors.hair}"
+    />
+    <!-- Top hair peeking from cap -->
+    <path
+      d="M230 235 Q240 215 260 225 Q270 210 290 220"
+      fill="{config.colors.hair}"
+    />
+    <path
+      d="M310 220 Q330 210 340 225 Q350 215 360 225 Q370 210 370 235"
+      fill="{config.colors.hair}"
+    />
+  </g>
+  
+  <!-- CAP -->
+  <g class="cap-group">
+    <!-- Cap crown -->
+    <path
+      d="M210 245 
+         Q220 180 300 165 
+         Q380 180 390 245 
+         Q395 240 390 235 
+         Q310 175 210 240 Z"
+      fill="url(#capGradient)"
+      stroke="{config.colors.capBrim}"
+      stroke-width="3"
+      class="cap-crown"
+    />
+    
+    <!-- Cap brim -->
+    <path
+      d="M170 250 
+         Q175 240 210 245 
+         Q300 170 390 245 
+         Q425 240 430 250 
+         Q435 270 420 265 
+         Q390 255 300 240 
+         Q210 255 180 265 
+         Q165 270 170 250 Z"
+      fill="{config.colors.capBrim}"
+      stroke="{config.colors.cap}"
+      stroke-width="2"
+      class="cap-brim"
+    />
+    
+    <!-- Cap brim underside -->
+    <path
+      d="M185 255 Q210 250 300 245 Q390 250 415 255"
+      stroke="{config.colors.cap}"
+      stroke-width="1.5"
+      fill="none"
+      opacity="0.3"
+    />
+    
+    <!-- Cap panel lines -->
+    <path d="M240 175 Q300 160 360 175" stroke="{config.colors.capBrim}" stroke-width="1.5" opacity="0.4" fill="none"/>
+    <path d="M255 170 Q300 162 345 170" stroke="{config.colors.capBrim}" stroke-width="1" opacity="0.3" fill="none"/>
+    <path d="M270 168 Q300 163 330 168" stroke="{config.colors.capBrim}" stroke-width="1" opacity="0.2" fill="none"/>
+    
+    <!-- Cap button on top -->
+    <circle cx="300" cy="170" r="8" fill="{config.colors.capBrim}" stroke="{config.colors.cap}" stroke-width="2"/>
+    <circle cx="300" cy="170" r="4" fill="{config.colors.collar}" opacity="0.6"/>
+  </g>
+  
+  <!-- HEADPHONES -->
+  <g class="headphones-group" filter="url(#glow)">
+    <!-- Headband -->
+    <path
+      d="M160 290 
+         Q150 240 300 190 
+         Q450 240 440 290"
+      fill="none"
+      stroke="url(#headphonesGradient)"
+      stroke-width="8"
+      stroke-linecap="round"
+      class="headband"
+    />
+    
+    <!-- Headband highlight -->
+    <path
+      d="M180 285 Q220 245 300 205 Q380 245 420 285"
+      fill="none"
+      stroke="{config.colors.headphonesAccent}"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.6"
+    />
+    
+    <!-- Left ear cup -->
+    <g class="earcup-left">
+      <!-- Outer ring -->
+      <circle cx="160" cy="290" r="48" fill="{config.colors.cap}" stroke="{config.colors.headphones}" stroke-width="4"/>
+      <!-- Middle ring -->
+      <circle cx="160" cy="290" r="38" fill="{config.colors.jacket}" stroke="{config.colors.headphones}" stroke-width="2"/>
+      <!-- Inner ring -->
+      <circle cx="160" cy="290" r="28" fill="url(#headphonesGradient)" opacity="0.3"/>
+      <!-- Center detail -->
+      <circle cx="160" cy="290" r="16" fill="{config.colors.cap}" stroke="{config.colors.headphonesAccent}" stroke-width="2"/>
+      <circle cx="160" cy="290" r="8" fill="{config.colors.headphonesAccent}"/>
+      <!-- Glow ring -->
+      <circle cx="160" cy="290" r="50" fill="none" stroke="{config.colors.headphones}" stroke-width="1" opacity="0.3"/>
+    </g>
+    
+    <!-- Right ear cup -->
+    <g class="earcup-right">
+      <circle cx="440" cy="290" r="48" fill="{config.colors.cap}" stroke="{config.colors.headphones}" stroke-width="4"/>
+      <circle cx="440" cy="290" r="38" fill="{config.colors.jacket}" stroke="{config.colors.headphones}" stroke-width="2"/>
+      <circle cx="440" cy="290" r="28" fill="url(#headphonesGradient)" opacity="0.3"/>
+      <circle cx="440" cy="290" r="16" fill="{config.colors.cap}" stroke="{config.colors.headphonesAccent}" stroke-width="2"/>
+      <circle cx="440" cy="290" r="8" fill="{config.colors.headphonesAccent}"/>
+      <circle cx="440" cy="290" r="50" fill="none" stroke="{config.colors.headphones}" stroke-width="1" opacity="0.3"/>
+    </g>
+    
+    <!-- Ear cup hinges / connectors -->
+    <path
+      d="M208 280 Q220 265 240 265"
+      stroke="url(#headphonesGradient)"
+      stroke-width="6"
+      stroke-linecap="round"
+      fill="none"
+    />
+    <path
+      d="M360 265 Q380 265 392 280"
+      stroke="url(#headphonesGradient)"
+      stroke-width="6"
+      stroke-linecap="round"
+      fill="none"
+    />
+    
+    <!-- Cable on left ear cup -->
+    <path
+      d="M115 300 Q100 330 90 370 Q85 400 100 420"
+      stroke="{config.colors.headphones}"
+      stroke-width="3"
+      stroke-linecap="round"
+      fill="none"
+      opacity="0.7"
+      class="headphone-cable"
+    />
+    <path
+      d="M112 302 Q97 332 87 372 Q82 402 97 422"
+      stroke="{config.colors.headphonesAccent}"
+      stroke-width="1"
+      stroke-linecap="round"
+      fill="none"
+      opacity="0.5"
+    />
+  </g>
+  
+  <!-- ACCENT ELEMENTS -->
+  <!-- Floating music notes / particles -->
+  <g class="floating-elements" opacity="0.6">
+    <g transform="translate(120, 200)" class="float-1">
+      <path d="M0 0 L0 -30 M-8 -30 H8 M-8 -15 H8" stroke="{config.colors.accent}" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="-10" cy="-35" r="4" fill="{config.colors.accent}"/>
+      <circle cx="10" cy="-5" r="4" fill="{config.colors.accent}"/>
+    </g>
+    <g transform="translate(480, 180)" class="float-2">
+      <path d="M0 0 L0 -25 M-6 -25 H6 M-6 -12 H6" stroke="{config.colors.gold}" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="-8" cy="-30" r="3" fill="{config.colors.gold}"/>
+      <circle cx="8" cy="-3" r="3" fill="{config.colors.gold}"/>
+    </g>
+    <g transform="translate(80, 500)" class="float-3">
+      <circle r="6" fill="{config.colors.accent}" opacity="0.5"/>
+      <circle r="3" fill="{config.colors.gold}" opacity="0.7"/>
+    </g>
+    <g transform="translate(500, 520)" class="float-4">
+      <circle r="4" fill="{config.colors.gold}" opacity="0.6"/>
+      <circle r="8" fill="{config.colors.accent}" opacity="0.4"/>
+    </g>
+    <g transform="translate(100, 650)" class="float-5">
+      <path d="M0 0 L0 -20 M-5 -20 H5 M-5 -10 H5" stroke="{config.colors.accent}" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- "DUBBZ" text logo small on jacket -->
+  <text
+    x="300" y="620"
+    font-family="Bebas Neue, Montserrat, sans-serif"
+    font-size="28"
+    font-weight="400"
+    letter-spacing="0.15em"
+    fill="{config.colors.collar}"
+    text-anchor="middle"
+    opacity="0.8"
+    class="jacket-logo"
+  >
+    DUBBZ
+  </text>
+</svg>
+
+<style>
+  .dubbz-illustration {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Subtle breathing animation for the whole illustration */
+  @keyframes breathe {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-4px) scale(1.002); }
+  }
+  
+  /* Float animations for decorative elements */
+  @keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(8px, -6px) rotate(2deg); }
+    66% { transform: translate(-4px, 8px) rotate(-1deg); }
+  }
+  
+  @keyframes floatMedium {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-6px, -10px) rotate(-3deg); }
+  }
+  
+  @keyframes pulseSubtle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+  }
+  
+  /* Apply animations if enabled */
+  .dubbz-illustration.animate-on .torso-group,
+  .dubbz-illustration.animate-on .head-group {
+    animation: breathe 6s ease-in-out infinite;
+    transform-origin: center 500px;
+  }
+  
+  .dubbz-illustration.animate-on .float-1 { animation: floatSlow 12s ease-in-out infinite; }
+  .dubbz-illustration.animate-on .float-2 { animation: floatMedium 10s ease-in-out infinite; }
+  .dubbz-illustration.animate-on .float-3 { animation: floatSlow 14s ease-in-out infinite; }
+  .dubbz-illustration.animate-on .float-4 { animation: floatMedium 11s ease-in-out infinite; }
+  .dubbz-illustration.animate-on .float-5 { animation: floatSlow 13s ease-in-out infinite; }
+  
+  /* Headphone pulse */
+  .dubbz-illustration.animate-on .earcup-left,
+  .dubbz-illustration.animate-on .earcup-right {
+    animation: pulseSubtle 3s ease-in-out infinite;
+    transform-origin: center center;
+  }
+  
+  .dubbz-illustration.animate-on .earcup-right { animation-delay: 1.5s; }
+  
+  /* Headband subtle bounce */
+  .dubbz-illustration.animate-on .headband {
+    animation: breathe 4s ease-in-out infinite;
+    transform-origin: center 190px;
+  }
+  
+  /* Cap subtle tilt */
+  .dubbz-illustration.animate-on .cap-crown {
+    animation: breathe 8s ease-in-out infinite;
+    transform-origin: center 165px;
+  }
+  
+  .dubbz-illustration.animate-on .cap-brim { animation-delay: 0.2s; }
+  
+  /* Eyebrow expression */
+  @keyframes browRaise {
+    0%, 90%, 100% { transform: translateY(0); }
+    95% { transform: translateY(-3px); }
+  }
+  
+  .dubbz-illustration.animate-on .eyebrow-left,
+  .dubbz-illustration.animate-on .eyebrow-right {
+    animation: browRaise 4s ease-in-out infinite;
+    transform-origin: center center;
+  }
+  
+  /* Mouth subtle */
+  @keyframes smileBreathe {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.05); }
+  }
+  
+  .dubbz-illustration.animate-on .mouth {
+    animation: smileBreathe 5s ease-in-out infinite;
+    transform-origin: center 375px;
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .dubbz-illustration * {
+      animation: none !important;
+    }
+  }
+  
+  /* Hover interactions */
+  .dubbz-illustration:hover .earcup-left,
+  .dubbz-illustration:hover .earcup-right {
+    filter: drop-shadow(0 0 12px #00D4FF) drop-shadow(0 0 24px #FFD700);
+  }
+  
+  .dubbz-illustration:hover .gold-collar {
+    filter: drop-shadow(0 0 8px #FFD700);
+  }
+  
+  .dubbz-illustration:hover .headband {
+    filter: drop-shadow(0 0 10px #00D4FF);
+  }
+</style>
+
+<script>
+  // Initialize animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const illustration = document.querySelector('.dubbz-illustration');
+    if (illustration && config.animate) {
+      illustration.classList.add('animate-on');
+      
+      // Parallax on mouse move (subtle)
+      let rafId = null;
+      illustration.addEventListener('mousemove', (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const rect = illustration.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const deltaX = (e.clientX - centerX) / centerX;
+          const deltaY = (e.clientY - centerY) / centerY;
+          
+          // Apply subtle transform to groups
+          const headGroup = illustration.querySelector('.head-group');
+          const capGroup = illustration.querySelector('.cap-group');
+          const headphonesGroup = illustration.querySelector('.headphones-group');
+          const torsoGroup = illustration.querySelector('.torso-group');
+          
+          if (headGroup) headGroup.style.transform = `translate(${deltaX * 4}px, ${deltaY * 3}px)`;
+          if (capGroup) capGroup.style.transform = `translate(${deltaX * 5}px, ${deltaY * 4}px)`;
+          if (headphonesGroup) headphonesGroup.style.transform = `translate(${deltaX * 6}px, ${deltaY * 5}px)`;
+          if (torsoGroup) torsoGroup.style.transform = `translate(${deltaX * 2}px, ${deltaY * 1}px)`;
+          
+          rafId = null;
+        });
+      });
+      
+      illustration.addEventListener('mouseleave', () => {
+        const groups = ['.head-group', '.cap-group', '.headphones-group', '.torso-group'];
+        groups.forEach(sel => {
+          const el = illustration.querySelector(sel);
+          if (el) el.style.transform = '';
+        });
+      });
+    }
+  });
+</script>

@@ -40,7 +40,10 @@ export async function GET({ url }) {
   }))), {
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=3600'
+      'Cache-Control': 'public, max-age=3600',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   });
 }

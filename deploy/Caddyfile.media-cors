@@ -1,0 +1,30 @@
+pay.youknowmeasdubbz.com {
+    reverse_proxy localhost:3001 {
+        header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Ssl on
+        header_up X-Forwarded-Port 443
+    }
+}
+
+media.youknowmeasdubbz.com {
+    root * /srv/dubbz-media/public
+
+    @allowed_origin header_regexp allowed Origin ^(?:http://(?:localhost|127\.0\.0\.1):4321|https://(?:www\.)?youknowmeasdubbz\.com)$
+    header @allowed_origin {
+        Access-Control-Allow-Origin "{http.request.header.Origin}"
+        Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+        Access-Control-Allow-Headers "Range"
+        Access-Control-Expose-Headers "Content-Length, Content-Range, Accept-Ranges"
+        +Vary Origin
+    }
+
+    @preflight method OPTIONS
+    respond @preflight 204
+
+    header {
+        X-Content-Type-Options nosniff
+        Cache-Control "public, max-age=3600"
+    }
+
+    file_server
+}

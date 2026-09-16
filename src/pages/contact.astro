@@ -8,19 +8,24 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main id="main-content">
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <!-- PAGE HERO -->
     <section class="section section-hero">
       <div class="container">
         <header class="page-header">
+          <span class="page-greeting">LET'S WORK</span>
           <h1 class="page-title">Contact & Booking</h1>
           <p class="page-description">Ready to book You Know Me As Dubbz for your event? Fill out the form below and I'll get back to you within 24 hours with availability and a custom quote.</p>
         </header>
       </div>
     </section>
 
+    <!-- CONTACT FORM & INFO -->
     <section class="section">
       <div class="container">
         <div class="contact-grid grid grid-2">
-          <div class="contact-info">
+          <div class="contact-info panel">
             <h2>Let's Talk About Your Event</h2>
             <p class="contact-lead">Every event is unique. Share your vision, and I'll create a custom proposal tailored to your date, venue, and vibe.</p>
 
@@ -34,7 +39,7 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div class="method-details">
                   <h3>Email</h3>
-                  <a href="mailto:book@youknowmeasdubbz.com">book@youknowmeasdubbz.com</a>
+                  <a href="mailto:dj@youknowmeasdubbz.com">dj@youknowmeasdubbz.com</a>
                 </div>
               </div>
 
@@ -46,7 +51,7 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div class="method-details">
                   <h3>Phone / Text</h3>
-                  <a href="tel:+1561XXXXXXX">561-XXX-XXXX</a>
+                  <a href="tel:+13059022698">(305) 902-2698</a>
                   <p class="method-note">Best for urgent inquiries</p>
                 </div>
               </div>
@@ -88,8 +93,8 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
-          <div class="contact-form-wrapper">
-            <form id="booking-form" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="contact-form-wrapper panel">
+            <form id="booking-form" class="contact-form" action="https://formspree.io/f/meaqbjyd" method="POST">
               <input type="hidden" name="_next" value="/contact?success=true" />
               <input type="hidden" name="_subject" value="New Booking Inquiry - You Know Me As Dubbz" />
 
@@ -213,39 +218,41 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- FAQ -->
-    <section class="section section-alt" aria-labelledby="faq-title">
+    <section class="section section-alt contact-cta" aria-labelledby="faq-title">
       <div class="container">
-        <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+        <header class="section-header">
+          <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+        </header>
         <div class="faq-grid grid grid-2">
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>How far in advance should I book?</h3>
             <p><strong>Weddings:</strong> 6-12 months recommended<br><strong>Corporate:</strong> 2-3 months<br><strong>Clubs/Private:</strong> 1-4 weeks</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>Do you travel outside South Florida?</h3>
             <p>Yes, throughout Florida and destination events. Travel fees apply for extended/destination bookings.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>What's your cancellation policy?</h3>
             <p>Deposit is non-refundable. Full fee due 30 days prior. Force majeure clauses in contract for emergencies.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>Can I provide a do-not-play list?</h3>
             <p>Absolutely. We'll review it together during planning. Your vibe, your rules.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>Do you take requests during the event?</h3>
             <p>Yes, within the vibe/genre we agree on. Crowd-reading and requests are part of the art.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>Do you provide sound equipment?</h3>
             <p>Standard rider: CDJs + mixer. Sound system by venue or rented separately. Self-contained rig available for up to 300 pax.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>Can you MC / make announcements?</h3>
             <p>Yes, professional MC services included for weddings and private events. Corporate hosting available.</p>
           </article>
-          <article class="faq-item card">
+          <article class="faq-item panel">
             <h3>What payment methods do you accept?</h3>
             <p>Venmo, Zelle, Check, Wire. Corporate: Net-30 invoicing available with PO.</p>
           </article>
@@ -257,16 +264,36 @@ import Footer from '../components/Footer.astro';
   <Footer />
 
   <style>
+    #main-content {
+      overflow: clip;
+    }
+
     .section-hero {
-      padding: var(--space-20) 0 var(--space-12);
-      background: var(--color-surface);
-      border-bottom: 1px solid var(--color-border);
+      padding: clamp(120px, 14vw, 180px) 0 clamp(56px, 7vw, 96px);
+      background-color: #0f0f1a;
+      background-image: radial-gradient(circle at 82% 18%, rgba(0, 212, 255, 0.12), transparent 34%);
+      border-bottom: var(--outline-weight) solid var(--color-border);
+    }
+
+    .contact-cta {
+      background-color: #0f0f1a;
+      background-image: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.10), transparent 40%);
     }
 
     .page-header {
       text-align: center;
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    .page-greeting {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: var(--space-4);
     }
 
     .page-title {
@@ -279,7 +306,7 @@ import Footer from '../components/Footer.astro';
     }
 
     .contact-grid {
-      gap: var(--space-12);
+      gap: var(--space-8);
       align-items: start;
     }
 
@@ -291,14 +318,15 @@ import Footer from '../components/Footer.astro';
 
     .contact-lead {
       font-size: var(--text-lg);
-      color: var(--color-text-muted);
+      color: var(--color-text);
       margin-bottom: var(--space-8);
+      font-weight: 500;
     }
 
     .contact-methods {
       display: flex;
       flex-direction: column;
-      gap: var(--space-6);
+      gap: var(--space-4);
       margin-bottom: var(--space-10);
     }
 
@@ -306,26 +334,31 @@ import Footer from '../components/Footer.astro';
       display: flex;
       gap: var(--space-4);
       padding: var(--space-4);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--space-3);
-      transition: border-color var(--transition-fast);
+      background: var(--color-primary);
+      border: var(--outline-weight) solid var(--color-border);
+      transition: all var(--transition-fast);
     }
 
     .contact-method:hover {
       border-color: var(--color-accent);
+      transform: translateX(4px);
     }
 
     .method-icon {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      color: var(--color-white);
+      border: var(--outline-weight) solid var(--color-accent);
+      background: var(--color-primary);
+      color: var(--color-accent);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+    }
+
+    .contact-method:hover .method-icon {
+      background: var(--color-accent);
+      color: var(--color-primary);
     }
 
     .method-details h3 {
@@ -352,9 +385,8 @@ import Footer from '../components/Footer.astro';
     .social-links a {
       width: 44px;
       height: 44px;
-      border-radius: 50%;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
+      border: var(--outline-weight) solid var(--color-border);
+      background: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -365,14 +397,13 @@ import Footer from '../components/Footer.astro';
     .social-links a:hover {
       background: var(--color-accent);
       border-color: var(--color-accent);
-      color: var(--color-white);
-      transform: translateY(-2px);
+      color: var(--color-primary);
+      transform: translateY(-3px) translateX(-3px);
+      box-shadow: var(--outline-weight) var(--outline-weight) 0 var(--color-border),
+                  calc(var(--outline-weight) * 2) calc(var(--outline-weight) * 2) 0 var(--color-accent);
     }
 
     .contact-form-wrapper {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--space-4);
       padding: var(--space-8);
     }
 
@@ -415,12 +446,11 @@ import Footer from '../components/Footer.astro';
     .form-group textarea {
       padding: var(--space-3) var(--space-4);
       background: var(--color-primary);
-      border: 1px solid var(--color-border);
-      border-radius: var(--space-2);
+      border: var(--outline-weight) solid var(--color-border);
       color: var(--color-white);
       font-family: var(--font-body);
       font-size: var(--text-base);
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      transition: all var(--transition-fast);
     }
 
     .form-group input:focus,
@@ -428,7 +458,7 @@ import Footer from '../components/Footer.astro';
     .form-group textarea:focus {
       outline: none;
       border-color: var(--color-accent);
-      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
+      box-shadow: 0 0 0 3px var(--color-accent-dim);
     }
 
     .form-group input::placeholder,
@@ -455,6 +485,7 @@ import Footer from '../components/Footer.astro';
       width: 20px;
       height: 20px;
       accent-color: var(--color-accent);
+      border: 2px solid var(--color-border);
     }
 
     .btn-full {
@@ -491,8 +522,14 @@ import Footer from '../components/Footer.astro';
       gap: var(--space-4);
     }
 
+    @media (max-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .faq-item {
-      padding: var(--space-5);
+      padding: var(--space-6);
     }
 
     .faq-item h3 {

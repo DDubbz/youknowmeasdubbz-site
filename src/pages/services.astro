@@ -8,29 +8,34 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main id="main-content">
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <!-- PAGE HERO -->
     <section class="section section-hero">
       <div class="container">
         <header class="page-header">
+          <span class="page-greeting">WHAT I DO</span>
           <h1 class="page-title">DJ Services</h1>
           <p class="page-description">Professional DJ services tailored for your event. From intimate weddings to high-energy club nights, corporate galas to custom music production.</p>
         </header>
       </div>
     </section>
 
+    <!-- WEDDINGS & PRIVATE EVENTS -->
     <section class="section" id="weddings">
       <div class="container">
         <div class="service-detail grid grid-2">
-          <div class="service-image">
-            <div class="service-image-placeholder">
+          <div class="service-visual">
+            <div class="service-image-placeholder panel">
               <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="500" height="400" fill="var(--color-surface)"/>
-                <path d="M250 100L150 300h200L250 100Z" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <rect width="500" height="400" fill="var(--color-primary)"/>
+                <path d="M250 100L150 300h200L250 100Z" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
                 <circle cx="250" cy="180" r="30" fill="var(--color-accent)"/>
                 <rect x="200" y="250" width="100" height="5" rx="2.5" fill="var(--color-accent)"/>
               </svg>
             </div>
           </div>
-          <div class="service-content">
+          <div class="service-content panel">
             <span class="service-category">Weddings & Private Events</span>
             <h2>Tailored Music From Ceremony to Last Dance</h2>
             <p class="service-lead">Your wedding day deserves a soundtrack as unique as your love story. We work with you to curate every moment — from the walk down the aisle to the final song of the night.</p>
@@ -62,14 +67,15 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    <!-- CORPORATE EVENTS -->
     <section class="section section-alt" id="corporate">
       <div class="container">
         <div class="service-detail grid grid-2 reverse">
-          <div class="service-image">
-            <div class="service-image-placeholder">
+          <div class="service-visual">
+            <div class="service-image-placeholder panel">
               <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="500" height="400" fill="var(--color-surface)"/>
-                <rect x="50" y="80" width="400" height="200" rx="8" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <rect width="500" height="400" fill="var(--color-primary)"/>
+                <rect x="50" y="80" width="400" height="200" rx="8" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
                 <rect x="70" y="100" width="120" height="30" rx="4" fill="var(--color-accent)"/>
                 <rect x="70" y="140" width="200" height="16" rx="2" fill="var(--color-gray-600)"/>
                 <rect x="70" y="165" width="180" height="16" rx="2" fill="var(--color-gray-600)"/>
@@ -78,7 +84,7 @@ import Footer from '../components/Footer.astro';
               </svg>
             </div>
           </div>
-          <div class="service-content">
+          <div class="service-content panel">
             <span class="service-category">Corporate Events</span>
             <h2>Brand-Aligned Music Programming</h2>
             <p class="service-lead">From product launches to holiday galas, conferences to team builders — we deliver professional, on-brand music experiences that elevate your event without overshadowing your message.</p>
@@ -109,14 +115,15 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    <!-- NIGHTLIFE & CLUBS -->
     <section class="section" id="nightlife">
       <div class="container">
         <div class="service-detail grid grid-2">
-          <div class="service-image">
-            <div class="service-image-placeholder">
+          <div class="service-visual">
+            <div class="service-image-placeholder panel">
               <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="500" height="400" fill="var(--color-surface)"/>
-                <circle cx="250" cy="180" r="80" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                <rect width="500" height="400" fill="var(--color-primary)"/>
+                <circle cx="250" cy="180" r="80" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
                 <path d="M250 100L200 260M250 100L300 260" stroke="var(--color-accent)" stroke-width="3"/>
                 <circle cx="250" cy="180" r="30" fill="var(--color-accent)"/>
                 <rect x="220" y="280" width="60" height="40" rx="4" fill="var(--color-accent)"/>
@@ -125,7 +132,7 @@ import Footer from '../components/Footer.astro';
               </svg>
             </div>
           </div>
-          <div class="service-content">
+          <div class="service-content panel">
             <span class="service-category">Nightlife & Clubs</span>
             <h2>High-Energy Sets That Pack the Dance Floor</h2>
             <p class="service-lead">Genre-fluid, crowd-reading, energy-management — we keep the floor moving and the bar ringing. Open format, house, hip-hop, afrobeats, dancehall, latin, top 40.</p>
@@ -153,13 +160,14 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    <!-- MUSIC PRODUCTION (DWBEATBEAST) -->
     <section class="section section-alt" id="production">
       <div class="container">
         <div class="service-detail grid grid-2 reverse">
-          <div class="service-image">
-            <div class="service-image-placeholder">
+          <div class="service-visual">
+            <div class="service-image-placeholder panel">
               <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="500" height="400" fill="var(--color-surface)"/>
+                <rect width="500" height="400" fill="var(--color-primary)"/>
                 <path d="M50 300 Q250 50 450 300" stroke="var(--color-accent)" stroke-width="4" fill="none"/>
                 <circle cx="150" cy="200" r="10" fill="var(--color-accent)"/>
                 <circle cx="250" cy="120" r="10" fill="var(--color-accent)"/>
@@ -169,12 +177,12 @@ import Footer from '../components/Footer.astro';
               </svg>
             </div>
           </div>
-          <div class="service-content">
+          <div class="service-content panel">
             <span class="service-category">Music Production (as DWBEATBEAST)</span>
             <h2>Custom Productions, Remixes & Beats</h2>
             <p class="service-lead">Original productions, official remixes, custom beats for artists and content creators. Sync-licensing ready, stems delivered, revisions included.</p>
             <div class="production-services grid grid-3">
-              <article class="production-item card">
+              <article class="production-item panel">
                 <h4>Custom Beat Production</h4>
                 <p class="price">$300–800 / track</p>
                 <ul>
@@ -184,7 +192,7 @@ import Footer from '../components/Footer.astro';
                   <li>Sync licensing ready</li>
                 </ul>
               </article>
-              <article class="production-item card">
+              <article class="production-item panel">
                 <h4>Official Remix</h4>
                 <p class="price">$500–1,500</p>
                 <ul>
@@ -194,7 +202,7 @@ import Footer from '../components/Footer.astro';
                   <li>Cleared for release</li>
                 </ul>
               </article>
-              <article class="production-item card">
+              <article class="production-item panel">
                 <h4>Mixing & Mastering</h4>
                 <p class="price">$150–300 / song</p>
                 <ul>
@@ -211,42 +219,44 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Booking Process -->
+    <!-- BOOKING PROCESS -->
     <section class="section" id="booking-process">
       <div class="container">
-        <h2 class="section-title">Booking Process</h2>
+        <header class="section-header">
+          <h2 class="section-title">Booking Process</h2>
+        </header>
         <div class="process-steps grid grid-4">
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">1</div>
             <h3>Inquire</h3>
             <p>Fill out the contact form with date, venue, event type, and vision.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">2</div>
             <h3>Consult</h3>
             <p>15-min call to discuss logistics, budget, and musical direction.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">3</div>
             <h3>Proposal</h3>
             <p>Detailed quote with rider, timeline, payment schedule, and contract.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">4</div>
             <h3>Deposit</h3>
             <p>50% holds your date (Venmo, Zelle, Check, Wire). Date locked.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">5</div>
             <h3>Plan</h3>
             <p>Playlist collaboration, timeline finalization, vendor coordination.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">6</div>
             <h3>Perform</h3>
             <p>Show up early, deliver flawlessly, exceed expectations.</p>
           </article>
-          <article class="process-step">
+          <article class="process-step panel">
             <div class="step-number">7</div>
             <h3>Balance</h3>
             <p>Remaining balance due day-of or per corporate terms.</p>
@@ -255,12 +265,14 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Service Area -->
+    <!-- SERVICE AREA -->
     <section class="section section-alt" id="service-area">
       <div class="container">
-        <h2 class="section-title">Service Area</h2>
+        <header class="section-header">
+          <h2 class="section-title">Service Area</h2>
+        </header>
         <div class="area-grid grid grid-3">
-          <div class="area-card card">
+          <div class="area-card panel">
             <h3>Primary (No Travel Fee)</h3>
             <ul>
               <li>West Palm Beach</li>
@@ -272,7 +284,7 @@ import Footer from '../components/Footer.astro';
               <li>Key Biscayne</li>
             </ul>
           </div>
-          <div class="area-card card">
+          <div class="area-card panel">
             <h3>Extended (Travel Fee Applies)</h3>
             <ul>
               <li>Florida Keys</li>
@@ -282,7 +294,7 @@ import Footer from '../components/Footer.astro';
               <li>All of South FL</li>
             </ul>
           </div>
-          <div class="area-card card">
+          <div class="area-card panel">
             <h3>Destination</h3>
             <ul>
               <li>Domestic US</li>
@@ -295,21 +307,50 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
     </section>
+
+    <!-- CTA -->
+    <section class="section cta-section services-cta">
+      <div class="container">
+        <div class="cta-panel panel">
+          <h2 class="cta-title">Ready to Book?</h2>
+          <p class="cta-text">Limited dates available for peak season. Let's talk about your event vision and lock in your date.</p>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-primary btn-lg">Start Your Inquiry</a>
+            <a href="tel:+13059022698" class="btn btn-gold btn-lg">Call Now: (305) 902-2698</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
 
   <style>
+    #main-content {
+      overflow: clip;
+    }
+
     .section-hero {
-      padding: var(--space-20) 0 var(--space-12);
-      background: var(--color-surface);
-      border-bottom: 1px solid var(--color-border);
+      padding: clamp(120px, 14vw, 180px) 0 clamp(56px, 7vw, 96px);
+      background-color: #0f0f1a;
+      background-image: radial-gradient(circle at 82% 18%, rgba(0, 212, 255, 0.12), transparent 34%);
+      border-bottom: var(--outline-weight) solid var(--color-border);
     }
 
     .page-header {
       text-align: center;
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    .page-greeting {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: var(--space-4);
     }
 
     .page-title {
@@ -322,9 +363,9 @@ import Footer from '../components/Footer.astro';
     }
 
     .service-detail {
-      gap: var(--space-12);
+      gap: clamp(32px, 6vw, 72px);
       align-items: center;
-      margin-bottom: var(--space-16);
+      margin-bottom: clamp(64px, 8vw, 112px);
     }
 
     .service-detail.reverse {
@@ -335,6 +376,11 @@ import Footer from '../components/Footer.astro';
       direction: ltr;
     }
 
+    .services-cta {
+      background-color: #0f0f1a;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.10), transparent 40%);
+    }
+
     @media (max-width: 1024px) {
       .service-detail,
       .service-detail.reverse {
@@ -343,18 +389,27 @@ import Footer from '../components/Footer.astro';
       }
     }
 
+    .service-visual {
+      display: flex;
+      justify-content: center;
+    }
+
     .service-image-placeholder {
       width: 100%;
       aspect-ratio: 5/4;
-      border-radius: var(--space-4);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      background: var(--color-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
     }
 
     .service-image-placeholder svg {
       width: 100%;
       height: 100%;
+    }
+
+    .service-content {
+      padding: var(--space-8);
     }
 
     .service-category {
@@ -373,8 +428,9 @@ import Footer from '../components/Footer.astro';
 
     .service-lead {
       font-size: var(--text-lg);
-      color: var(--color-text-muted);
+      color: var(--color-text);
       margin-bottom: var(--space-6);
+      font-weight: 500;
     }
 
     .service-features {
@@ -387,6 +443,7 @@ import Footer from '../components/Footer.astro';
       padding-left: var(--space-6);
       position: relative;
       font-size: var(--text-base);
+      color: var(--color-text-muted);
     }
 
     .service-features li::before {
@@ -395,6 +452,7 @@ import Footer from '../components/Footer.astro';
       left: 0;
       color: var(--color-accent);
       font-weight: bold;
+      font-size: var(--text-lg);
     }
 
     .service-pricing {
@@ -425,6 +483,31 @@ import Footer from '../components/Footer.astro';
     }
 
     .service-addons li {
+      margin-bottom: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding-left: var(--space-6);
+      position: relative;
+    }
+
+    .service-addons li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: bold;
+    }
+
+    .current-residencies h4 {
+      margin-bottom: var(--space-3);
+      font-size: var(--text-base);
+    }
+
+    .current-residencies ul {
+      list-style: none;
+    }
+
+    .current-residencies li {
       margin-bottom: var(--space-2);
       font-size: var(--text-sm);
       color: var(--color-text-muted);
@@ -472,7 +555,7 @@ import Footer from '../components/Footer.astro';
     }
 
     .process-steps {
-      gap: var(--space-6);
+      gap: var(--space-4);
     }
 
     .process-step {
@@ -505,15 +588,22 @@ import Footer from '../components/Footer.astro';
     .step-number {
       width: 60px;
       height: 60px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      color: var(--color-white);
+      border: var(--outline-weight) solid var(--color-accent);
+      background: var(--color-primary);
+      color: var(--color-accent);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto var(--space-4);
       font-family: var(--font-display);
       font-size: var(--text-2xl);
+      transition: all var(--transition-base);
+    }
+
+    .process-step:hover .step-number {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      transform: scale(1.1) rotate(-3deg);
     }
 
     .process-step h3 {
@@ -562,6 +652,26 @@ import Footer from '../components/Footer.astro';
     .btn-lg {
       padding: var(--space-4) var(--space-8);
       font-size: var(--text-lg);
+    }
+
+    @media (max-width: 640px) {
+      .production-services {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .area-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </BaseLayout>

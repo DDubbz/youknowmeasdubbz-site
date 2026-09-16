@@ -1,11 +1,10 @@
----
-// Footer.astro
----
+<!-- Footer.astro - Bold, outlined, consistent with design -->
+
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-grid grid grid-4">
       <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="You Know Me As Dubbz Home">
+        <a href="/" class="logo" aria-label="You Know Me As Dubbz Home">
           <svg viewBox="0 0 96 66" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
             <path d="M0 43.34C0 55.31 9.7 65.01 21.67 65.01V21.67C9.7 21.67 0 31.37 0 43.34Z" fill="currentColor"/>
             <path d="M24.63 21.67V65.01H46.3V0C34.33 0 24.63 9.7 24.63 21.67Z" fill="currentColor"/>
@@ -15,7 +14,7 @@
           <span class="logo-text">You Know Me As Dubbz</span>
         </a>
         <p class="footer-tagline">South Florida's Premier DJ Experience</p>
-        <div class="footer-social">
+        <div class="social-links">
           <a href="https://instagram.com/youknowmeasdubbz" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -37,22 +36,22 @@
         </div>
       </div>
 
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <h3 class="footer-heading">Navigate</h3>
+        <ul class="footer-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
           <li><a href="/mixes">Mixes</a></li>
           <li><a href="/gigs">Gigs</a></li>
-          <li><a href="/contact">Booking</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Book Dubbz</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <div class="footer-links">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/services#weddings">Weddings</a></li>
+      <div class="footer-services">
+        <h3 class="footer-heading">Services</h3>
+        <ul class="footer-links">
+          <li><a href="/services#weddings">Weddings & Private Events</a></li>
           <li><a href="/services#corporate">Corporate Events</a></li>
           <li><a href="/services#nightlife">Nightlife & Clubs</a></li>
           <li><a href="/services#production">Music Production</a></li>
@@ -60,158 +59,212 @@
       </div>
 
       <div class="footer-contact">
-        <h4>Contact</h4>
-        <address>
-          <p>West Palm Beach, FL</p>
-          <p><a href="mailto:book@youknowmeasdubbz.com">book@youknowmeasdubbz.com</a></p>
-          <p><a href="tel:+1561XXXXXXX">561-XXX-XXXX</a></p>
-        </address>
+        <h3 class="footer-heading">Get In Touch</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:dj@youknowmeasdubbz.com">dj@youknowmeasdubbz.com</a></li>
+          <li><a href="tel:+13059022698">(305) 902-2698</a></li>
+          <li>West Palm Beach, FL</li>
+          <li>Serving all of South Florida</li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 You Know Me As Dubbz. All rights reserved.</p>
-      <p class="footer-credit">Built with Astro &bull; Hosted on Cloudflare Pages</p>
+      <div class="footer-divider"></div>
+      <div class="footer-legal">
+        <p>&copy; 2026 You Know Me As Dubbz. All rights reserved.</p>
+        <p class="footer-credit">Built with Astro • Hosted on Cloudflare Pages</p>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--color-primary);
-    border-top: 1px solid var(--color-border);
-    padding: var(--space-16) 0 var(--space-8);
-    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border-top: var(--outline-weight) solid var(--color-border);
+    padding: var(--space-20) 0 var(--space-8);
+    position: relative;
+  }
+
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-gold), var(--color-accent));
+    background-size: 200% 100%;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr repeat(3, 1fr);
-    gap: var(--space-10);
-    margin-bottom: var(--space-12);
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
   }
 
-  @media (max-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .footer-logo {
+  .footer-brand .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    color: var(--color-white);
+    gap: var(--space-3);
     text-decoration: none;
+    color: var(--color-white);
     margin-bottom: var(--space-4);
   }
 
-  .footer-logo .logo-mark {
-    width: 48px;
-    height: 33px;
+  .footer-brand .logo-mark {
+    width: 40px;
+    height: 28px;
     color: var(--color-accent);
   }
 
-  .footer-logo .logo-text {
+  .footer-brand .logo-text {
     font-family: var(--font-display);
-    font-size: var(--text-2xl);
+    font-size: var(--text-lg);
     letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .footer-tagline {
-    font-size: var(--text-sm);
-    color: var(--color-gray-500);
-    margin-bottom: var(--space-4);
-    max-width: 200px;
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+    max-width: 280px;
   }
 
-  .footer-social {
+  .social-links {
     display: flex;
     gap: var(--space-4);
   }
 
-  .footer-social a {
+  .social-links a {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
     color: var(--color-text-muted);
     transition: all var(--transition-fast);
   }
 
-  .footer-social a:hover {
-    background: var(--color-accent);
+  .social-links a:hover {
     border-color: var(--color-accent);
-    color: var(--color-white);
-    transform: translateY(-2px);
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px) translateX(-3px);
+    box-shadow: var(--outline-weight) var(--outline-weight) 0 var(--color-border),
+                calc(var(--outline-weight) * 2) calc(var(--outline-weight) * 2) 0 var(--color-accent);
   }
 
-  .footer-links h4,
-  .footer-contact h4 {
+  .footer-heading {
     font-family: var(--font-display);
     font-size: var(--text-base);
-    color: var(--color-white);
-    margin-bottom: var(--space-4);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
   }
 
-  .footer-links ul,
-  .footer-contact address {
+  .footer-links {
     list-style: none;
-    font-style: normal;
-  }
-
-  .footer-links li {
-    margin-bottom: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
 
   .footer-links a {
-    color: var(--color-text-muted);
     font-size: var(--text-sm);
-    transition: color var(--transition-fast);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    display: inline-block;
   }
 
   .footer-links a:hover {
     color: var(--color-accent);
+    transform: translateX(6px);
   }
 
-  .footer-contact address p {
-    margin-bottom: var(--space-2);
+  .footer-links li:not(:has(a)) {
     font-size: var(--text-sm);
-  }
-
-  .footer-contact a {
     color: var(--color-text-muted);
   }
 
-  .footer-contact a:hover {
-    color: var(--color-accent);
+  .footer-divider {
+    height: 2px;
+    background-image: radial-gradient(circle, var(--color-accent) 1px, transparent 1px);
+    background-size: 10px 10px;
+    margin-bottom: var(--space-6);
   }
 
   .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: var(--space-8);
-    border-top: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer-legal p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-credit {
+    font-family: var(--font-mono);
     font-size: var(--text-xs);
-    color: var(--color-gray-500);
+    color: var(--color-gray-600);
+    margin-top: var(--space-2) !important;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .footer-brand {
+      align-items: center;
+    }
+
+    .footer-brand .logo {
+      justify-content: center;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .footer-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-links a:hover {
+      transform: none;
+    }
+
     .footer-bottom {
       flex-direction: column;
-      gap: var(--space-2);
       text-align: center;
     }
   }

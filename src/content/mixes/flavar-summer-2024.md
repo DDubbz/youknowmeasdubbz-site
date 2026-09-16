@@ -8,7 +8,7 @@ bpmRange: "90-128"
 trackCount: 45
 youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
 soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
-coverImage: "/mixes/flavar-summer-2024.jpg"
+coverImage: "/mixes/flavar-summer-2024.webp"
 audioFile: "/mixes/flavar-summer-2024.mp3"
 downloadable: true
 featured: true

@@ -1,5 +1,6 @@
 ---
 // BaseLayout.astro
+import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
@@ -37,12 +38,6 @@ const { title, description } = Astro.props;
   <body class="lenis">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
-    <script is:inline>
-      // Lenis smooth scroll init
-      import Lenis from '@studio-freight/lenis';
-      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-    </script>
+    <script src="../scripts/lenis.js"></script>
   </body>
 </html>

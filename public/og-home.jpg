@@ -1,0 +1,52 @@
+<svg viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0F0F1A"/>
+  <!-- Background pattern -->
+  <circle cx="1000" cy="-100" r="400" fill="#00D4FF" opacity="0.1"/>
+  <circle cx="-100" cy="730" r="300" fill="#FFD700" opacity="0.08"/>
+  
+  <!-- Logo mark -->
+  <g transform="translate(100, 100)">
+    <svg viewBox="0 0 96 66" fill="none">
+      <path d="M0 43.34C0 55.31 9.7 65.01 21.67 65.01V21.67C9.7 21.67 0 31.37 0 43.34Z" fill="#00D4FF"/>
+      <path d="M24.63 21.67V65.01H46.3V0C34.33 0 24.63 9.7 24.63 21.67Z" fill="#00D4FF"/>
+      <path d="M49.25 21.67V43.34V65.01H70.92V43.34V21.67V0H49.25V21.67Z" fill="#00D4FF"/>
+      <path d="M73.88 21.67V65.01H95.55V43.34C95.55 31.37 85.85 21.67 73.88 21.67Z" fill="#00D4FF"/>
+    </svg>
+  </g>
+  
+  <!-- Title -->
+  <text x="100" y="220" font-family="Bebas Neue, Montserrat, sans-serif" font-size="72" font-weight="400" fill="#FFFFFF" letter-spacing="0.02em">You Know Me As Dubbz</text>
+  <text x="100" y="290" font-family="Bebas Neue, Montserrat, sans-serif" font-size="32" font-weight="400" fill="#00D4FF" letter-spacing="0.1em">SOUTH FLORIDA'S PREMIER DJ EXPERIENCE</text>
+  
+  <!-- Divider -->
+  <line x1="100" y1="310" x2="300" y2="310" stroke="#00D4FF" stroke-width="4" stroke-dasharray="8,8"/>
+  
+  <!-- Description -->
+  <text x="100" y="360" font-family="Montserrat, sans-serif" font-size="22" fill="#CCCCCC" style="max-width: 500px;">Professional DJ services for weddings, corporate events, clubs, and private parties in West Palm Beach, Miami, and South Florida.</text>
+  
+  <!-- CTAs -->
+  <rect x="100" y="400" width="220" height="56" rx="0" fill="#00D4FF"/>
+  <text x="210" y="438" font-family="Bebas Neue, Montserrat, sans-serif" font-size="20" fill="#0F0F1A" text-anchor="middle" letter-spacing="0.05em">BOOK DUBBZ</text>
+  
+  <rect x="340" y="400" width="220" height="56" rx="0" fill="none" stroke="#00D4FF" stroke-width="3"/>
+  <text x="450" y="438" font-family="Bebas Neue, Montserrat, sans-serif" font-size="20" fill="#00D4FF" text-anchor="middle" letter-spacing="0.05em">LISTEN TO MIXES</text>
+  
+  <!-- Stats -->
+  <g font-family="Bebas Neue, Montserrat, sans-serif" transform="translate(100, 500)">
+    <text x="0" y="0" font-size="48" fill="#00D4FF">1000+</text>
+    <text x="0" y="30" font-size="16" fill="#8888AA" letter-spacing="0.1em">EVENTS</text>
+    <text x="180" y="0" font-size="48" fill="#00D4FF">10+</text>
+    <text x="180" y="30" font-size="16" fill="#8888AA" letter-spacing="0.1em">YEARS</text>
+    <text x="320" y="0" font-size="48" fill="#00D4FF">50+</text>
+    <text x="320" y="30" font-size="16" fill="#8888AA" letter-spacing="0.1em">WEDDINGS</text>
+  </g>
+  
+  <!-- Illustration placeholder (right side) -->
+  <g transform="translate(750, 150)">
+    <circle cx="200" cy="150" r="150" fill="#1A1A2E" stroke="#00D4FF" stroke-width="3"/>
+    <circle cx="200" cy="150" r="120" fill="#0F0F1A" stroke="#333344" stroke-width="2"/>
+    <circle cx="200" cy="150" r="60" fill="#00D4FF"/>
+    <circle cx="200" cy="150" r="30" fill="#0F0F1A"/>
+    <text x="200" y="340" font-family="Bebas Neue, Montserrat, sans-serif" font-size="24" fill="#00D4FF" text-anchor="middle" letter-spacing="0.1em">DUBBZ</text>
+  </g>
+</svg>

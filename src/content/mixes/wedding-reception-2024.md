@@ -8,7 +8,7 @@ bpmRange: "70-128"
 trackCount: 85
 youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
 soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
-coverImage: "/mixes/wedding-reception-2024.jpg"
+coverImage: "/mixes/wedding-reception-2024.webp"
 audioFile: "/mixes/wedding-reception-2024.mp3"
 downloadable: false
 featured: false

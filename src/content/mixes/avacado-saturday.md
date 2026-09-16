@@ -8,9 +8,9 @@ bpmRange: "100-128"
 trackCount: 68
 youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
 soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
-coverImage: "/mixes/avacado-saturday-2024.jpg"
-audioFile: "/mixes/avacado-saturday-2024.mp3"
+coverImage: "/mixes/avacado-saturday-2024.webp"
+audioFile: "/mixes/avacado-cantina-latin-2026.mp3"
 downloadable: true
 featured: true
-tags: ["avacado-cantina", "residency", "saturday-sessions", "weekly"]
+tags: ["avacado-cantina", "residency", "saturday-sessions", "weekly", "latin"]
 ---
