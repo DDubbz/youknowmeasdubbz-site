@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import DubbzIllustration from '../components/DubbzIllustration.astro';
 ---
 
 <BaseLayout title="About — You Know Me As Dubbz" description="Learn about You Know Me As Dubbz — South Florida's premier DJ and event production company. Over 10 years of professional experience delivering unforgettable music experiences.">
@@ -22,9 +21,10 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
             <span class="page-greeting">THE STORY</span>
             <h1 class="page-title">About Dubbz</h1>
             <p class="page-description">South Florida-based entertainment company providing professional DJ services and event production. Over 10 years of professional experience delivering tailored, high-energy music experiences.</p>
-          </div>
-          <div class="about-hero-illustration animate-slide-in-right">
-            <DubbzIllustration class="about-dubbz" />
+            <div class="hero-actions" style="margin-top: var(--space-8); display: flex; gap: var(--space-4); flex-wrap: wrap;">
+              <a href="/contact" class="btn btn-primary btn-lg">Start a Conversation</a>
+              <a href="/mixes" class="btn btn-secondary btn-lg">Hear the Sound</a>
+            </div>
           </div>
         </div>
       </div>
@@ -199,10 +199,7 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
     }
 
     .about-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-12);
-      align-items: center;
+      display: block;
       max-width: var(--container-max);
       margin: 0 auto;
       padding: 0 var(--container-padding);
@@ -210,6 +207,9 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
 
     .about-hero-content {
       text-align: left;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
     }
 
     .page-greeting {
@@ -232,35 +232,24 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
       max-width: 100%;
     }
 
-    .about-dubbz {
-      width: 100%;
-      max-width: 450px;
-      margin: 0 auto;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    /* Text legibility scrim — gradient overlay on left side */
+    .section-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(15, 15, 26, 0.82) 0%,
+        rgba(15, 15, 26, 0.45) 50%,
+        rgba(15, 15, 26, 0.15) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
     }
 
     @media (max-width: 1024px) {
-      .about-hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
       .about-hero-content {
-        order: 2;
-      }
-
-      .about-hero-illustration {
-        order: 1;
-      }
-
-      .about-dubbz {
-        max-width: 350px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .about-dubbz {
-        max-width: 300px;
+        max-width: 100%;
       }
     }
 
@@ -503,11 +492,6 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
     }
 
     .about-hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-dubbz {
       position: relative;
       z-index: 2;
     }
