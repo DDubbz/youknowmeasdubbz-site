@@ -6,11 +6,14 @@ genre: ["open-format", "top-40", "classics", "slow-jams"]
 duration: "4:30:00"
 bpmRange: "70-128"
 trackCount: 85
-youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
-soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
+live: false
+venue: ""
+address: ""
 coverImage: "/mixes/wedding-reception-2024.webp"
 audioFile: "/mixes/wedding-reception-2024.mp3"
 downloadable: false
 featured: false
 tags: ["wedding", "ceremony", "reception", "first-dance", "private-event"]
+youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
+soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
 ---
