@@ -6,6 +6,9 @@ export default defineConfig({
   site: 'https://dwbeatbeast.com',
   integrations: [mdx(), sitemap()],
   output: 'static',
+  dev: {
+    toolbar: { enabled: false }
+  },
   build: {
     assets: 'assets',
     inlineStylesheets: 'auto'
