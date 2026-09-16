@@ -13,6 +13,9 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
 
     <!-- ABOUT HERO -->
     <section class="section section-hero">
+      <!-- Parallax background image -->
+      <div class="hero-bg-layer" id="hero-bg" aria-hidden="true"></div>
+      
       <div class="container">
         <div class="about-hero-grid">
           <div class="about-hero-content animate-slide-in-left">
@@ -475,5 +478,76 @@ import DubbzIllustration from '../components/DubbzIllustration.astro';
         padding: var(--space-10);
       }
     }
+
+    /* ABOUT HERO - Parallax Background */
+    .section-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-layer {
+      position: absolute;
+      inset: -60px; /* Extends beyond viewport for parallax movement */
+      background-image: url('/images/dubbz-about-hero.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 0;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    .about-hero-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-dubbz {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg-layer {
+        transition: none;
+      }
+    }
   </style>
 </BaseLayout>
+
+  <script is:inline>
+    // Parallax background on mouse move
+    const heroBg = document.getElementById('hero-bg');
+    const heroSection = document.querySelector('.section-hero');
+
+    if (heroBg && heroSection) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = (e.clientX - centerX) / centerX;
+          const deltaY = (e.clientY - centerY) / centerY;
+          
+          // Move background opposite to mouse for depth effect
+          const moveX = deltaX * 40; // max 40px
+          const moveY = deltaY * 40;
+          
+          heroBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+          heroBg.style.transform = 'translate(0, 0)';
+        });
+      }
+    }
+  </script>
