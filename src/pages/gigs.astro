@@ -622,11 +622,20 @@ import Footer from '../components/Footer.astro';
 
       let filtered = [];
       const now = new Date();
+      const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
 
       if (currentFilter === 'upcoming') {
-        filtered = allGigs.filter(g => new Date(g.date) >= now);
+        filtered = allGigs.filter(g => {
+          const d = new Date(g.date);
+          const gMidnight = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0, 0);
+          return gMidnight >= todayMidnight;
+        });
       } else if (currentFilter === 'past') {
-        filtered = allGigs.filter(g => new Date(g.date) < now);
+        filtered = allGigs.filter(g => {
+          const d = new Date(g.date);
+          const gMidnight = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0, 0);
+          return gMidnight < todayMidnight;
+        });
       } else if (currentFilter === 'residencies') {
         filtered = allGigs.filter(g => g.isRecurring);
       } else if (currentFilter === 'flavar') {
@@ -665,18 +674,32 @@ import Footer from '../components/Footer.astro';
             <p class="gig-venue">${gig.venue}</p>
             <p class="gig-location">${gig.address}</p>
             <div class="gig-meta">
-              <span class="gig-time">${startTime12}${endTime12 ? ` – ${endTime12}` : ''}</span>
-              ${gig.isRecurring ? `<span>🔁 ${gig.recurringPattern}</span>` : ''}
+              <span class="gig-time">${startTime12}${endTime12 ? ' – ' + endTime12 : ''}</span>
+              ${gig.isRecurring ? '<span>🔁 ' + gig.recurringPattern + '</span>' : ''}
             </div>
           </div>
           <div class="gig-actions">
-            <button class="btn btn-calendar" type="button" onclick="addToCalendar('${gig.title.replace(/'/g, "\\'")}', '${gig.date}', '${gig.startTime || ''}', '${gig.endTime || ''}', '${(gig.venue || '').replace(/'/g, "\\'")}', '${(gig.address || '').replace(/'/g, "\\'")}')" title="Add to Calendar" aria-label="Add ${gig.title} to calendar">
+            <button class="btn btn-calendar" type="button" data-gig-title="${gig.title.replace(/'/g, '')}" data-gig-date="${gig.date}" data-gig-start="${gig.startTime || ''}" data-gig-end="${gig.endTime || ''}" data-gig-venue="${(gig.venue || '').replace(/'/g, '')}" data-gig-address="${(gig.address || '').replace(/'/g, '')}" title="Add to Calendar" aria-label="Add ${gig.title} to calendar">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               <span>Remind Me</span>
             </button>
           </div>
         </article>
       `).join('');
+
+      // Add calendar button handlers
+      container.querySelectorAll('.btn-calendar').forEach(btn => {
+        btn.addEventListener('click', () => {
+          addToCalendar(
+            btn.dataset.gigTitle,
+            btn.dataset.gigDate,
+            btn.dataset.gigStart,
+            btn.dataset.gigEnd,
+            btn.dataset.gigVenue,
+            btn.dataset.gigAddress
+          );
+        });
+      });
 
       const loadMoreBtn = document.getElementById('load-more-gigs');
       if (loadMoreBtn) {
