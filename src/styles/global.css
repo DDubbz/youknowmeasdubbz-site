@@ -521,6 +521,7 @@ html.lenis { height: auto; }
   inset: calc(var(--outline-weight) * -2);
   border: var(--outline-weight) solid transparent;
   transition: border-color var(--transition-base);
+  pointer-events: none;
 }
 
 .panel:hover::before {
