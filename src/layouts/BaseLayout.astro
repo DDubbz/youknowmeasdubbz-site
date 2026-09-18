@@ -132,6 +132,82 @@ const jsonLd = {
         ]
       }
     }
+    ,
+    {
+      "@type": "ProfessionalService",
+      "name": "You Know Me As Dubbz",
+      "alternateName": "Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "image": "https://youknowmeasdubbz.com/og-home.jpg",
+      "logo": "https://youknowmeasdubbz.com/favicon.svg",
+      "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "West Palm Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.7153,
+          "longitude": -80.0534
+        },
+        "geoRadius": "100000"
+      },
+      "priceRange": "$750 - $5,000+",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "telephone": "+1-305-902-2698",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "DJ Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding DJ Services"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "1500",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Event DJ"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "2000",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Private Party DJ"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "750",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4",
+        "bestRating": "5"
+      }
+    }
     // FAQPage schema will be added conditionally
   ]
 };
