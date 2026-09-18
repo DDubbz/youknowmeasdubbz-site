@@ -2,9 +2,44 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const faqItems = [
+  {
+    "question": "How far in advance should I book?",
+    "answer": "For weddings, 9\u201312 months out is the sweet spot \u2014 prime Saturdays book first. Corporate events and club dates usually lock in 2\u20136 months ahead. Running late? Last-minute inquiries are always welcome; if the date's open, it's yours. Either way, the 50% deposit is what holds your date, not the inquiry."
+  },
+  {
+    "question": "Do you take song requests?",
+    "answer": "Absolutely \u2014 your must-play and do-not-play lists are the starting point, and guests can make requests on the night. The skill is honoring your taste while reading the room: if a request would clear the floor, it waits for the right moment. You set the boundaries; Dubbz handles the timing."
+  },
+  {
+    "question": "What's included in a wedding package?",
+    "answer": "Every wedding package starts at $1,500 and includes ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches and toasts, custom playlist curation, timeline coordination with your planner, and all professional audio equipment \u2014 setup and breakdown handled. Two playlist consultations are included so every moment sounds intentional."
+  },
+  {
+    "question": "Do you travel outside South Florida?",
+    "answer": "Yes \u2014 destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end \u2014 you just get the date and the dance floor."
+  },
+  {
+    "question": "Do you provide lighting?",
+    "answer": "Dubbz partners with trusted South Florida lighting vendors for uplighting, dance-floor lighting, and full production design \u2014 coordinated as one package so the look and the sound arrive together. Uplighting and dance-floor lighting starts at $400; photo-booth coordination at $150. One point of contact, no vendor juggling."
+  },
+  {
+    "question": "What's your backup plan?",
+    "answer": "Redundancy at every level: a backup laptop, controller, and audio interface travel to every gig, music libraries live on USB and in the cloud, and corporate liability insurance is included. In 10+ years and over a thousand events, the show has never stopped for gear."
+  },
+  {
+    "question": "Do you need a deposit?",
+    "answer": "Yes \u2014 a 50% non-refundable deposit secures your date, payable by Venmo, Zelle, check, or wire. The balance is due 7 days before the event. Once the deposit lands, the date is locked and planning begins \u2014 playlist consultations, timeline work, and vendor coordination."
+  },
+  {
+    "question": "Can we meet before booking?",
+    "answer": "Absolutely \u2014 every booking starts with a free 30-minute consultation, on Zoom or in person, to talk through your vision, logistics, and budget. It's as much about fit as it is about details: you should know exactly who you're trusting with your event before any deposit changes hands."
+  }
+];
 ---
 
-<BaseLayout title="About — You Know Me As Dubbz" description="Learn about You Know Me As Dubbz — South Florida's premier DJ and event production company. Over 10 years of professional experience delivering unforgettable music experiences.">
+<BaseLayout title="About — You Know Me As Dubbz" description="Learn about You Know Me As Dubbz — South Florida's premier DJ and event production company. Over 10 years of professional experience delivering unforgettable music experiences." faqItems={faqItems}>
   <Header />
 
   <main id="main-content">
@@ -164,6 +199,49 @@ import Footer from '../components/Footer.astro';
             <p>Original productions, official remixes, custom beats for artists, sync licensing, mixing & mastering. A distinct creative lane from the DJ brand — same ears, different output.</p>
             <a href="/services#production" class="btn btn-gold">Explore Production Services</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </header>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary>How far in advance should I book?</summary>
+            <p>For weddings, 9–12 months out is the sweet spot — prime Saturdays book first. Corporate events and club dates usually lock in 2–6 months ahead. Running late? Last-minute inquiries are always welcome; if the date’s open, it’s yours. Either way, the 50% deposit is what holds your date, not the inquiry.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you take song requests?</summary>
+            <p>Absolutely — your must-play and do-not-play lists are the starting point, and guests can make requests on the night. The skill is honoring your taste while reading the room: if a request would clear the floor, it waits for the right moment. You set the boundaries; Dubbz handles the timing.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What's included in a wedding package?</summary>
+            <p>Every wedding package starts at $1,500 and includes ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches and toasts, custom playlist curation, timeline coordination with your planner, and all professional audio equipment — setup and breakdown handled. Two playlist consultations are included so every moment sounds intentional.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you travel outside South Florida?</summary>
+            <p>Yes — destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end — you just get the date and the dance floor.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you provide lighting?</summary>
+            <p>Dubbz partners with trusted South Florida lighting vendors for uplighting, dance-floor lighting, and full production design — coordinated as one package so the look and the sound arrive together. Uplighting and dance-floor lighting starts at $400; photo-booth coordination at $150. One point of contact, no vendor juggling.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What's your backup plan?</summary>
+            <p>Redundancy at every level: a backup laptop, controller, and audio interface travel to every gig, music libraries live on USB and in the cloud, and corporate liability insurance is included. In 10+ years and over a thousand events, the show has never stopped for gear.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you need a deposit?</summary>
+            <p>Yes — a 50% non-refundable deposit secures your date, payable by Venmo, Zelle, check, or wire. The balance is due 7 days before the event. Once the deposit lands, the date is locked and planning begins — playlist consultations, timeline work, and vendor coordination.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can we meet before booking?</summary>
+            <p>Absolutely — every booking starts with a free 30-minute consultation, on Zoom or in person, to talk through your vision, logistics, and budget. It’s as much about fit as it is about details: you should know exactly who you’re trusting with your event before any deposit changes hands.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -498,5 +576,80 @@ import Footer from '../components/Footer.astro';
       0% { background-position: 0% 0; }
       100% { background-position: 200% 0; }
     }
-  </style>
+
+  /* FAQ Styles */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--color-surface);
+    border: var(--outline-weight) solid var(--color-border);
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    padding: var(--space-5);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-white);
+    list-style: none;
+    position: relative;
+    padding-right: var(--space-10);
+    transition: color var(--transition-fast);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: var(--space-5);
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    color: var(--color-accent);
+    transition: transform var(--transition-fast);
+  }
+
+  .faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .faq-item[open] summary {
+    color: var(--color-accent);
+  }
+
+  .faq-item p {
+    padding: 0 var(--space-5) var(--space-5);
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================================
+     CTA SECTION
+  @media (max-width: 640px) {
+      .cta-panel {
+        padding: var(--space-10);
+      }
+    }
+  }
+</style>
 </BaseLayout>

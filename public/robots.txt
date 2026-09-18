@@ -1,0 +1,17 @@
+# robots.txt for youknowmeasdubbz.com
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://youknowmeasdubbz.com/sitemap-index.xml
+
+# Disallow admin/private paths
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /*.json$
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 10

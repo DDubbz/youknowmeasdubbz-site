@@ -2,9 +2,44 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const faqItems = [
+  {
+    "question": "How far in advance should I book?",
+    "answer": "For weddings, 9\u201312 months is ideal \u2014 prime Saturdays book first. Corporate events and club dates typically lock in 2\u20136 months ahead. Last-minute inquiries are always welcome; if the date is open, it's yours. A 50% deposit secures your date, and the balance is due 7 days before the event."
+  },
+  {
+    "question": "Do you travel outside South Florida?",
+    "answer": "Yes \u2014 destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end so you just get the date and the dance floor."
+  },
+  {
+    "question": "What's your cancellation policy?",
+    "answer": "The 50% deposit is non-refundable \u2014 it secures your date and covers advance planning. Full balance is due 7 days before the event. Force majeure clauses are included in the contract for genuine emergencies. Once the deposit lands, your date is locked and planning begins immediately."
+  },
+  {
+    "question": "Can I provide a do-not-play list?",
+    "answer": "Absolutely \u2014 your must-play and do-not-play lists are the foundation of every booking. We review them together during your planning consultation so there are no surprises on the night. Your vibe, your rules. The skill is honoring your boundaries while reading the room and keeping the dance floor moving."
+  },
+  {
+    "question": "Do you take requests during the event?",
+    "answer": "Yes, within the vibe and genre we agree on during planning. Crowd-reading is part of the art \u2014 knowing when a request fits and when it needs to wait. You set the boundaries with your must-play and do-not-play lists, and we handle the timing and flow throughout the night."
+  },
+  {
+    "question": "Do you provide sound equipment?",
+    "answer": "Our standard rider includes CDJs and a professional mixer. Sound systems are typically provided by the venue or can be rented separately for spaces without installed audio. A self-contained rig is available for up to 300 guests. Everything is tested on-site before guests arrive \u2014 setup and breakdown are handled entirely by us."
+  },
+  {
+    "question": "Can you MC / make announcements?",
+    "answer": "Yes \u2014 professional MC services are included for weddings and private events. Corporate hosting is also available. We coordinate with your planner and vendors to keep the timeline flowing: introductions, toasts, special dances, and any announcements are handled smoothly so you can be present in the moment."
+  },
+  {
+    "question": "What payment methods do you accept?",
+    "answer": "Venmo, Zelle, check, and wire transfer. For corporate bookings, Net-30 invoicing is available with a purchase order. The 50% deposit is due at booking to secure your date; the remaining balance is due 7 days before the event. Once the deposit lands, planning begins immediately."
+  }
+];
 ---
 
-<BaseLayout title="Contact & Booking — You Know Me As Dubbz" description="Book You Know Me As Dubbz for your event. Fill out the inquiry form for weddings, corporate events, club nights, or private parties in South Florida.">
+<BaseLayout title="Contact & Booking — You Know Me As Dubbz" description="Book You Know Me As Dubbz for your event. Fill out the inquiry form for weddings, corporate events, club nights, or private parties in South Florida." faqItems={faqItems}>
   <Header />
 
   <main id="main-content">
@@ -223,39 +258,39 @@ import Footer from '../components/Footer.astro';
         <header class="section-header">
           <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
         </header>
-        <div class="faq-grid grid grid-2">
-          <article class="faq-item panel">
-            <h3>How far in advance should I book?</h3>
-            <p><strong>Weddings:</strong> 6-12 months recommended<br><strong>Corporate:</strong> 2-3 months<br><strong>Clubs/Private:</strong> 1-4 weeks</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>Do you travel outside South Florida?</h3>
-            <p>Yes, throughout Florida and destination events. Travel fees apply for extended/destination bookings.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>What's your cancellation policy?</h3>
-            <p>Deposit is non-refundable. Full fee due 30 days prior. Force majeure clauses in contract for emergencies.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>Can I provide a do-not-play list?</h3>
-            <p>Absolutely. We'll review it together during planning. Your vibe, your rules.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>Do you take requests during the event?</h3>
-            <p>Yes, within the vibe/genre we agree on. Crowd-reading and requests are part of the art.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>Do you provide sound equipment?</h3>
-            <p>Standard rider: CDJs + mixer. Sound system by venue or rented separately. Self-contained rig available for up to 300 pax.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>Can you MC / make announcements?</h3>
-            <p>Yes, professional MC services included for weddings and private events. Corporate hosting available.</p>
-          </article>
-          <article class="faq-item panel">
-            <h3>What payment methods do you accept?</h3>
-            <p>Venmo, Zelle, Check, Wire. Corporate: Net-30 invoicing available with PO.</p>
-          </article>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary>How far in advance should I book?</summary>
+            <p>For weddings, 9–12 months is ideal — prime Saturdays book first. Corporate events and club dates typically lock in 2–6 months ahead. Last-minute inquiries are always welcome; if the date is open, it’s yours. A 50% deposit secures your date, and the balance is due 7 days before the event.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you travel outside South Florida?</summary>
+            <p>Yes — destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end so you just get the date and the dance floor.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What's your cancellation policy?</summary>
+            <p>The 50% deposit is non-refundable — it secures your date and covers advance planning. Full balance is due 7 days before the event. Force majeure clauses are included in the contract for genuine emergencies. Once the deposit lands, your date is locked and planning begins immediately.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I provide a do-not-play list?</summary>
+            <p>Absolutely — your must-play and do-not-play lists are the foundation of every booking. We review them together during your planning consultation so there are no surprises on the night. Your vibe, your rules. The skill is honoring your boundaries while reading the room and keeping the dance floor moving.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you take requests during the event?</summary>
+            <p>Yes, within the vibe and genre we agree on during planning. Crowd-reading is part of the art — knowing when a request fits and when it needs to wait. You set the boundaries with your must-play and do-not-play lists, and we handle the timing and flow throughout the night.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you provide sound equipment?</summary>
+            <p>Our standard rider includes CDJs and a professional mixer. Sound systems are typically provided by the venue or can be rented separately for spaces without installed audio. A self-contained rig is available for up to 300 guests. Everything is tested on-site before guests arrive — setup and breakdown are handled entirely by us.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can you MC / make announcements?</summary>
+            <p>Yes — professional MC services are included for weddings and private events. Corporate hosting is also available. We coordinate with your planner and vendors to keep the timeline flowing: introductions, toasts, special dances, and any announcements are handled smoothly so you can be present in the moment.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What payment methods do you accept?</summary>
+            <p>Venmo, Zelle, check, and wire transfer. For corporate bookings, Net-30 invoicing is available with a purchase order. The 50% deposit is due at booking to secure your date; the remaining balance is due 7 days before the event. Once the deposit lands, planning begins immediately.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -525,6 +560,71 @@ import Footer from '../components/Footer.astro';
     }
 
     @media (max-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-4);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--color-surface);
+      border: var(--outline-weight) solid var(--color-border);
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: var(--space-5);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 400;
+      color: var(--color-white);
+      list-style: none;
+      position: relative;
+      padding-right: var(--space-10);
+      transition: color var(--transition-fast);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-5);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+      transition: transform var(--transition-fast);
+    }
+
+    .faq-item[open] summary::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq-item[open] summary {
+      color: var(--color-accent);
+    }
+
+    .faq-item p {
+      padding: 0 var(--space-5) var(--space-5);
+      margin: 0;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 640px) {
       .faq-grid {
         grid-template-columns: 1fr;
       }

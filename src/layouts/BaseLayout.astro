@@ -4,8 +4,152 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+  faqItems?: Array<{ question: string; answer: string }>;
 }
-const { title, description } = Astro.props;
+const { title, description, ogImage, ogType = 'website', publishedTime, modifiedTime, author, section, tags, faqItems } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com').toString();
+const defaultOgImage = ogImage || 'https://youknowmeasdubbz.com/og-home.jpg';
+const currentYear = new Date().getFullYear();
+
+// Enhanced JSON-LD Schema for AEO/GEO
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "You Know Me As Dubbz",
+      "alternateName": "Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "logo": "https://youknowmeasdubbz.com/favicon.svg",
+      "sameAs": [
+        "https://instagram.com/youknowmeasdubbz",
+        "https://tiktok.com/@youknowmeasdubbz",
+        "https://soundcloud.com/youknowmeasdubbz",
+        "https://www.youtube.com/@youknowmeasdubbz"
+      ],
+      "email": "bookings@youknowmeasdubbz.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "West Palm Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.7153,
+          "longitude": -80.0534
+        },
+        "geoRadius": "100000"
+      },
+      "knowsAbout": [
+        "Open-format DJ sets",
+        "Wedding DJ services",
+        "Corporate event entertainment",
+        "Nightlife & club DJ",
+        "Private party DJ",
+        "Music curation"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "You Know Me As Dubbz"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "You Know Me As Dubbz",
+      "alternateName": "Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "jobTitle": "Professional DJ",
+      "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "You Know Me As Dubbz"
+      },
+      "sameAs": [
+        "https://instagram.com/youknowmeasdubbz",
+        "https://tiktok.com/@youknowmeasdubbz",
+        "https://soundcloud.com/youknowmeasdubbz",
+        "https://www.youtube.com/@youknowmeasdubbz"
+      ],
+      "knowsAbout": [
+        "Open-format DJ mixing",
+        "Event music curation",
+        "Crowd reading",
+        "Multi-genre blending"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://youknowmeasdubbz.com",
+      "name": "You Know Me As Dubbz",
+      "description": "South Florida's premier open-format DJ for weddings, corporate events, nightlife, and private parties.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "You Know Me As Dubbz"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://youknowmeasdubbz.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://youknowmeasdubbz.com" + Astro.url.pathname,
+      "name": title,
+      "description": description,
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://youknowmeasdubbz.com"
+      },
+      "datePublished": publishedTime || new Date().toISOString(),
+      "dateModified": modifiedTime || new Date().toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": author || "You Know Me As Dubbz"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://youknowmeasdubbz.com/"
+          }
+        ]
+      }
+    }
+    // FAQPage schema will be added conditionally
+  ]
+};
+
+// Add FAQPage schema if FAQ items provided
+if (faqItems && faqItems.length > 0) {
+  (jsonLd["@graph"] as any[]).push({
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  });
+}
 ---
 <!doctype html>
 <html lang="en">
@@ -21,19 +165,21 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com').toString()} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage || 'https://youknowmeasdubbz.com/og-home.jpg'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "You Know Me As Dubbz",
-      "url": "https://youknowmeasdubbz.com",
-      "jobTitle": "Professional DJ",
-      "description": "South Florida DJ providing professional DJ services for weddings, corporate events, clubs, and private parties."
-    })} />
+    <meta name="twitter:image" content={ogImage || 'https://youknowmeasdubbz.com/og-home.jpg'} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {author && <meta property="article:author" content={author} />}
+    {section && <meta property="article:section" content={section} />}
+    {tags && tags.map(tag => <meta property="article:tag" content={tag} />)}
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="lenis">
     <a href="#main-content" class="skip-link">Skip to main content</a>
