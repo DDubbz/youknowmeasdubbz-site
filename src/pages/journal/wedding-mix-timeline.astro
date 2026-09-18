@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const faqItems = [
+  {
+    question: "How far in advance should I book a wedding DJ?",
+    answer: "For weddings, 9–12 months out is the sweet spot — prime Saturdays book first. Corporate events and club dates usually lock in 2–6 months ahead. Last-minute inquiries are always welcome; if the date's open, it's yours. Either way, the 50% deposit is what holds your date, not the inquiry."
+  },
+  {
+    question: "How much does a wedding DJ cost in South Florida?",
+    answer: "Wedding DJ services start at $1,500 and include ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches and toasts, custom playlist curation, timeline coordination with your planner, and all professional audio equipment. Add-ons like uplighting and photo booth coordination are available. Corporate events start at $2,000."
+  },
+  {
+    question: "Do DJs travel for destination weddings?",
+    answer: "Yes — destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end."
+  }
+];
+---
+
+<BaseLayout
+  title="How Far in Advance Should I Book a Wedding DJ? — You Know Me As Dubbz Journal"
+  description="When to book a wedding DJ in South Florida: the ideal timeline from consultation to final delivery, with peak-season considerations and why booking early matters."
+  ogImage="https://youknowmeasdubbz.com/og-home.jpg"
+  ogType="article"
+  publishedTime="2026-09-18T10:00:00Z"
+  author="You Know Me As Dubbz"
+  faqItems={faqItems}
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <!-- ARTICLE HERO -->
+    <section class="section-hero">
+      <div class="container">
+        <header class="page-header" style="text-align:center;max-width:780px;margin:0 auto">
+          <span class="page-greeting">THE JOURNAL</span>
+          <h1 class="page-title" style="text-align:center">How Far in Advance Should I Book a Wedding DJ?</h1>
+          <p class="page-description" style="margin-left:auto;margin-right:auto">The ideal timeline from consultation to final delivery — with peak-season considerations and why booking early matters for your South Florida wedding.</p>
+        </header>
+      </div>
+    </section>
+
+    <!-- ARTICLE BODY -->
+    <section class="section">
+      <div class="container" style="max-width:780px;margin:0 auto">
+
+        <div class="answer-summary" style="border:1px solid var(--color-accent);padding:32px 28px;margin:36px 0;background:rgba(0,212,255,.04)">
+          <p style="color:var(--color-white);font-size:17px;margin:0;line-height:1.7">For South Florida weddings, <strong style="color:var(--color-accent)">booking 9–12 months out is the ideal window</strong>. Prime Saturdays between May and October fill first. Corporate events and club dates typically lock in 2–6 months ahead. The 50% deposit is what holds your date — not the inquiry.</p>
+        </div>
+
+        <h2 style="font-family:var(--font-display);font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:44px 0 18px">Why booking timeline matters</h2>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">A professional DJ does more than show up and press play. The process starts with a consultation, moves through playlist curation and timeline coordination, and includes your input on must-play and do-not-play lists. That process takes time — and rushing it means compromising on the details that make your wedding feel like yours.</p>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">Booking early gives you first pick of dates, time for two included playlist consultations, and room to coordinate with your planner and venue. It also means no last-minute scramble if your first-choice DJ is already booked.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:44px 0 18px">The ideal South Florida wedding DJ timeline</h2>
+
+        <h3 style="font-size:17px;font-weight:600;margin:32px 0 10px">9–12 months before: book your DJ</h3>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">This is the window where prime Saturdays book out. Your first conversation covers your vision, the venue's logistics, the event's arc, and your musical taste. The 50% deposit locks in the date — payable by Venmo, Zelle, check, or wire.</p>
+
+        <h3 style="font-size:17px;font-weight:600;margin:32px 0 10px">2–3 months before: playlist consultations</h3>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">Two playlist consultations are included. The first builds your must-play and do-not-play lists. The second refines the timeline: ceremony music, cocktail hour flow, reception arcs, special moments, and your exit. Timeline coordination with your planner happens here too.</p>
+
+        <h3 style="font-size:17px;font-weight:600;margin:32px 0 10px">7 days before: balance due</h3>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">The remaining 50% balance is due one week before the event. By this point, the playlist is locked, the timeline is set, and the only thing left is showing up and delivering the night you planned.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:44px 0 18px">Peak season: May through October</h2>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">South Florida's wedding season runs May through October, with prime Saturdays booking out first. During this window, booking 12+ months ahead is common for Saturday weddings. Off-peak dates (November–April) and Fridays/Sundays offer more flexibility — often 6–9 months is sufficient.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:44px 0 18px">What if my wedding is sooner?</h2>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">Last-minute bookings are always welcome — if the date is open, it's yours. The trade-off is less time for consultations and coordination. For events within two months, the process moves faster: one consolidated consultation, a streamlined playlist, and the same professional execution. The deposit still applies.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:44px 0 18px">Corporate and private events</h2>
+        <p style="color:var(--color-text-muted);font-size:16px;margin-bottom:18px">Corporate events and private parties typically book 2–6 months ahead. The timeline is compressed: one consultation, a focused playlist, and execution. Corporate packages start at $2,000 and include presentation audio support, wireless mics, and Net-30 invoicing for procurement.</p>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-panel panel">
+          <h2 class="cta-title">Ready to Lock In Your Date?</h2>
+          <p class="cta-text">Limited dates available for peak season. Let's talk about your vision and build the soundtrack for your night.</p>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-primary btn-lg">Start Your Inquiry</a>
+            <a href="/mixes" class="btn btn-secondary btn-lg">Listen to Mixes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

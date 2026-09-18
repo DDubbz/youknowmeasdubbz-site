@@ -8,6 +8,7 @@ export async function GET({ site }) {
     'contact',
     'mixes',
     'services#production',
+    'journal/wedding-mix-timeline',
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
