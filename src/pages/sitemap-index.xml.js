@@ -10,6 +10,7 @@ export async function GET({ site }) {
     'services#production',
     'journal',
     'journal/wedding-mix-timeline',
+    'journal/will-ai-replace-your-event-dj',
     'journal/how-to-choose-a-wedding-dj',
     'journal/wedding-reception-timeline-music-guide',
   ];
