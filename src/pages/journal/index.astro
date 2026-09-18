@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  {
+    slug: "wedding-mix-timeline",
+    headline: "How Far in Advance Should I Book a Wedding DJ?",
+    date: "2026-09-18",
+    excerpt: "The ideal timeline from consultation to final delivery — with peak-season considerations and why booking early matters for your South Florida wedding."
+  }
+];
+---
+
+<BaseLayout
+  title="Journal — You Know Me As Dubbz"
+  description: "Insights on wedding DJ planning, music curation, and South Florida event culture from the studio of You Know Me As Dubbz."
+  ogImage="https://youknowmeasdubbz.com/og-home.jpg"
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <!-- JOURNAL HERO -->
+    <section class="section-hero">
+      <div class="container">
+        <header class="page-header" style="text-align:center;max-width:780px;margin:0 auto">
+          <span class="page-greeting">THE JOURNAL</span>
+          <h1 class="page-title" style="text-align:center">South Florida DJ Culture & Event Planning</h1>
+          <p class="page-description" style="margin-left:auto;margin-right:auto">Insights on music curation, wedding planning, and event culture from the studio of You Know Me As Dubbz.</p>
+        </header>
+      </div>
+    </section>
+
+    <!-- ARTICLE LIST -->
+    <section class="section">
+      <div class="container" style="max-width:780px;margin:0 auto">
+        <div class="journal-article-list" style="display:flex;flex-direction:column;gap:24px;margin-top:48px">
+          {articles.map(article => (
+            <article class="journal-article-card panel" style="padding:36px 32px;transition:transform .3s,box-shadow .3s">
+              <a href={`/journal/${article.slug}`} style="text-decoration:none;color:inherit">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap">
+                  <div style="flex:1;min-width:280px">
+                    <time style="font-size:12px;color:var(--color-text-muted);letter-spacing:.06em;text-transform:uppercase">{article.date}</time>
+                    <h2 style="font-family:var(--font-display);font-size:24px;margin:8px 0 12px;line-height:1.2">{article.headline}</h2>
+                    <p style="color:var(--color-text-muted);font-size:15px;margin:0;line-height:1.6">{article.excerpt}</p>
+                  </div>
+                  <span style="color:var(--color-accent);font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding-top:4px">Read →</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

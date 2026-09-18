@@ -8,7 +8,10 @@ export async function GET({ site }) {
     'contact',
     'mixes',
     'services#production',
+    'journal',
     'journal/wedding-mix-timeline',
+    'journal/how-to-choose-a-wedding-dj',
+    'journal/wedding-reception-timeline-music-guide',
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
