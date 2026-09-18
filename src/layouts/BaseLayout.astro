@@ -134,6 +134,7 @@ const jsonLd = {
       }
     }
   ];
+}
 
   // Build ProfessionalService schema
   const profService: any = {
@@ -242,9 +243,6 @@ const jsonLd = {
   }
   
   jsonLd["@graph"].push(profService);
-    // FAQPage schema will be added conditionally
-  ]
-};
 
 // Add FAQPage schema if FAQ items provided
 if (faqItems && faqItems.length > 0) {
