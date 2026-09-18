@@ -89,12 +89,12 @@ import Footer from '../components/Footer.astro';
     </section>
   </main>
 
-
-const gigEvents = [
+  <script type="application/ld+json">
   {
+    "@context": "https://schema.org",
     "@type": "Event",
     "name": "Avacado Cantina - Weekly Residency",
-    "description": "Weekly Saturday residency at Avacado Cantina. House, top 40, latin, afrobeats. Dancing, great cocktails, high energy.",
+    "description": "Weekly Saturday residency at Avacado Cantina. House, top 40, latin, afrobeats.",
     "startDate": "2026-09-20T20:00:00-04:00",
     "endDate": "2026-09-20T23:00:00-04:00",
     "eventStatus": "https://schema.org/EventScheduled",
@@ -114,8 +114,12 @@ const gigEvents = [
       "name": "You Know Me As Dubbz",
       "url": "https://youknowmeasdubbz.com"
     }
-  },
+  }
+  </script>
+
+  <script type="application/ld+json">
   {
+    "@context": "https://schema.org",
     "@type": "Event",
     "name": "FLAVAR Call Collect - Monthly Sunday",
     "description": "Monthly Sunday day party. Afrobeats, dancehall, hip-hop, house. 80-220+ attendees.",
@@ -139,7 +143,7 @@ const gigEvents = [
       "url": "https://youknowmeasdubbz.com"
     }
   }
-];
+  </script>
 
   <Footer />
 
