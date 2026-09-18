@@ -12,8 +12,9 @@ interface Props {
   section?: string;
   tags?: string[];
   faqItems?: Array<{ question: string; answer: string }>;
+  showReviews?: boolean;
 }
-const { title, description, ogImage, ogType = 'website', publishedTime, modifiedTime, author, section, tags, faqItems } = Astro.props;
+const { title, description, ogImage, ogType = 'website', publishedTime, modifiedTime, author, section, tags, faqItems, showReviews = true } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com').toString();
 const defaultOgImage = ogImage || 'https://youknowmeasdubbz.com/og-home.jpg';
 const currentYear = new Date().getFullYear();
@@ -133,137 +134,115 @@ const jsonLd = {
       }
     }
     ,
-    {
-      "@type": "ProfessionalService",
-      "name": "You Know Me As Dubbz",
-      "alternateName": "Dubbz",
-      "url": "https://youknowmeasdubbz.com",
-      "image": "https://youknowmeasdubbz.com/og-home.jpg",
-      "logo": "https://youknowmeasdubbz.com/favicon.svg",
-      "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "West Palm Beach",
-        "addressRegion": "FL",
-        "addressCountry": "US"
+  ];
+  
+  // Build ProfessionalService schema
+  const profService: any = {
+    "@type": "ProfessionalService",
+    "name": "You Know Me As Dubbz",
+    "alternateName": "Dubbz",
+    "url": "https://youknowmeasdubbz.com",
+    "image": "https://youknowmeasdubbz.com/og-home.jpg",
+    "logo": "https://youknowmeasdubbz.com/favicon.svg",
+    "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "West Palm Beach",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.7153,
+        "longitude": -80.0534
       },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 26.7153,
-          "longitude": -80.0534
-        },
-        "geoRadius": "100000"
-      },
-      "priceRange": "$750 - $5,000+",
-      "openingHours": "Mo-Su 00:00-23:59",
-      "telephone": "+1-305-902-2698",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "DJ Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Wedding DJ Services"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "1500",
-              "priceCurrency": "USD"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Corporate Event DJ"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "2000",
-              "priceCurrency": "USD"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Private Party DJ"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "750",
-              "priceCurrency": "USD"
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "4",
-        "bestRating": "5"
-      }
-,
-      "review": [
+      "geoRadius": "100000"
+    },
+    "priceRange": "$750 - $5,000+",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "telephone": "+1-305-902-2698",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "DJ Services",
+      "itemListElement": [
         {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Sarah & Marcus"
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wedding DJ Services"
           },
-          "reviewBody": "Dubbz read the room perfectly — our guests are still talking about the music three months later. The transition from dinner to dance floor was seamless, and he handled every request without losing the vibe. Worth every penny of our investment.",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "1500",
+            "priceCurrency": "USD"
           }
         },
         {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Jeanie Joseph"
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Corporate Event DJ"
           },
-          "reviewBody": "We've booked Dubbz for multiple Friday nights now, and the energy is consistently on point. He knows how to build a crowd, keep them dancing, and wrap on time. Professional, reliable, and the music is always fresh.",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "2000",
+            "priceCurrency": "USD"
           }
         },
         {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Christian M."
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Private Party DJ"
           },
-          "reviewBody": "Dubbz has become part of our Saturday night identity. Guests come back specifically for his sets — the way he blends R&B, dancehall, and afrobeats keeps the dance floor packed until close. He's easy to work with and always prepared.",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          }
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Private Client"
-          },
-          "reviewBody": "We wanted music that felt personal but didn't overpower the evening. Dubbz composed a mix that moved from cocktail hour through dinner to dancing — every transition felt intentional. Our guests asked for his info before the night was over.",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "750",
+            "priceCurrency": "USD"
           }
         }
       ]
-
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "4",
+      "bestRating": "5"
     }
+  };
+  
+  if (showReviews) {
+    profService["review"] = [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sarah & Marcus" },
+        "reviewBody": "Dubbz read the room perfectly — our guests are still talking about the music three months later. The transition from dinner to dance floor was seamless, and he handled every request without losing the vibe. Worth every penny of our investment.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jeanie Joseph" },
+        "reviewBody": "We've booked Dubbz for multiple Friday nights now, and the energy is consistently on point. He knows how to build a crowd, keep them dancing, and wrap on time. Professional, reliable, and the music is always fresh.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Christian M." },
+        "reviewBody": "Dubbz has become part of our Saturday night identity. Guests come back specifically for his sets — the way he blends R&B, dancehall, and afrobeats keeps the dance floor packed until close. He's easy to work with and always prepared.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Private Client" },
+        "reviewBody": "We wanted music that felt personal but didn't overpower the evening. Dubbz composed a mix that moved from cocktail hour through dinner to dancing — every transition felt intentional. Our guests asked for his info before the night was over.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
+    ];
+  }
+  
+  jsonLd["@graph"].push(profService);
     // FAQPage schema will be added conditionally
   ]
 };
