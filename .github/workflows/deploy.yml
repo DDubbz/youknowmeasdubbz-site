@@ -24,10 +24,9 @@ jobs:
       - run: npm run build
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: youknowmeasdubbz-site
-          directory: dist
+          command: pages deploy dist --project-name youknowmeasdubbz-site
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
