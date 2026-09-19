@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const faqItems = [
+  { question: 'What corporate events does You Know Me As Dubbz support?', answer: 'Conferences, brand activations, receptions, holiday parties, hotel events, awards programs, networking events, and other business gatherings across South Florida.' },
+  { question: 'Can Dubbz coordinate with our venue and AV team?', answer: 'Yes. You Know Me As Dubbz coordinates with planners, venues, and AV teams on timelines, microphone handoffs, presentation audio, load-in, and room flow.' },
+  { question: 'Is proof of insurance available?', answer: 'Yes. A Certificate of Insurance is available, a W-9 is ready for procurement, and corporate invoicing can be arranged around the event scope.' },
+  { question: 'Does You Know Me As Dubbz travel?', answer: 'Yes. South Florida is the primary service area. Travel outside the region is available when room and board are covered.' }
+];
+const corporateSchema = {
+  '@context': 'https://schema.org', '@type': 'Service', '@id': 'https://youknowmeasdubbz.com/corporate-event-dj-south-florida/#service',
+  name: 'Corporate Event DJ in South Florida', serviceType: 'Corporate DJ and event entertainment',
+  provider: { '@id': 'https://youknowmeasdubbz.com/#business' },
+  areaServed: { '@type': 'AdministrativeArea', name: 'South Florida' },
+  url: 'https://youknowmeasdubbz.com/corporate-event-dj-south-florida/',
+  description: 'Corporate DJ, MC, clean music, audio, microphones, lighting, and AV-team coordination for South Florida conferences, brand activations, receptions, holiday parties, and hotel events.'
+};
+---
+<BaseLayout title="Corporate Event DJ South Florida" description="Corporate DJ and MC services for South Florida conferences, brand activations, receptions, holiday parties, and hotel events. Clean music, professional audio, COI, W-9, and AV coordination." faqItems={faqItems}>
+  <Header />
+  <main id="main-content">
+    <section class="corporate-hero section-hero">
+      <div class="container corporate-hero-grid">
+        <div>
+          <span class="page-greeting">CORPORATE EVENTS · SOUTH FLORIDA</span>
+          <h1>Music that fits the room.<br /><span class="text-accent">Execution your team can trust.</span></h1>
+          <p class="hero-copy">You Know Me As Dubbz brings polished DJ and MC support to conferences, brand activations, receptions, holiday parties, and hotel events across South Florida.</p>
+          <div class="cta-actions"><a href="/contact?event=corporate" class="btn btn-primary btn-lg">Check Your Date</a><a href="#capabilities" class="btn btn-secondary btn-lg">See Capabilities</a></div>
+        </div>
+        <aside class="panel proof-panel" aria-label="Corporate readiness">
+          <span class="proof-kicker">CORPORATE READY</span>
+          <ul><li>Clean, radio-edit music</li><li>MC and microphone work</li><li>COI available · W-9 ready</li><li>Backup gear on site</li><li>AV-team and timeline coordination</li></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities"><div class="container">
+      <header class="section-header"><span class="section-label">BUILT FOR THE RUN OF SHOW</span><h2 class="section-title">Professional from load-in to last song</h2><p class="section-description">The music matters. So do the details that keep your event moving on time and on brand.</p></header>
+      <div class="grid grid-3 capability-grid">
+        <article class="panel"><span class="card-number">01</span><h3>Music + MC</h3><p>Open-format programming, clean edits, announcements, introductions, and microphone work shaped to your audience and brand.</p></article>
+        <article class="panel"><span class="card-number">02</span><h3>Production Support</h3><p>PA, microphones, and lighting available, with backup gear on site and coordination across venue and AV teams.</p></article>
+        <article class="panel"><span class="card-number">03</span><h3>Client Ready</h3><p>COI available, W-9 ready, dress-code matching, timeline discipline, and clear communication from proposal through event day.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section section-alt"><div class="container event-types">
+      <div><span class="section-label">WHERE DUBBZ FITS</span><h2 class="section-title">One partner across the corporate calendar</h2></div>
+      <div class="event-list"><span>Conferences</span><span>Brand activations</span><span>Receptions</span><span>Holiday parties</span><span>Hotel events</span><span>Networking events</span></div>
+    </div></section>
+
+    <section class="section"><div class="container credit-grid">
+      <div><span class="section-label">SELECT CREDIT</span><h2 class="section-title">Cultural Council of Palm Beach County</h2><p>You Know Me As Dubbz has delivered open-format event music for the Cultural Council of Palm Beach County, combining professional presentation with the ability to read a mixed audience.</p><a href="/mixes" class="btn btn-secondary">Hear the Corporate Set</a></div>
+      <div class="panel region-card"><span class="proof-kicker">SERVICE AREA</span><h3>South Florida, with travel available</h3><p>Based in West Palm Beach and serving South Florida. Events outside the region are welcome when room and board are covered.</p></div>
+    </div></section>
+
+    <section class="section section-alt"><div class="container faq-wrap"><header class="section-header"><span class="section-label">QUICK ANSWERS</span><h2 class="section-title">Corporate booking FAQ</h2></header>{faqItems.map(item => <details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>
+
+    <section class="section cta-section"><div class="container"><div class="cta-panel panel"><span class="section-label">START WITH THE SCOPE</span><h2 class="cta-title">Tell us what the room needs.</h2><p class="cta-text">Share the date, venue, guest count, event format, and production needs. You will get a proposal built around the actual event, with pricing based on the event details.</p><a href="/contact?event=corporate" class="btn btn-primary btn-lg">Request a Corporate Proposal</a></div></div></section>
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify(corporateSchema)} />
+  <Footer />
+</BaseLayout>
+<style>
+  .corporate-hero{padding:clamp(140px,15vw,190px) 0 clamp(72px,9vw,110px);background:radial-gradient(circle at 78% 20%,rgba(0,212,255,.16),transparent 36%),linear-gradient(135deg,var(--color-primary),var(--color-surface));border-bottom:var(--outline-weight) solid var(--color-border)}
+  .corporate-hero-grid,.credit-grid,.event-types{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:clamp(36px,7vw,88px);align-items:center}.corporate-hero h1{font-size:clamp(48px,8vw,92px);line-height:.92;max-width:900px;margin:18px 0 28px}.hero-copy{font-size:clamp(18px,2vw,22px);line-height:1.65;color:var(--color-text-muted);max-width:720px}.cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}.proof-panel,.region-card{padding:clamp(26px,4vw,42px)}.proof-kicker,.section-label{display:block;color:var(--color-accent);font-family:var(--font-display);letter-spacing:.14em;font-size:14px;margin-bottom:16px}.proof-panel ul{list-style:none;margin:0;padding:0}.proof-panel li{padding:14px 0;border-bottom:1px solid var(--color-border);font-weight:600}.proof-panel li:last-child{border:0}.capability-grid article{padding:32px}.card-number{color:var(--color-accent);font-family:var(--font-display);font-size:28px}.capability-grid h3{font-size:25px;margin:18px 0 10px}.capability-grid p,.credit-grid p,.region-card p{color:var(--color-text-muted);line-height:1.7}.event-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.event-list span{border:1px solid var(--color-border);padding:18px;background:var(--color-primary);font-weight:600}.faq-wrap{max-width:900px}.faq-item{border-bottom:1px solid var(--color-border);padding:20px 0}.faq-item summary{font-size:18px;font-weight:700;cursor:pointer}.faq-item p{color:var(--color-text-muted);line-height:1.7;margin-top:14px}
+  @media(max-width:820px){.corporate-hero-grid,.credit-grid,.event-types{grid-template-columns:1fr}.corporate-hero h1{font-size:clamp(46px,15vw,70px)}.event-list{grid-template-columns:1fr}.cta-actions .btn{width:100%;text-align:center}.proof-panel{margin-top:8px}}
+</style>

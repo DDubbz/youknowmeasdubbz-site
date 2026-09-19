@@ -19,174 +19,101 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com')
 const defaultOgImage = ogImage || 'https://youknowmeasdubbz.com/og-home.jpg';
 const currentYear = new Date().getFullYear();
 
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { "@type": "ListItem", position: 1, name: "Home", item: "https://youknowmeasdubbz.com/" },
+  ...pathParts.map((part, index) => ({
+    "@type": "ListItem",
+    position: index + 2,
+    name: part.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+    item: `https://youknowmeasdubbz.com/${pathParts.slice(0, index + 1).join('/')}/`
+  }))
+];
+
 const jsonLd: any = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://youknowmeasdubbz.com/#business",
       "name": "You Know Me As Dubbz",
-      "alternateName": "Dubbz",
-      "url": "https://youknowmeasdubbz.com",
-      "logo": "https://youknowmeasdubbz.com/favicon.svg",
+      "alternateName": ["Dubbz", "DWBEATBEAST"],
+      "url": "https://youknowmeasdubbz.com/",
+      "logo": { "@type": "ImageObject", "url": "https://youknowmeasdubbz.com/favicon.svg" },
+      "image": "https://youknowmeasdubbz.com/og-home.jpg",
+      "description": "West Palm Beach DJ and event entertainment business serving corporate events, weddings, nightlife, and private parties across South Florida.",
       "sameAs": [
         "https://instagram.com/youknowmeasdubbz",
         "https://tiktok.com/@youknowmeasdubbz",
         "https://soundcloud.com/youknowmeasdubbz",
         "https://www.youtube.com/@youknowmeasdubbz"
       ],
-      "email": "bookings@youknowmeasdubbz.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "West Palm Beach",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 26.7153,
-          "longitude": -80.0534
-        },
-        "geoRadius": "100000"
-      },
-      "knowsAbout": [
-        "Open-format DJ sets",
-        "Wedding DJ services",
-        "Corporate event entertainment",
-        "Nightlife & club DJ",
-        "Private party DJ",
-        "Music curation"
-      ],
-      "brand": {
-        "@type": "Brand",
-        "name": "You Know Me As Dubbz"
-      }
-    },
-    {
-      "@type": "Person",
-      "name": "You Know Me As Dubbz",
-      "alternateName": "Dubbz",
-      "url": "https://youknowmeasdubbz.com",
-      "jobTitle": "Professional DJ",
-      "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "You Know Me As Dubbz"
-      },
-      "sameAs": [
-        "https://instagram.com/youknowmeasdubbz",
-        "https://tiktok.com/@youknowmeasdubbz",
-        "https://soundcloud.com/youknowmeasdubbz",
-        "https://www.youtube.com/@youknowmeasdubbz"
-      ],
-      "knowsAbout": [
-        "Open-format DJ mixing",
-        "Event music curation",
-        "Crowd reading",
-        "Multi-genre blending"
-      ]
+      "email": "dj@youknowmeasdubbz.com",
+      "telephone": "+1-305-902-2698",
+      "address": { "@type": "PostalAddress", "addressLocality": "West Palm Beach", "addressRegion": "FL", "addressCountry": "US" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
+      "knowsAbout": ["Corporate event entertainment", "Open-format DJ sets", "MC services", "Clean music programming", "Event audio and lighting", "Wedding DJ services"]
     },
     {
       "@type": "WebSite",
-      "url": "https://youknowmeasdubbz.com",
+      "@id": "https://youknowmeasdubbz.com/#website",
+      "url": "https://youknowmeasdubbz.com/",
       "name": "You Know Me As Dubbz",
-      "description": "South Florida's premier open-format DJ for weddings, corporate events, nightlife, and private parties.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "You Know Me As Dubbz"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://youknowmeasdubbz.com/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "publisher": { "@id": "https://youknowmeasdubbz.com/#business" }
     },
     {
       "@type": "WebPage",
-      "url": "https://youknowmeasdubbz.com" + Astro.url.pathname,
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": title,
       "description": description,
-      "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://youknowmeasdubbz.com"
-      },
-      "datePublished": publishedTime || new Date().toISOString(),
-      "dateModified": modifiedTime || new Date().toISOString(),
-      "author": {
-        "@type": "Person",
-        "name": author || "You Know Me As Dubbz"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://youknowmeasdubbz.com/"
-          }
-        ]
-      }
+      "isPartOf": { "@id": "https://youknowmeasdubbz.com/#website" },
+      "about": { "@id": "https://youknowmeasdubbz.com/#business" },
+      "breadcrumb": { "@id": `${canonicalUrl}#breadcrumb` }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": breadcrumbItems
     }
   ]
 };
 
+if (ogType === 'article' && publishedTime) {
+  jsonLd["@graph"].push({
+    "@type": "BlogPosting",
+    "@id": `${canonicalUrl}#article`,
+    "headline": title,
+    "description": description,
+    "datePublished": publishedTime,
+    ...(modifiedTime ? { "dateModified": modifiedTime } : {}),
+    "mainEntityOfPage": { "@id": `${canonicalUrl}#webpage` },
+    "author": { "@id": "https://youknowmeasdubbz.com/#business" },
+    "publisher": { "@id": "https://youknowmeasdubbz.com/#business" },
+    "image": defaultOgImage,
+    ...(section ? { articleSection: section } : {}),
+    ...(tags ? { keywords: tags.join(', ') } : {})
+  });
+}
+
 const profService: any = {
   "@type": "ProfessionalService",
+  "@id": "https://youknowmeasdubbz.com/#dj-service",
   "name": "You Know Me As Dubbz",
-  "alternateName": "Dubbz",
-  "url": "https://youknowmeasdubbz.com",
+  "alternateName": ["Dubbz", "DWBEATBEAST"],
+  "url": "https://youknowmeasdubbz.com/",
+  "parentOrganization": { "@id": "https://youknowmeasdubbz.com/#business" },
   "image": "https://youknowmeasdubbz.com/og-home.jpg",
-  "logo": "https://youknowmeasdubbz.com/favicon.svg",
-  "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "West Palm Beach",
-    "addressRegion": "FL",
-    "addressCountry": "US"
-  },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 26.7153,
-      "longitude": -80.0534
-    },
-    "geoRadius": "100000"
-  },
-  "priceRange": "$750 - $5,000+",
-  "openingHours": "Mo-Su 00:00-23:59",
+  "email": "dj@youknowmeasdubbz.com",
   "telephone": "+1-305-902-2698",
+  "address": { "@type": "PostalAddress", "addressLocality": "West Palm Beach", "addressRegion": "FL", "addressCountry": "US" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "DJ Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": "Wedding DJ Services" },
-        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1500", "priceCurrency": "USD" }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": "Corporate Event DJ" },
-        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "priceCurrency": "USD" }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": "Private Party DJ" },
-        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "750", "priceCurrency": "USD" }
-      }
-    ]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "4",
-    "bestRating": "5"
+    "name": "DJ and Event Services",
+    "itemListElement": ["Corporate Event DJ", "Wedding DJ Services", "Private Event DJ", "MC Services", "Event Audio and Lighting"].map(name => ({
+      "@type": "Offer", "itemOffered": { "@type": "Service", "name": name, "provider": { "@id": "https://youknowmeasdubbz.com/#business" } }
+    }))
   }
 };
 

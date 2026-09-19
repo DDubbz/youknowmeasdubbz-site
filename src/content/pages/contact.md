@@ -59,7 +59,7 @@ Fill out the form below and I'll get back to you within 24 hours with availabili
 Yes, throughout Florida and destination events (travel fees apply).
 
 **What's your cancellation policy?**
-Deposit is non-refundable. Full fee due 30 days prior. Force majeure clauses in contract.
+Deposit is non-refundable. Remaining balance due 7 days before the event. Force majeure clauses in contract.
 
 **Can I provide a do-not-play list?**
 Absolutely. We'll review it together during planning.

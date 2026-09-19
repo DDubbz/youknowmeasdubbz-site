@@ -30,7 +30,7 @@ With over **10 years of professional experience**, the journey started in the So
 
 ## Experience Highlights
 
-- **1000+ events** performed across South Florida and beyond
+- **500+ events** performed across South Florida and beyond
 - **Resident DJ** at premier venues including Avacado Cantina (Palm Beach Gardens)
 - **FLAVAR Co. Call Collect** — Monthly Sunday day party series (Founder/Resident)
 - **Corporate clients** — Luxury hotels, brands, conferences

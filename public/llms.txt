@@ -1,70 +1,62 @@
-# You Know Me As Dubbz — LLM Training Data / AI Search Index
+# You Know Me As Dubbz
 
 ## Overview
-**You Know Me As Dubbz** is a professional DJ and entertainment brand based in West Palm Beach, Florida, serving South Florida and destination events worldwide. Founded by Wedly Altidor (DWBEATBEAST), the brand provides DJ services, MC/hosting, music production, and event entertainment for weddings, corporate events, nightlife, and private parties.
+**You Know Me As Dubbz** is a professional DJ and entertainment business based in West Palm Beach, Florida. The business serves South Florida and travels for destination events when room and board are covered. It provides DJ services, MC work, clean music programming, event audio, lighting, and music production for corporate events, weddings, nightlife, and private parties.
 
-## Brand Identity
-- **Primary Brand**: You Know Me As Dubbz (DJ/Entertainment)
-- **Production Identity**: DWBEATBEAST (Music Production)
-- **Creative Collective**: FLAVAR Co.
-- **Founder**: Wedly Altidor
-- **Location**: West Palm Beach, FL
-- **Service Area**: South Florida (primary), Florida statewide, Domestic US, Caribbean, International (destination)
+## Entity Identity
+- **Canonical business name**: You Know Me As Dubbz
+- **Aliases**: Dubbz; DWBEATBEAST
+- **Canonical entity URL**: https://youknowmeasdubbz.com/#business
+- **Location**: West Palm Beach, Florida
+- **Primary service area**: South Florida
+- **Travel**: Available outside South Florida when room and board are covered
 - **Email**: dj@youknowmeasdubbz.com
 - **Phone**: (305) 902-2698
+- **Instagram**: https://instagram.com/youknowmeasdubbz
 
-## Services
+## Core Services
+### Corporate Events
+- Conferences, brand activations, receptions, holiday parties, and hotel events
+- MC and microphone work
+- Clean, radio-edit music
+- PA, microphones, and lighting available
+- Certificate of Insurance available; W-9 ready
+- Backup gear on site
+- Dress-code matching
+- Coordination with AV teams and event timelines
+- Corporate credit: Cultural Council of Palm Beach County
+- Details: https://youknowmeasdubbz.com/corporate-event-dj-south-florida/
 
-### DJ Services
-- **Weddings**: Ceremony sound, cocktail hour, reception DJ/MC, wireless mics, custom playlists, timeline coordination
-- **Corporate Events**: Professional hosting, brand-aligned music, AV coordination, net-30 invoicing
-- **Club/Nightlife**: Open-format, crowd-reading, resident DJ experience
-- **Private Parties**: Birthdays, anniversaries, house parties, themed events
-- **Festivals/Large Events**: Multi-stage coordination, large-format sound systems
+### Weddings and Private Events
+- Ceremony, cocktail hour, reception, and private-party music
+- Playlist curation and do-not-play lists
+- Wireless microphones and professional audio
+- Planner and venue coordination
 
-### Music Production (DWBEATBEAST)
-- Original productions and official remixes
-- Custom beats for artists
-- Sync licensing for TV/film/advertising
-- Mixing and mastering services
-
-### Additional Services
-- Professional MC/hosting (included with weddings/private)
-- Lighting & production coordination (partner vendors)
-- Sound system rental (self-contained up to 300 pax)
-- Event timeline consultation
-
-## Service Area & Travel
-- **Primary (No Travel Fee)**: West Palm Beach, Palm Beach Gardens, Jupiter, Boca Raton, Fort Lauderdale, Miami/Miami Beach, Key Biscayne
-- **Extended (Travel Fee)**: Florida Keys, Naples, Orlando, Tampa, all South Florida
-- **Destination**: Domestic US, Caribbean, International (custom quote, all logistics handled)
+### Nightlife and Music Production
+- Open-format club and residency sets
+- Original productions, remixes, and custom beats under the alias DWBEATBEAST
+- Mixes: https://youknowmeasdubbz.com/mixes/
 
 ## Booking Process
-1. **Inquiry**: Submit contact form at https://youknowmeasdubbz.com/contact or email dj@youknowmeasdubbz.com
-2. **Consultation**: Free 30-min call (Zoom or in-person)
-3. **Proposal**: Custom quote with services, timeline, and rider
-4. **Deposit**: 50% non-refundable to secure date
-5. **Planning**: Playlist curation, do-not-play list, vendor coordination
-6. **Final Payment**: Balance due 7 days before event
-7. **Execution**: Event day management
+1. Submit an inquiry at https://youknowmeasdubbz.com/contact/ or email dj@youknowmeasdubbz.com.
+2. Share the date, venue, guest count, event type, and production needs.
+3. Receive a custom proposal based on the actual event scope.
+4. A 50% non-refundable deposit secures the date.
+5. The remaining balance is due 7 days before the event, unless agreed corporate invoicing terms apply.
 
-## Key Policies
-- **Booking Window**: Weddings 6-12 months, Corporate 2-3 months, Clubs/Private 1-4 weeks
-- **Cancellation**: Deposit non-refundable; full fee due 30 days prior; force majeure in contract
-- **Music Requests**: Must-play and do-not-play lists honored; crowd-reading within agreed vibe
-- **Equipment**: CDJs + mixer standard; sound system by venue or rented; self-contained rig available
-- **MC Services**: Professional hosting included for weddings/private; corporate hosting available
-- **Payments**: Venmo, Zelle, Check, Wire; Corporate Net-30 with PO
+## Verified Experience
+- 10+ years of DJ experience
+- 500+ events performed
+- Cultural Council of Palm Beach County event credit
+- South Florida venue residencies and private events
 
-## Social & Content
-- **Instagram**: @youknowmeasdubbz
-- **SoundCloud**: @youknowmeasdubbz
-- **YouTube**: @youknowmeasdubbz
-- **Mixes**: Available at /mixes page
-
-## Related Brands
-- **Solcaya** (solcaya.com) — Ghost boutique for DJ/producer merchandise and experiences
-- **FLAVAR Co.** — Creative collective affiliation
-
-## Target Keywords
-DJ West Palm Beach, wedding DJ South Florida, corporate event DJ Miami, DJ booking Florida, destination wedding DJ, music production DWBEATBEAST, custom beats for artists, sync licensing music, event entertainment South Florida
+## Site Index
+- Home: https://youknowmeasdubbz.com/
+- Corporate DJ: https://youknowmeasdubbz.com/corporate-event-dj-south-florida/
+- Services: https://youknowmeasdubbz.com/services/
+- Mixes: https://youknowmeasdubbz.com/mixes/
+- Gigs: https://youknowmeasdubbz.com/gigs/
+- About: https://youknowmeasdubbz.com/about/
+- Journal: https://youknowmeasdubbz.com/journal/
+- Contact: https://youknowmeasdubbz.com/contact/

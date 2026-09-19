@@ -33,7 +33,7 @@
   
   <!-- Stats -->
   <g font-family="Bebas Neue, Montserrat, sans-serif" transform="translate(100, 500)">
-    <text x="0" y="0" font-size="48" fill="#00D4FF">1000+</text>
+    <text x="0" y="0" font-size="48" fill="#00D4FF">500+</text>
     <text x="0" y="30" font-size="16" fill="#8888AA" letter-spacing="0.1em">EVENTS</text>
     <text x="180" y="0" font-size="48" fill="#00D4FF">10+</text>
     <text x="180" y="30" font-size="16" fill="#8888AA" letter-spacing="0.1em">YEARS</text>

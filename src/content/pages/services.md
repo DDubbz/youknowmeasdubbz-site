@@ -77,7 +77,7 @@ Original productions, remixes, beats for artists and content creators.
 4. **Deposit** — 50% to hold the date (Venmo, Zelle, Check, Wire)
 5. **Plan** — Playlist collaboration, timeline finalization, vendor coordination
 6. **Perform** — Show up, deliver, exceed expectations
-7. **Balance** — Due day-of or per corporate terms
+7. **Balance** — Due 7 days before the event, or per agreed corporate invoicing terms
 
 ---
 

@@ -2,6 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const mixes = (await getCollection('mixes')).filter(mix => mix.data.published !== false);
+const absoluteUrl = (value: string) => /^https?:\/\//.test(value) ? value : `https://youknowmeasdubbz.com${value.startsWith('/') ? value : `/${value}`}`;
+const mixSchema = {
+  '@context': 'https://schema.org',
+  '@graph': mixes.map(mix => ({
+    '@type': ['AudioObject', 'MusicRecording'],
+    '@id': `https://youknowmeasdubbz.com/mixes/#${mix.id}`,
+    name: mix.data.title,
+    description: mix.data.description,
+    datePublished: mix.data.date.toISOString().slice(0, 10),
+    genre: mix.data.genre,
+    ...(mix.data.duration ? { duration: mix.data.duration } : {}),
+    ...(mix.data.audioFile ? { contentUrl: absoluteUrl(mix.data.audioFile) } : {}),
+    thumbnailUrl: absoluteUrl(mix.data.coverImage),
+    byArtist: { '@id': 'https://youknowmeasdubbz.com/#business' },
+    publisher: { '@id': 'https://youknowmeasdubbz.com/#business' },
+    mainEntityOfPage: 'https://youknowmeasdubbz.com/mixes/'
+  }))
+};
 ---
 
 <BaseLayout title="Mixes — You Know Me As Dubbz" description="Discover a dynamic collection of music mixes and DJ sets from You Know Me As Dubbz. House, hip-hop, afrobeats, dancehall, latin, and open-format sets.">
@@ -132,6 +153,7 @@ import Footer from '../components/Footer.astro';
     </section>
   </main>
 
+  <script type="application/ld+json" set:html={JSON.stringify(mixSchema)} />
   <Footer />
 
   <style is:global>
