@@ -1,6 +1,9 @@
-# Dubbz Studio — Mix Dashboard
+# Dubbz Studio — Legacy Public Mix Dashboard
 
-**URL:** `http://localhost:4321/admin/index.html` (local) or `https://youknowmeasdubbz.com/admin/index.html` (deployed)
+> The production mix-management dashboard is now local-only. Start it from the repository root with `npm run mix-studio`, then open `http://127.0.0.1:4322`. See `tools/mix-studio/README.md` for the complete workflow.
+
+This legacy page is informational only. It does not upload media, write Markdown, or publish the site.
+
 
 ## What It Does
 

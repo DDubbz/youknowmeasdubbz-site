@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f0f1a">
+  <title>Dubbz Mix Studio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true">D</div>
+      <div>
+        <p class="eyebrow">You Know Me As Dubbz</p>
+        <h1>Dubbz Mix Studio</h1>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span class="local-pill"><span class="status-dot"></span> LOCAL ONLY</span>
+      <span class="connection-pill" id="connection-status">Checking Lightsail…</span>
+      <button class="button button-ghost" id="refresh-button" type="button">Refresh</button>
+      <button class="button button-cyan" id="new-mix-button" type="button">＋ New mix</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="library-panel" id="mix-library" aria-label="Mix library">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Your archive</p>
+          <h2>Mix library</h2>
+        </div>
+        <span class="count-badge" id="mix-count">00</span>
+      </div>
+      <div class="library-stats">
+        <div><strong id="featured-count">0</strong><span>Featured</span></div>
+        <div><strong id="live-count">0</strong><span>Live sets</span></div>
+      </div>
+      <label class="search-box" for="mix-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="mix-search" type="search" placeholder="Search mixes or tags…" autocomplete="off">
+      </label>
+      <div class="filter-row" role="group" aria-label="Mix filters">
+        <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+        <button class="filter-chip" type="button" data-filter="featured">Featured</button>
+        <button class="filter-chip" type="button" data-filter="live">Live</button>
+      </div>
+      <div class="mix-list" id="mix-list" aria-live="polite"></div>
+      <div class="library-footer">
+        <span class="legend-dot cyan"></span> Stored in Git
+        <span class="legend-dot gold"></span> Ready to publish
+      </div>
+    </aside>
+
+    <section class="editor-panel" id="mix-editor" aria-label="Mix editor">
+      <div class="empty-editor" id="editor-empty">
+        <div class="empty-glyph">◎</div>
+        <p class="eyebrow">Studio workspace</p>
+        <h2>Choose a mix<br><em>or make a new one.</em></h2>
+        <p>Select a mix from the library to edit its metadata, tags, artwork, and audio. Everything stays on this Mac until you publish.</p>
+        <button class="button button-cyan button-large" id="empty-new-button" type="button">Create a mix <span>→</span></button>
+      </div>
+
+      <div class="editor-content is-hidden" id="editor-content">
+        <div class="editor-heading">
+          <div>
+            <div class="heading-line"><span class="eyebrow">Mix editor</span><span class="dirty-badge is-hidden" id="dirty-badge">Unsaved changes</span></div>
+            <h2 id="editor-title">New mix</h2>
+            <p class="editor-subtitle" id="editor-subtitle">Local draft · ready for your details</p>
+          </div>
+          <div class="editor-id"><span>ID</span><code id="editor-id">new-mix</code></div>
+        </div>
+
+        <form id="mix-form" novalidate>
+          <section class="form-section">
+            <div class="section-label"><span>01</span><div><h3>Identity</h3><p>Give the set a clear headline.</p></div></div>
+            <div class="field-grid two-up">
+              <label class="field field-wide"><span>Title <b>*</b></span><input id="title" name="title" required placeholder="e.g. Cultural Council — Open Format"></label>
+              <label class="field"><span>Date <b>*</b></span><input id="date" name="date" type="date" required></label>
+              <label class="field"><span>Duration</span><input id="duration" name="duration" placeholder="2:30:00"></label>
+              <label class="field"><span>BPM range</span><input id="bpm-range" name="bpmRange" placeholder="90–128"></label>
+              <label class="field"><span>Track count</span><input id="track-count" name="trackCount" type="number" min="0" placeholder="55"></label>
+              <label class="field field-wide"><span>Description <b>*</b></span><textarea id="description" name="description" rows="3" required placeholder="What kind of room, energy, or moment does this mix capture?"></textarea></label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-label"><span>02</span><div><h3>Sound & tags</h3><p>Make the set easy to find.</p></div></div>
+            <div class="field-group"><span class="field-heading">Genres <b>*</b></span><div class="tag-picker" id="genre" role="group" aria-label="Genres"></div></div>
+            <label class="field"><span>Custom tags</span><input id="tags" name="tags" placeholder="summer, residency, open-format · comma separated"></label>
+          </section>
+
+          <section class="form-section">
+            <div class="section-label"><span>03</span><div><h3>Media drop</h3><p>Upload straight to Lightsail when you publish.</p></div></div>
+            <div class="asset-grid">
+              <label class="asset-drop" id="audio-drop" for="audio-file">
+                <input id="audio-file" type="file" accept="audio/mpeg,audio/wav,audio/mp4,audio/aac,audio/flac,.mp3,.wav,.m4a,.aac,.flac">
+                <span class="asset-icon">♫</span><span class="asset-title">Audio mix</span><span class="asset-help" id="audio-file-name">Drop MP3, WAV, M4A, AAC, or FLAC</span>
+              </label>
+              <label class="asset-drop" id="cover-drop" for="cover-file">
+                <input id="cover-file" type="file" accept="image/webp,image/jpeg,image/png,.webp,.jpg,.jpeg,.png">
+                <span class="asset-icon">▧</span><span class="asset-title">Cover art</span><span class="asset-help" id="cover-file-name">Drop WEBP, JPG, or PNG · 1200px recommended</span>
+              </label>
+            </div>
+            <div class="media-preview-row">
+              <div class="cover-preview" id="cover-preview"><span>ART</span></div>
+              <div class="audio-preview-wrap"><span class="preview-label">Preview</span><audio id="audio-preview" controls preload="metadata"></audio></div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-label"><span>04</span><div><h3>Release settings</h3><p>Control where this set appears.</p></div></div>
+            <div class="toggle-grid">
+              <label class="toggle-card"><input id="featured" name="featured" type="checkbox"><span class="toggle-ui"></span><span><strong>Featured mix</strong><small>Show it on the homepage.</small></span></label>
+              <label class="toggle-card"><input id="downloadable" name="downloadable" type="checkbox"><span class="toggle-ui"></span><span><strong>Downloadable</strong><small>Let visitors download it.</small></span></label>
+              <label class="toggle-card"><input id="live" name="live" type="checkbox"><span class="toggle-ui"></span><span><strong>Live recording</strong><small>Include venue details.</small></span></label>
+            </div>
+            <div class="field-grid two-up live-fields is-hidden" id="live-fields">
+              <label class="field"><span>Venue</span><input id="venue" name="venue" placeholder="Venue or event"></label>
+              <label class="field"><span>Address</span><input id="address" name="address" placeholder="City, State"></label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-label"><span>05</span><div><h3>External links</h3><p>Optional destinations for this set.</p></div></div>
+            <div class="field-grid two-up">
+              <label class="field"><span>YouTube</span><input id="youtube-url" name="youtubeUrl" type="url" placeholder="https://youtube.com/…"></label>
+              <label class="field"><span>SoundCloud</span><input id="soundcloud-url" name="soundcloudUrl" type="url" placeholder="https://soundcloud.com/…"></label>
+              <label class="field"><span>Spotify</span><input id="spotify-url" name="spotifyUrl" type="url" placeholder="https://open.spotify.com/…"></label>
+              <label class="field"><span>Mixcloud</span><input id="mixcloud-url" name="mixcloudUrl" type="url" placeholder="https://mixcloud.com/…"></label>
+            </div>
+          </section>
+
+          <div class="editor-actions">
+            <div class="action-note"><span class="status-dot"></span><span id="save-status">Draft changes stay local until you publish.</span></div>
+            <div class="action-buttons"><button class="button button-ghost" id="preview-button" type="button">Preview Markdown</button><button class="button button-ghost" id="save-button" type="button">Save Draft</button><button class="button button-gold" id="publish-button" type="button">Upload & Publish <span>↗</span></button></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop is-hidden" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-heading">
+    <div class="modal-card"><div class="modal-head"><div><p class="eyebrow">Source preview</p><h2 id="preview-heading">Mix Markdown</h2></div><button class="icon-button" data-close-modal="preview-modal" type="button" aria-label="Close">×</button></div><pre id="markdown-preview"></pre><div class="modal-actions"><button class="button button-ghost" data-close-modal="preview-modal" type="button">Close</button><button class="button button-cyan" id="copy-markdown" type="button">Copy Markdown</button></div></div>
+  </div>
+
+  <div class="modal-backdrop is-hidden" id="publish-modal" role="dialog" aria-modal="true" aria-labelledby="publish-heading">
+    <div class="modal-card publish-card"><div class="modal-head"><div><p class="eyebrow gold-text">Final check</p><h2 id="publish-heading">Ready to publish?</h2></div><button class="icon-button" data-close-modal="publish-modal" type="button" aria-label="Close">×</button></div><p class="modal-intro">This stays local until you confirm. Then the studio will upload selected media to Lightsail, verify it, build Astro, and push only this mix file to GitHub.</p><div class="publish-summary" id="publish-summary"></div><div class="modal-actions"><button class="button button-ghost" data-close-modal="publish-modal" type="button">Not yet</button><button class="button button-gold" id="confirm-publish" type="button">Confirm upload & publish <span>↗</span></button></div></div>
+  </div>
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

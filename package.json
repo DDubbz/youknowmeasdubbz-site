@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sync": "astro sync"
+    "sync": "astro sync",
+    "mix-studio": "node tools/mix-studio/server.mjs",
+    "test:mix-studio": "node --test tools/mix-studio/test/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.0",

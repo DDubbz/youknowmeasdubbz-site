@@ -6,23 +6,23 @@ import Footer from '../components/Footer.astro';
 const faqItems = [
   {
     "question": "How far in advance should I book?",
-    "answer": "For weddings, 9\u201312 months out is the sweet spot \u2014 prime Saturdays book first. Corporate events and club dates usually lock in 2\u20136 months ahead. Running late? Last-minute inquiries are always welcome; if the date's open, it's yours. Either way, the 50% deposit is what holds your date, not the inquiry."
+    "answer": "For weddings, 9–12 months out is the sweet spot — prime Saturdays book first. Corporate events and club dates usually lock in 2–6 months ahead. Running late? Last-minute inquiries are always welcome; if the date's open, it's yours. Either way, the 50% deposit is what holds your date, not the inquiry."
   },
   {
     "question": "Do you take song requests?",
-    "answer": "Absolutely \u2014 your must-play and do-not-play lists are the starting point, and guests can make requests on the night. The skill is honoring your taste while reading the room: if a request would clear the floor, it waits for the right moment. You set the boundaries; Dubbz handles the timing."
+    "answer": "Absolutely — your must-play and do-not-play lists are the starting point, and guests can make requests on the night. The skill is honoring your taste while reading the room: if a request would clear the floor, it waits for the right moment. You set the boundaries; Dubbz handles the timing."
   },
   {
     "question": "What's included in a wedding package?",
-    "answer": "Every wedding package starts at $1,500 and includes ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches and toasts, custom playlist curation, timeline coordination with your planner, and all professional audio equipment \u2014 setup and breakdown handled. Two playlist consultations are included so every moment sounds intentional."
+    "answer": "Every wedding package starts at $1,500 and includes ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches and toasts, custom playlist curation, timeline coordination with your planner, and all professional audio equipment — setup and breakdown handled. Two playlist consultations are included so every moment sounds intentional."
   },
   {
     "question": "Do you travel outside South Florida?",
-    "answer": "Yes \u2014 destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end \u2014 you just get the date and the dance floor."
+    "answer": "Yes — destination weddings and events nationwide, plus the Caribbean and international dates. South Florida travel is included in every package; outside that, travel, lodging, and per diem get added to your quote as a single line item. Logistics are handled end to end — you just get the date and the dance floor."
   },
   {
     "question": "Do you provide lighting?",
-    "answer": "Dubbz partners with trusted South Florida lighting vendors for uplighting, dance-floor lighting, and full production design \u2014 coordinated as one package so the look and the sound arrive together. Uplighting and dance-floor lighting starts at $400; photo-booth coordination at $150. One point of contact, no vendor juggling."
+    "answer": "Dubbz partners with trusted South Florida lighting vendors for uplighting, dance-floor lighting, and full production design — coordinated as one package so the look and the sound arrive together. Uplighting and dance-floor lighting starts at $400; photo-booth coordination at $150. One point of contact, no vendor juggling."
   },
   {
     "question": "What's your backup plan?",
@@ -30,16 +30,30 @@ const faqItems = [
   },
   {
     "question": "Do you need a deposit?",
-    "answer": "Yes \u2014 a 50% non-refundable deposit secures your date, payable by Venmo, Zelle, check, or wire. The balance is due 7 days before the event. Once the deposit lands, the date is locked and planning begins \u2014 playlist consultations, timeline work, and vendor coordination."
+    "answer": "Yes — a 50% non-refundable deposit secures your date, payable by Venmo, Zelle, check, or wire. The balance is due 7 days before the event. Once the deposit lands, the date is locked and planning begins — playlist consultations, timeline work, and vendor coordination."
   },
   {
     "question": "Can we meet before booking?",
-    "answer": "Absolutely \u2014 every booking starts with a free 30-minute consultation, on Zoom or in person, to talk through your vision, logistics, and budget. It's as much about fit as it is about details: you should know exactly who you're trusting with your event before any deposit changes hands."
+    "answer": "Absolutely — every booking starts with a free 30-minute consultation, on Zoom or in person, to talk through your vision, logistics, and budget. It's as much about fit as it is about details: you should know exactly who you're trusting with your event before any deposit changes hands."
   }
 ];
 ---
 
-<BaseLayout title="DJ Services — You Know Me As Dubbz" description="Professional DJ services for weddings, corporate events, nightclubs, and private parties in South Florida. Custom playlists, MC services, full production." faqItems={faqItems}>
+<BaseLayout 
+  title="DJ Services — You Know Me As Dubbz" 
+  description="Professional DJ services for weddings, corporate events, nightclubs, and private parties in South Florida. Custom playlists, MC services, full production." 
+  faqItems={faqItems}
+  reviews={[
+    {
+      author: "Sarah & Marcus",
+      reviewBody: "Dubbz read the room perfectly — our guests are still talking about the music three months later."
+    },
+    {
+      author: "Jeanie Joseph",
+      reviewBody: "We've booked Dubbz for multiple Friday nights now, and the energy is consistently on point. Professional, reliable, and the music is always fresh."
+    }
+  ]}
+>
   <Header />
 
   <main id="main-content">

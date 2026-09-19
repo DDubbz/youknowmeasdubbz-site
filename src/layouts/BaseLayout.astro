@@ -12,138 +12,193 @@ interface Props {
   section?: string;
   tags?: string[];
   faqItems?: Array<{ question: string; answer: string }>;
-  showReviews?: boolean;
+  reviews?: Array<{ author: string; reviewBody: string }>;
+  gigs?: Array<{ title: string; startDate: string; endDate?: string; venue: string; address: string }>;
+  isArticle?: boolean;
 }
-const { title, description, ogImage, ogType = 'website', publishedTime, modifiedTime, author, section, tags, faqItems, showReviews = true } = Astro.props;
+const { title, description, ogImage, ogType = 'website', publishedTime, modifiedTime, author, section, tags, faqItems, reviews = [], gigs = [], isArticle = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://youknowmeasdubbz.com').toString();
 const defaultOgImage = ogImage || 'https://youknowmeasdubbz.com/og-home.jpg';
 const currentYear = new Date().getFullYear();
-
-const pathParts = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbItems = [
-  { "@type": "ListItem", position: 1, name: "Home", item: "https://youknowmeasdubbz.com/" },
-  ...pathParts.map((part, index) => ({
-    "@type": "ListItem",
-    position: index + 2,
-    name: part.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-    item: `https://youknowmeasdubbz.com/${pathParts.slice(0, index + 1).join('/')}/`
-  }))
-];
 
 const jsonLd: any = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Organization", "ProfessionalService"],
-      "@id": "https://youknowmeasdubbz.com/#business",
+      "@type": "Organization",
       "name": "You Know Me As Dubbz",
-      "alternateName": ["Dubbz", "DWBEATBEAST"],
-      "url": "https://youknowmeasdubbz.com/",
-      "logo": { "@type": "ImageObject", "url": "https://youknowmeasdubbz.com/favicon.svg" },
-      "image": "https://youknowmeasdubbz.com/og-home.jpg",
-      "description": "West Palm Beach DJ and event entertainment business serving corporate events, weddings, nightlife, and private parties across South Florida.",
+      "alternateName": "Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "logo": "https://youknowmeasdubbz.com/favicon.svg",
       "sameAs": [
         "https://instagram.com/youknowmeasdubbz",
         "https://tiktok.com/@youknowmeasdubbz",
         "https://soundcloud.com/youknowmeasdubbz",
         "https://www.youtube.com/@youknowmeasdubbz"
       ],
-      "email": "dj@youknowmeasdubbz.com",
-      "telephone": "+1-305-902-2698",
-      "address": { "@type": "PostalAddress", "addressLocality": "West Palm Beach", "addressRegion": "FL", "addressCountry": "US" },
-      "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
-      "knowsAbout": ["Corporate event entertainment", "Open-format DJ sets", "MC services", "Clean music programming", "Event audio and lighting", "Wedding DJ services"]
+      "email": "bookings@youknowmeasdubbz.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "West Palm Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.7153,
+          "longitude": -80.0534
+        },
+        "geoRadius": "100000"
+      },
+      "knowsAbout": [
+        "Open-format DJ sets",
+        "Wedding DJ services",
+        "Corporate event entertainment",
+        "Nightlife & club DJ",
+        "Private party DJ",
+        "Music curation"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "You Know Me As Dubbz"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "You Know Me As Dubbz",
+      "alternateName": "Dubbz",
+      "url": "https://youknowmeasdubbz.com",
+      "jobTitle": "Professional DJ",
+      "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "You Know Me As Dubbz"
+      },
+      "sameAs": [
+        "https://instagram.com/youknowmeasdubbz",
+        "https://tiktok.com/@youknowmeasdubbz",
+        "https://soundcloud.com/youknowmeasdubbz",
+        "https://www.youtube.com/@youknowmeasdubbz"
+      ],
+      "knowsAbout": [
+        "Open-format DJ mixing",
+        "Event music curation",
+        "Crowd reading",
+        "Multi-genre blending"
+      ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://youknowmeasdubbz.com/#website",
-      "url": "https://youknowmeasdubbz.com/",
+      "url": "https://youknowmeasdubbz.com",
       "name": "You Know Me As Dubbz",
-      "publisher": { "@id": "https://youknowmeasdubbz.com/#business" }
+      "description": "South Florida's premier open-format DJ for weddings, corporate events, nightlife, and private parties.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "You Know Me As Dubbz"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://youknowmeasdubbz.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "WebPage",
-      "@id": `${canonicalUrl}#webpage`,
-      "url": canonicalUrl,
+      "url": "https://youknowmeasdubbz.com" + Astro.url.pathname,
       "name": title,
       "description": description,
-      "isPartOf": { "@id": "https://youknowmeasdubbz.com/#website" },
-      "about": { "@id": "https://youknowmeasdubbz.com/#business" },
-      "breadcrumb": { "@id": `${canonicalUrl}#breadcrumb` }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      "itemListElement": breadcrumbItems
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://youknowmeasdubbz.com"
+      },
+      "datePublished": publishedTime || new Date().toISOString(),
+      "dateModified": modifiedTime || new Date().toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": author || "You Know Me As Dubbz"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://youknowmeasdubbz.com/"
+          }
+        ]
+      }
     }
   ]
 };
 
-if (ogType === 'article' && publishedTime) {
-  jsonLd["@graph"].push({
-    "@type": "BlogPosting",
-    "@id": `${canonicalUrl}#article`,
-    "headline": title,
-    "description": description,
-    "datePublished": publishedTime,
-    ...(modifiedTime ? { "dateModified": modifiedTime } : {}),
-    "mainEntityOfPage": { "@id": `${canonicalUrl}#webpage` },
-    "author": { "@id": "https://youknowmeasdubbz.com/#business" },
-    "publisher": { "@id": "https://youknowmeasdubbz.com/#business" },
-    "image": defaultOgImage,
-    ...(section ? { articleSection: section } : {}),
-    ...(tags ? { keywords: tags.join(', ') } : {})
-  });
-}
-
 const profService: any = {
   "@type": "ProfessionalService",
-  "@id": "https://youknowmeasdubbz.com/#dj-service",
   "name": "You Know Me As Dubbz",
-  "alternateName": ["Dubbz", "DWBEATBEAST"],
-  "url": "https://youknowmeasdubbz.com/",
-  "parentOrganization": { "@id": "https://youknowmeasdubbz.com/#business" },
+  "alternateName": "Dubbz",
+  "url": "https://youknowmeasdubbz.com",
   "image": "https://youknowmeasdubbz.com/og-home.jpg",
-  "email": "dj@youknowmeasdubbz.com",
+  "logo": "https://youknowmeasdubbz.com/favicon.svg",
+  "description": "South Florida open-format DJ specializing in weddings, corporate events, nightlife, and private parties.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "West Palm Beach",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.7153,
+      "longitude": -80.0534
+    },
+    "geoRadius": "100000"
+  },
+  "priceRange": "$750 - $5,000+",
+  "openingHours": "Mo-Su 00:00-23:59",
   "telephone": "+1-305-902-2698",
-  "address": { "@type": "PostalAddress", "addressLocality": "West Palm Beach", "addressRegion": "FL", "addressCountry": "US" },
-  "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "DJ and Event Services",
-    "itemListElement": ["Corporate Event DJ", "Wedding DJ Services", "Private Event DJ", "MC Services", "Event Audio and Lighting"].map(name => ({
-      "@type": "Offer", "itemOffered": { "@type": "Service", "name": name, "provider": { "@id": "https://youknowmeasdubbz.com/#business" } }
-    }))
+    "name": "DJ Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Wedding DJ Services" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1500", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Corporate Event DJ" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Private Party DJ" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": "750", "priceCurrency": "USD" }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "2",
+    "bestRating": "5"
   }
 };
 
-if (showReviews) {
-  profService.review = [
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Sarah & Marcus" },
-      "reviewBody": "Dubbz read the room perfectly — our guests are still talking about the music three months later. The transition from dinner to dance floor was seamless, and he handled every request without losing the vibe. Worth every penny of our investment.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    },
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Jeanie Joseph" },
-      "reviewBody": "We've booked Dubbz for multiple Friday nights now, and the energy is consistently on point. He knows how to build a crowd, keep them dancing, and wrap on time. Professional, reliable, and the music is always fresh.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    },
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Christian M." },
-      "reviewBody": "Dubbz has become part of our Saturday night identity. Guests come back specifically for his sets — the way he blends R&B, dancehall, and afrobeats keeps the dance floor packed until close. He's easy to work with and always prepared.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    },
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Private Client" },
-      "reviewBody": "We wanted music that felt personal but didn't overpower the evening. Dubbz composed a mix that moved from cocktail hour through dinner to dancing — every transition felt intentional. Our guests asked for his info before the night was over.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    }
-  ];
+if (reviews.length > 0) {
+  profService.review = reviews.map(r => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.author },
+    "reviewBody": r.reviewBody,
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+  }));
 }
 
 jsonLd["@graph"].push(profService);
@@ -157,6 +212,63 @@ if (faqItems && faqItems.length > 0) {
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
     }))
   });
+}
+
+if (isArticle) {
+  jsonLd["@graph"].push({
+    "@type": "Article",
+    "headline": title,
+    "datePublished": publishedTime || new Date().toISOString(),
+    "dateModified": modifiedTime || new Date().toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": author || "You Know Me As Dubbz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "You Know Me As Dubbz",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://youknowmeasdubbz.com/favicon.svg"
+      }
+    },
+    "description": description,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    }
+  });
+}
+
+if (gigs.length > 0) {
+  jsonLd["@graph"].push(...gigs.map(gig => ({
+    "@type": "Event",
+    "name": gig.title,
+    "startDate": gig.startDate,
+    "endDate": gig.endDate || gig.startDate,
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": gig.venue,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": gig.address,
+        "addressLocality": "West Palm Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "You Know Me As Dubbz",
+      "url": "https://youknowmeasdubbz.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "url": "https://youknowmeasdubbz.com/contact"
+    }
+  })));
 }
 ---
 <!doctype html>
