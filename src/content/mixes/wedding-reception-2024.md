@@ -10,7 +10,7 @@ live: true
 venue: "FLAVAR Presents: SCENE"
 address: "West Palm Beach, Fl"
 coverImage: "/mixes/wedding-reception-2024.webp"
-audioFile: "https://media.youknowmeasdubbz.com/mixes/wedding-reception-2024.mp3"
+audioFile: "/mixes/wedding-reception-2024.mp3"
 downloadable: false
 featured: true
 tags: ["flavar", "scene", "art-show", "local", "party", "hip-hop"]
