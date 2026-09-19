@@ -30,7 +30,7 @@ Fill out the form below and I'll get back to you within 24 hours with availabili
 - Event Type (required) — Wedding / Corporate / Club / Private Party / Other
 - Venue Name & Address
 - Estimated Guest Count
-- Budget Range — $1,500-2,500 / $2,500-5,000 / $5,000-10,000 / $10,000+
+- Quote Preferences — discuss event scope / request a custom proposal after consultation
 - Services Needed — DJ Only / DJ + MC / DJ + Production / Music Production
 - Message / Vision / Special Requests
 
@@ -44,7 +44,7 @@ Fill out the form below and I'll get back to you within 24 hours with availabili
 2. **Availability Check** — I verify the date within 2 hours
 3. **Custom Quote** — Detailed proposal sent within 24 hours
 4. **Consultation Call** — 15-min call to lock details (optional but recommended)
-5. **Deposit** — 50% holds your date
+5. **Confirmation** — approved proposal and contract secure your date
 
 ---
 
@@ -59,7 +59,7 @@ Fill out the form below and I'll get back to you within 24 hours with availabili
 Yes, throughout Florida and destination events (travel fees apply).
 
 **What's your cancellation policy?**
-Deposit is non-refundable. Remaining balance due 7 days before the event. Force majeure clauses in contract.
+Cancellation, invoicing, and force majeure terms are included in the custom proposal and contract.
 
 **Can I provide a do-not-play list?**
 Absolutely. We'll review it together during planning.

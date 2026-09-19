@@ -16,7 +16,7 @@ showFooter: true
 ## Services
 
 ### Weddings & Private Events
-**Starting at $1,500**
+**Custom quote based on scope, duration, and location**
 
 Tailored music experience from ceremony to last dance.
 - Custom playlist consultation (2 included)
@@ -32,7 +32,7 @@ Tailored music experience from ceremony to last dance.
 ---
 
 ### Corporate Events
-**Starting at $2,000**
+**Custom quote based on scope, duration, and location**
 
 Brand-aligned music programming for conferences, galas, product launches, holiday parties.
 - Pre-event brand consultation
@@ -62,9 +62,9 @@ High-energy sets that keep the dance floor packed and the bar moving.
 **Custom Projects**
 
 Original productions, remixes, beats for artists and content creators.
-- Custom beat production — $300-800/track
-- Official remix — $500-1,500
-- Mixing/mastering — $150-300/song
+- Custom beat production — custom quote
+- Official remix — custom quote
+- Mixing/mastering — custom quote
 - Sync licensing ready
 
 ---
@@ -73,11 +73,11 @@ Original productions, remixes, beats for artists and content creators.
 
 1. **Inquire** — Fill out the contact form with date, venue, event type
 2. **Consult** — 15-min call to discuss vision, logistics, budget
-3. **Proposal** — Detailed quote with rider, timeline, payment schedule
-4. **Deposit** — 50% to hold the date (Venmo, Zelle, Check, Wire)
+3. **Proposal** — Detailed quote with rider, timeline, booking terms
+4. **Confirm** — Approve the proposal and contract to lock in the date
 5. **Plan** — Playlist collaboration, timeline finalization, vendor coordination
 6. **Perform** — Show up, deliver, exceed expectations
-7. **Balance** — Due 7 days before the event, or per agreed corporate invoicing terms
+7. **Finalize** — Confirm the timeline, production needs, and invoicing details
 
 ---
 
