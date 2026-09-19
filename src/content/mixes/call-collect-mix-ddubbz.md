@@ -10,7 +10,7 @@ live: false
 venue: ""
 address: ""
 coverImage: "/mixes/call-collect-mix-ddubbz.png"
-audioFile: "https://media.youknowmeasdubbz.com/mixes/call-collect-mix-ddubbz.mp3"
+audioFile: "/mixes/call-collect-mix-ddubbz.mp3"
 downloadable: false
 featured: true
 tags: []
