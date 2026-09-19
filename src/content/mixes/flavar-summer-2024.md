@@ -3,7 +3,7 @@ title: "Shanghai'd - LIVE MiX"
 description: "Live set from FLAVAR Call Collect monthly Sunday day party at French Grille, Northwood Village"
 date: 2025-09-01
 genre: ["hip-hop", "r&b"]
-duration: "45:52:00"
+duration: "45:52"
 bpmRange: "90-128"
 trackCount: 45
 live: true
