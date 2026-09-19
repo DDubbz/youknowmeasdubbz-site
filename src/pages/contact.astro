@@ -39,12 +39,7 @@ const faqItems = [
 ];
 ---
 
-<BaseLayout 
-  title="Contact & Booking — You Know Me As Dubbz" 
-  description="Book You Know Me As Dubbz for your event. Fill out the inquiry form for weddings, corporate events, club nights, or private parties in South Florida."
-  faqItems={faqItems}
-  reviews={[]}
->
+<BaseLayout title="Contact & Booking — You Know Me As Dubbz" description="Book You Know Me As Dubbz for your event. Fill out the inquiry form for weddings, corporate events, club nights, or private parties in South Florida." showReviews={false}>
   <Header />
 
   <main id="main-content">
@@ -250,7 +245,7 @@ const faqItems = [
               </svg>
               <h3>Inquiry Sent!</h3>
               <p>Thanks for reaching out. I'll review your details and get back to you within 24 hours with availability and a custom quote.</p>
-              <a href="/contact" class="btn btn-secondary">Send Another Inquiry</a>
+              <a href="/contact/" class="btn btn-secondary">Send Another Inquiry</a>
             </div>
           </div>
         </div>

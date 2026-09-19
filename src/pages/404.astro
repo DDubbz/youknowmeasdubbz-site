@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist. Explore mixes, gigs, and DJ services from You Know Me As Dubbz." noindex={true}>
+  <Header />
+
+  <main id="main-content">
+    <section class="section section-hero">
+      <div class="container">
+        <header class="page-header">
+          <span class="page-greeting">404</span>
+          <h1 class="page-title">This page isn't on the setlist.</h1>
+          <p class="page-description">The link may be old or the page may have moved. Here's where to find what you're after:</p>
+          <div class="error-actions">
+            <a href="/" class="btn btn-primary btn-lg">Back to Home</a>
+            <a href="/mixes/" class="btn btn-secondary btn-lg">Listen to Mixes</a>
+            <a href="/gigs/" class="btn btn-secondary btn-lg">Upcoming Gigs</a>
+            <a href="/contact/" class="btn btn-secondary btn-lg">Book Dubbz</a>
+          </div>
+        </header>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <style>
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4, 1rem);
+      margin-top: var(--space-6, 2rem);
+    }
+  </style>
+</BaseLayout>

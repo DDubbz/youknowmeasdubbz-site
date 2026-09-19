@@ -41,8 +41,8 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
           <h1 id="hero-title" class="hero-title"><span class="hero-name-intro">You Know Me As</span><span class="hero-name-main">Dubbz</span></h1>
           <p class="hero-subtitle">Open-format DJ sets for weddings, nightlife, corporate events, and private celebrations. Based in South Florida.</p>
           <div class="hero-cta">
-            <a href="/contact" class="btn btn-primary btn-lg">Book Dubbz</a>
-            <a href="/mixes" class="btn btn-secondary btn-lg">Listen to Mixes</a>
+            <a href="/contact/" class="btn btn-primary btn-lg">Book Dubbz</a>
+            <a href="/mixes/" class="btn btn-secondary btn-lg">Listen to Mixes</a>
           </div>
           <div class="hero-meta" aria-label="Service area and specialties">
             <span>West Palm Beach → Miami</span>
@@ -439,7 +439,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             <h2 id="mixes-title" class="section-title">Latest Mixes</h2>
             <p class="section-summary">Open-format sets built for real rooms, real crowds, and repeat listens.</p>
           </div>
-          <a href="/mixes" class="btn btn-secondary">Explore All Mixes</a>
+          <a href="/mixes/" class="btn btn-secondary">Explore All Mixes</a>
         </header>
         <div class="mixes-showcase grid grid-4" id="featured-mixes">
           {featuredMixes.map((mix, i) => (
@@ -475,7 +475,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             <h2 id="gigs-title" class="section-title">Catch Me Live</h2>
             <p class="section-summary">Upcoming public sets and event experiences across South Florida.</p>
           </div>
-          <a href="/gigs" class="btn btn-secondary">View All Events</a>
+          <a href="/gigs/" class="btn btn-secondary">View All Events</a>
         </header>
         <div class="gigs-showcase" id="upcoming-gigs">
           <!-- Populated by JS from content collections -->
@@ -501,7 +501,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             </div>
             <h3>Weddings</h3>
             <p>Ceremony, cocktail hour, reception — full-day musical curation for your biggest day.</p>
-            <a href="/services#weddings" class="service-link">Learn more →</a>
+            <a href="/services/#weddings" class="service-link">Learn more →</a>
           </article>
           <article class="service-card panel" id="corporate">
             <div class="service-number number-badge">02</div>
@@ -510,7 +510,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             </div>
             <h3>Corporate Events</h3>
             <p>Brand-aligned programming for conferences, holiday parties, and product launches.</p>
-            <a href="/services#corporate" class="service-link">Learn more →</a>
+            <a href="/services/#corporate" class="service-link">Learn more →</a>
           </article>
           <article class="service-card panel" id="nightlife">
             <div class="service-number number-badge">03</div>
@@ -519,7 +519,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             </div>
             <h3>Nightlife & Clubs</h3>
             <p>Residency sets, guest spots, and takeover events — open-format energy for the dancefloor.</p>
-            <a href="/services#nightlife" class="service-link">Learn more →</a>
+            <a href="/services/#nightlife" class="service-link">Learn more →</a>
           </article>
           <article class="service-card panel" id="private">
             <div class="service-number number-badge">04</div>
@@ -528,12 +528,12 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
             </div>
             <h3>Private Parties</h3>
             <p>Birthdays, anniversaries, house parties — curated vibes for your guest list.</p>
-            <a href="/services#private" class="service-link">Learn more →</a>
+            <a href="/services/#private" class="service-link">Learn more →</a>
           </article>
         </div>
         <div class="services-cta">
-          <a href="/services" class="btn btn-primary">View All Services</a>
-          <a href="/contact" class="btn btn-secondary">Get a Quote</a>
+          <a href="/services/" class="btn btn-primary">View All Services</a>
+          <a href="/contact/" class="btn btn-secondary">Get a Quote</a>
         </div>
       </div>
     </section>
@@ -578,7 +578,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
               <div class="about-profile-genres" aria-label="Genres">
                 <span>House</span><span>Hip-Hop</span><span>Afrobeats</span><span>Dancehall</span><span>Latin</span><span>Top 40</span>
               </div>
-              <a href="/about" class="service-link">Meet Dubbz →</a>
+              <a href="/about/" class="service-link">Meet Dubbz →</a>
             </div>
           </div>
         </div>
@@ -654,8 +654,8 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
           <h2 class="cta-title">Ready for Your Event?</h2>
           <p class="cta-text">Let's talk about the soundtrack for your next celebration. Weddings, corporate, private — we'll build it together.</p>
           <div class="cta-actions">
-            <a href="/contact" class="btn btn-primary btn-lg">Start Planning</a>
-            <a href="/mixes" class="btn btn-secondary btn-lg">Listen First</a>
+            <a href="/contact/" class="btn btn-primary btn-lg">Start Planning</a>
+            <a href="/mixes/" class="btn btn-secondary btn-lg">Listen First</a>
           </div>
         </div>
       </div>
@@ -1828,7 +1828,7 @@ const coverSrc = (mix: any) => /^https?:\/\//.test(mix.data.coverImage) || mix.d
       if (!gigs.length) {
         container.innerHTML = `
           <div class="panel" style="padding: var(--space-12); text-align: center;">
-            <p style="color: var(--color-text-muted);">No upcoming public events. <a href="/contact" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">Book a Private Event</a></p>
+            <p style="color: var(--color-text-muted);">No upcoming public events. <a href="/contact/" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">Book a Private Event</a></p>
           </div>
         `;
         return;

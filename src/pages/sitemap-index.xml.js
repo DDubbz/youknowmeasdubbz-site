@@ -8,7 +8,7 @@ export async function GET({ site }) {
     'contact',
     'mixes',
     'services#production',
-    'journal/',
+    'journal',
     'journal/wedding-mix-timeline',
     'journal/will-ai-replace-your-event-dj',
     'journal/how-to-choose-a-wedding-dj',

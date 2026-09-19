@@ -1,1 +1,5 @@
 https://www.youknowmeasdubbz.com/* https://youknowmeasdubbz.com/:splat 301
+/music-mixes https://youknowmeasdubbz.com/mixes/ 301
+/music-mixes/* https://youknowmeasdubbz.com/mixes/:splat 301
+/privacy-policy https://youknowmeasdubbz.com/ 301
+/privacy-policy/* https://youknowmeasdubbz.com/ 301

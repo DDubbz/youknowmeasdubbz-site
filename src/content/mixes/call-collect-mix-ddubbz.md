@@ -1,7 +1,7 @@
 ---
 title: "Call Collect Mix - DDubbz"
 description: "Call Collect is a monthly party held by FLAVAR on the last Sunday of every month."
-date: 2026-09-19
+date: 2022-06-20
 genre: ["r&b"]
 duration: "18:38"
 bpmRange: ""
