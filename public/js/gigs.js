@@ -158,7 +158,7 @@
           endTime: '04:15',
           status: 'actual',
           fee: 0,
-          notes: 'Opening 9-11:20 PM, Closing 1:08-4:15 AM. DJ Don Hot headliner middle. 125 tracks, 6.88h. Payment TBD.'
+          notes: 'Opening 9-11:20 PM, Closing 1:08-4:15 AM. DJ Don Hot headliner middle. 125 tracks, 6.88h.'
         },
         {
           id: '12',

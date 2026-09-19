@@ -40,7 +40,7 @@ Brand-aligned music programming for conferences, galas, product launches, holida
 - Professional presentation audio support
 - Dress code compliant (black tie optional)
 - Corporate liability insurance
-- Invoice / net-30 terms available
+- Procurement-ready documentation available
 
 ---
 

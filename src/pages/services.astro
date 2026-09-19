@@ -81,13 +81,13 @@ const faqItems = [
               <li><strong>Wireless Mic for Speeches</strong> — Crystal clear audio for toasts and vows</li>
               <li><strong>Setup & Breakdown Included</strong> — We handle the gear, you enjoy the party</li>
               <li><strong>Backup Equipment On-Site</strong> — Redundancy for peace of mind</li>
-              <li><strong>South Florida Travel Included</strong> — No hidden fees within service area</li>
+              <li><strong>South Florida Service Area</strong> — Coverage throughout the region</li>
             </ul>
-            <h2 style="font-family:var(--font-display);font-size:22px;margin:28px 0 12px">How are wedding DJ services quoted in South Florida?</h2>
-            <p style="color:var(--color-text-muted);font-size:15px;margin-bottom:20px">Wedding DJ services are custom quoted based on scope, duration, and location. Packages can include ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches, custom playlist curation, timeline coordination with your planner, and all professional audio equipment — setup and breakdown included. Add-ons like uplighting and photo booth coordination are available.</p>
-            <div class="service-pricing">
-              <span class="price">Custom quote</span>
-              <span class="price-note">Based on scope, duration, and location</span>
+            <h2 style="font-family:var(--font-display);font-size:22px;margin:28px 0 12px">How are wedding DJ services tailored in South Florida?</h2>
+            <p style="color:var(--color-text-muted);font-size:15px;margin-bottom:20px">Wedding DJ services are tailored to the scope, duration, and location. Packages can include ceremony sound, cocktail hour, full reception DJing, wireless mics for speeches, custom playlist curation, timeline coordination with your planner, and all professional audio equipment — setup and breakdown included. Add-ons like uplighting and photo booth coordination are available.</p>
+            <div class="service-details">
+              <span class="service-detail">Built around your event</span>
+              <span class="service-detail-note">Scope, duration, and location</span>
             </div>
             <div class="service-addons">
               <h4>Popular Add-ons</h4>
@@ -131,13 +131,13 @@ const faqItems = [
               <li><strong>Presentation Audio Support</strong> — Wireless mics, mixer integration, recording</li>
               <li><strong>Dress Code Compliant</strong> — Black tie, business casual, themed attire</li>
               <li><strong>Corporate Liability Insurance</strong> — COI provided, venue requirements met</li>
-              <li><strong>Invoice / Net-30 Terms</strong> — Procurement-friendly billing</li>
+              <li><strong>Vendor Coordination</strong> — Procurement-ready documentation</li>
             </ul>
-            <h2 style="font-family:var(--font-display);font-size:22px;margin:28px 0 12px">How are corporate event DJ services quoted?</h2>
-            <p style="color:var(--color-text-muted);font-size:15px;margin-bottom:20px">Corporate event DJ services are custom quoted based on scope, duration, and location. Packages can include pre-event brand consultation, custom walk-in and walk-out music, presentation audio support, wireless mics, corporate liability insurance, and procurement-friendly invoicing.</p>
-            <div class="service-pricing">
-              <span class="price">Custom quote</span>
-              <span class="price-note">Custom quotes based on scope, duration, location</span>
+            <h2 style="font-family:var(--font-display);font-size:22px;margin:28px 0 12px">How are corporate event DJ services tailored?</h2>
+            <p style="color:var(--color-text-muted);font-size:15px;margin-bottom:20px">Corporate event DJ services are tailored to the scope, duration, and location. Packages can include pre-event brand consultation, custom walk-in and walk-out music, presentation audio support, wireless mics, corporate liability insurance, and procurement-friendly invoicing.</p>
+            <div class="service-details">
+              <span class="service-detail">Built around your event</span>
+              <span class="service-detail-note">Scope, duration, and location</span>
             </div>
             <div class="service-addons">
               <h4>Popular Add-ons</h4>
@@ -182,9 +182,9 @@ const faqItems = [
               <li><strong>Promo Support</strong> — Social posts, stories, flyer assets, ticket push</li>
               <li><strong>Recording / Live Stream Available</strong> — Content for your channels</li>
             </ul>
-            <div class="service-pricing">
-              <span class="price"><strong>Residency & Guest Spot Rates</strong></span>
-              <span class="price-note">Custom per venue, date, duration, market</span>
+            <div class="service-details">
+              <span class="service-detail"><strong>Residencies & Guest Spots</strong></span>
+              <span class="service-detail-note">Planned for the venue, date, duration, and market</span>
             </div>
             <div class="current-residencies">
               <h4>Current Residencies</h4>
@@ -223,7 +223,7 @@ const faqItems = [
             <div class="production-services grid grid-3">
               <article class="production-item panel">
                 <h4>Custom Beat Production</h4>
-                <p class="price">Custom quote</p>
+                <p class="project-detail">Project-specific planning</p>
                 <ul>
                   <li>Exclusive rights</li>
                   <li>Stems + WAV + MP3</li>
@@ -233,7 +233,7 @@ const faqItems = [
               </article>
               <article class="production-item panel">
                 <h4>Official Remix</h4>
-                <p class="price">Custom quote</p>
+                <p class="project-detail">Project-specific planning</p>
                 <ul>
                   <li>Stem separation from original</li>
                   <li>Genre of your choice</li>
@@ -243,7 +243,7 @@ const faqItems = [
               </article>
               <article class="production-item panel">
                 <h4>Mixing & Mastering</h4>
-                <p class="price">Custom quote</p>
+                <p class="project-detail">Project-specific planning</p>
                 <ul>
                   <li>Analog-modeled processing</li>
                   <li>Streaming platform optimized</li>
@@ -578,20 +578,20 @@ const faqItems = [
       font-size: var(--text-lg);
     }
 
-    .service-pricing {
+    .service-details {
       display: flex;
       flex-direction: column;
       gap: var(--space-1);
       margin-bottom: var(--space-6);
     }
 
-    .price {
+    .service-detail {
       font-size: var(--text-2xl);
       font-family: var(--font-display);
       color: var(--color-white);
     }
 
-    .price-note {
+    .service-detail-note {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
     }
@@ -650,7 +650,7 @@ const faqItems = [
       margin-bottom: var(--space-2);
     }
 
-    .production-item .price {
+    .production-item .project-detail {
       font-size: var(--text-xl);
       color: var(--color-accent);
       margin-bottom: var(--space-4);
