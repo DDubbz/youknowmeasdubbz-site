@@ -1,19 +1,21 @@
 ---
-title: "Wedding Reception Mix - Summer 2024"
-description: "Ceremony to last dance - curated for 200 guest wedding in West Palm Beach"
+title: "FLAVAR Presents: SCENE - LIVE MIX"
+description: "For your listening pleasure, here is a live recording of my set at FLAVAR's Art Concept \"SCENE\"."
 date: 2024-07-12
-genre: ["open-format", "top-40", "classics", "slow-jams"]
-duration: "4:30:00"
+genre: ["hip-hop", "dancehall", "top-40", "open-format", "classics"]
+duration: "35:44"
 bpmRange: "70-128"
 trackCount: 85
-live: false
-venue: ""
-address: ""
+live: true
+venue: "FLAVAR Presents: SCENE"
+address: "West Palm Beach, Fl"
 coverImage: "/mixes/wedding-reception-2024.webp"
-audioFile: "/mixes/wedding-reception-2024.mp3"
+audioFile: "https://media.youknowmeasdubbz.com/mixes/wedding-reception-2024.mp3"
 downloadable: false
-featured: false
-tags: ["wedding", "ceremony", "reception", "first-dance", "private-event"]
+featured: true
+tags: ["flavar", "scene", "art-show", "local", "party", "hip-hop"]
 youtubeUrl: "https://youtube.com/@youknowmeasdubbz"
+spotifyUrl: ""
 soundcloudUrl: "https://soundcloud.com/youknowmeasdubbz"
+mixcloudUrl: ""
 ---
