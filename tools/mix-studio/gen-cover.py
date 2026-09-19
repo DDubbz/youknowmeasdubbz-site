@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Generate branded cover art for Dubbz mixes.
-Usage: python3 tools/mix-studio/gen-cover.py "Mix Title" --subtitle "Venue" --date 2026-09-19 --genres hip-hop,rnb --output /tmp/cover.png
+Usage: python3 tools/mix-studio/gen-cover.py "Mix Title" --subtitle "Venue" --genres hip-hop,rnb --output /tmp/cover.png
 """
 import argparse
 import sys
 import os
 from PIL import Image, ImageDraw, ImageFont
 
-# Brand colors
+# Brand colors — Dubbz dark + cyan + gold
 NAVY = (15, 15, 26)
 SURFACE = (26, 26, 46)
 CYAN = (0, 212, 255)
@@ -58,7 +58,7 @@ def text_height(text, font_obj, draw):
     return bbox[3] - bbox[1]
 
 
-def generate_cover(title, subtitle, date_str, genres, output_path, size=1200):
+def generate_cover(title, subtitle, genres, output_path, size=1200):
     img = Image.new("RGB", (size, size), NAVY)
     draw = ImageDraw.Draw(img)
 
@@ -132,13 +132,6 @@ def generate_cover(title, subtitle, date_str, genres, output_path, size=1200):
             draw.text((x, sub_y), line, fill=CYAN, font=sub_font)
             sub_y += text_height(line, sub_font, draw) + 8
 
-    # Date
-    if date_str:
-        date_y = sub_y + 24 if subtitle else title_y + 24
-        date_font = font(28)
-        draw.text((size // 2, date_y), date_str,
-                  fill=MUTED, font=date_font, anchor="mm")
-
     # Bottom branding bar
     bar_h = 80
     bar_y = size - margin - bar_h
@@ -163,13 +156,12 @@ def main():
     parser = argparse.ArgumentParser(description="Generate Dubbz mix cover art")
     parser.add_argument("title", help="Mix title")
     parser.add_argument("--subtitle", default="", help="Venue or event name")
-    parser.add_argument("--date", default="", help="Date string (e.g. 2026-09-19)")
     parser.add_argument("--genres", default="", help="Comma-separated genre tags")
     parser.add_argument("--output", required=True, help="Output PNG path")
     args = parser.parse_args()
 
     genres = [g.strip() for g in args.genres.split(",") if g.strip()] if args.genres else []
-    generate_cover(args.title, args.subtitle, args.date, genres, args.output)
+    generate_cover(args.title, args.subtitle, genres, args.output)
 
 
 if __name__ == "__main__":

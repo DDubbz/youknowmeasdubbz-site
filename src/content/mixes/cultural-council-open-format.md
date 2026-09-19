@@ -1,7 +1,6 @@
 ---
 title: "Cultural Council of Palm Beach County - Corporate Event"
 description: "Cultural Council of Palm Beach County Event"
-date: 2026-07-16
 genre: ["deep-house", "r&b", "afrobeats", "amapiano", "top-40", "open-format", "classics", "afro-house"]
 duration: "110:15"
 bpmRange: "70-130"

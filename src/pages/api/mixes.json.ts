@@ -8,7 +8,11 @@ export async function GET({ url }) {
 
   let filtered = allMixes
     .filter(mix => mix.data.published !== false)
-    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    .sort((a, b) => {
+      const da = a.data.date ? new Date(a.data.date).getTime() : 0;
+      const db = b.data.date ? new Date(b.data.date).getTime() : 0;
+      return db - da;
+    });
 
   if (featured) {
     filtered = filtered.filter(mix => mix.data.featured);
@@ -20,7 +24,7 @@ export async function GET({ url }) {
     id: mix.id,
     title: mix.data.title,
     description: mix.data.description,
-    date: mix.data.date.toISOString().split('T')[0],
+    date: mix.data.date ? mix.data.date.toISOString().split('T')[0] : undefined,
     genre: mix.data.genre,
     duration: mix.data.duration,
     bpmRange: mix.data.bpmRange,

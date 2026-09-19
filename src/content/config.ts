@@ -24,7 +24,7 @@ const mixes = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    date: z.date(),
+    date: z.date().optional(),
     genre: z.array(z.string()),
     duration: z.string().optional(), // e.g. "1:23:45"
     bpmRange: z.string().optional(), // e.g. "69-136"

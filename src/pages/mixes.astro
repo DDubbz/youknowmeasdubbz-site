@@ -13,7 +13,7 @@ const mixSchema = {
     '@id': `https://youknowmeasdubbz.com/mixes/#${mix.id}`,
     name: mix.data.title,
     description: mix.data.description,
-    datePublished: mix.data.date.toISOString().slice(0, 10),
+    datePublished: mix.data.date ? mix.data.date.toISOString().slice(0, 10) : undefined,
     genre: mix.data.genre,
     ...(mix.data.duration ? { duration: mix.data.duration } : {}),
     ...(mix.data.audioFile ? { contentUrl: absoluteUrl(mix.data.audioFile) } : {}),
