@@ -3,6 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
+
+const MediaHost = 'https://media.youknowmeasdubbz.com';
+
+// Fetch featured mixes at build time
+const allMixes = await getCollection('mixes');
+const featuredMixes = allMixes
+  .filter(mix => mix.data.published !== false && mix.data.featured)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 4);
+
+const coverSrc = (mix: any) => mix.data.coverImage.startsWith('/')
+  ? mix.data.coverImage
+  : `${MediaHost}/${mix.data.coverImage.replace(/^\//, '')}`;
 ---
 
 <BaseLayout title="You Know Me As Dubbz — South Florida DJ & Event Production" description="Professional DJ services for weddings, corporate events, clubs, and private parties in West Palm Beach, Miami, and South Florida. Book You Know Me As Dubbz for your next event.">
@@ -417,7 +430,7 @@ import { getCollection } from 'astro:content';
       })();
     </script>
 
-    <!-- FEATURED MIXES -->
+    <!-- FEATURED MIXES (Server-rendered) -->
     <section class="section home-section home-section-mixes" aria-labelledby="mixes-title">
       <div class="container">
         <header class="section-header">
@@ -429,7 +442,31 @@ import { getCollection } from 'astro:content';
           <a href="/mixes" class="btn btn-secondary">Explore All Mixes</a>
         </header>
         <div class="mixes-showcase grid grid-4" id="featured-mixes">
-          <!-- Populated by JS from content collections -->
+          {featuredMixes.map((mix, i) => (
+            <article class="mix-card animate-fade-in-up" style={`animation-delay: ${i * 100}ms;`}>
+              <div class="mix-card-image">
+                {mix.data.coverImage ? (
+                  <img src={coverSrc(mix)} alt={`${mix.data.title} cover`} loading="lazy" width="1200" height="1200" />
+                ) : (
+                  <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                    <rect width="400" height="400" fill="var(--color-primary)"/>
+                    <circle cx="200" cy="200" r="60" stroke="var(--color-accent)" stroke-width="2" fill="none"/>
+                    <circle cx="200" cy="200" r="40" fill="var(--color-accent)"/>
+                    <circle cx="200" cy="200" r="20" fill="var(--color-primary)"/>
+                  </svg>
+                )}
+              </div>
+              <button class="mix-card-play" aria-label={`Play ${mix.data.title}`} data-mix={mix.id}>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <div class="mix-card-content">
+                <div class="mix-card-meta">
+                  {mix.data.genre?.slice(0, 3).map(g => <span class="mix-card-tag">{g}</span>) || ''}
+                </div>
+                <h3 class="mix-card-title">{mix.data.title}</h3>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -1737,84 +1774,50 @@ import { getCollection } from 'astro:content';
   </style>
 
   <script is:inline>
-    // Load featured mixes and gigs from content collections
+    // Load upcoming gigs from content collections
     const MediaHost = 'https://media.youknowmeasdubbz.com';
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        // Fetch mixes
-        const mixesRes = await fetch('/api/mixes.json');
-        if (mixesRes.ok) {
-          const mixes = await mixesRes.json();
-          renderFeaturedMixes(mixes.slice(0, 4));
-        }
 
+    async function initContent() {
+      console.log('=== initContent: Starting... ===');
+      try {
         // Fetch gigs
+        console.log('initContent: Fetching gigs...');
         const gigsRes = await fetch('/api/gigs.json');
+        console.log('initContent: Gigs response:', gigsRes.status, gigsRes.ok);
         if (gigsRes.ok) {
           const gigs = await gigsRes.json();
+          console.log('initContent: Got gigs:', gigs.length);
           const upcoming = gigs.filter(g => new Date(g.date) >= new Date()).slice(0, 4);
           renderUpcomingGigs(upcoming);
+        } else {
+          console.error('initContent: Failed to fetch gigs:', gigsRes.status);
         }
       } catch (err) {
-        console.error('Failed to load content:', err);
+        console.error('=== initContent: Error:', err, err.stack, '===');
       }
-    });
-
-    function renderFeaturedMixes(mixes) {
-      const MediaHost = 'https://media.youknowmeasdubbz.com';
-      const coverSrc = mix => mix.coverImage.startsWith('/')
-        ? mix.coverImage
-        : `${MediaHost}/${mix.coverImage.replace(/^\//, '')}`;
-      const container = document.getElementById('featured-mixes');
-      if (!container || !mixes.length) return;
-
-      container.innerHTML = mixes.map((mix, i) => `
-        <article class="mix-card animate-fade-in-up" style="animation-delay: ${i * 100}ms;">
-          <div class="mix-card-image">
-            ${mix.coverImage ? `<img src="${coverSrc(mix)}" alt="${mix.title} cover" loading="lazy" width="1200" height="1200" />` : `
-              <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                <rect width="400" height="400" fill="var(--color-primary)"/>
-                <circle cx="200" cy="200" r="60" stroke="var(--color-accent)" stroke-width="2" fill="none"/>
-                <circle cx="200" cy="200" r="40" fill="var(--color-accent)"/>
-                <circle cx="200" cy="200" r="20" fill="var(--color-primary)"/>
-              </svg>
-            `}
-          </div>
-          <button class="mix-card-play" aria-label="Play ${mix.title}" data-mix="${mix.id}">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="mix-card-content">
-            <div class="mix-card-meta">
-              ${mix.genre?.slice(0, 3).map(g => `<span class="mix-card-tag">${g}</span>`).join('') || ''}
-            </div>
-            <h3 class="mix-card-title">${mix.title}</h3>
-            <time class="mix-card-date">${mix.date ? new Date(mix.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}</time>
-          </div>
-        </article>
-      `).join('');
-
-      // Add play button handlers
-      container.querySelectorAll('.mix-card-play').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const slug = btn.dataset.mix;
-          window.location.href = `/mixes?play=${slug}`;
-        });
-      });
-
-      // Card click navigation
-      container.querySelectorAll('.mix-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const playBtn = card.querySelector('.mix-card-play');
-          if (playBtn) {
-            const slug = playBtn.dataset.mix;
-            window.location.href = `/mixes?play=${slug}`;
-          }
-        });
-      });
     }
 
-    function renderUpcomingGigs(gigs) {
+    // Run initContent immediately - script is at end of body so DOM is ready
+    console.log('=== Calling initContent directly... ===');
+    initContent().then(() => {
+      console.log('=== initContent promise resolved ===');
+    }).catch(err => {
+      console.error('=== initContent promise rejected:', err, err.stack, '===');
+    });
+
+    // Also set a timeout as fallback
+        setTimeout(() => {
+          console.log('Fallback timeout check - readyState:', document.readyState);
+          if (document.getElementById('upcoming-gigs')) {
+            const container = document.getElementById('upcoming-gigs');
+            if (container && container.innerHTML.includes('Populated by JS')) {
+              console.log('Fallback: Container still has placeholder, forcing initContent');
+              initContent();
+            }
+          }
+        }, 1000);
+
+        function renderUpcomingGigs(gigs) {
       const container = document.getElementById('upcoming-gigs');
       if (!container) return;
 
