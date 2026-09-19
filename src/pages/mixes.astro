@@ -1359,11 +1359,7 @@ import Footer from '../components/Footer.astro';
             <div class="playlist-track-cover">
               ${mix.coverImage
                 ? `<img src="${coverSrc(mix)}" alt="" width="1200" height="1200" />`
-                : `<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;color:var(--color-accent);">
-                    <circle cx="200" cy="200" r="60" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <circle cx="200" cy="200" r="40" fill="currentColor"/>
-                    <circle cx="200" cy="200" r="20" fill="var(--color-primary)"/>
-                  </svg>`
+                : `<img src="/mix-placeholder.svg" alt="" width="1200" height="1200" />`
               }
             </div>
             <div class="playlist-track-info">

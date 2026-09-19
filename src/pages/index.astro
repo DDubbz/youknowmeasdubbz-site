@@ -448,12 +448,7 @@ const coverSrc = (mix: any) => mix.data.coverImage.startsWith('/')
                 {mix.data.coverImage ? (
                   <img src={coverSrc(mix)} alt={`${mix.data.title} cover`} loading="lazy" width="1200" height="1200" />
                 ) : (
-                  <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                    <rect width="400" height="400" fill="var(--color-primary)"/>
-                    <circle cx="200" cy="200" r="60" stroke="var(--color-accent)" stroke-width="2" fill="none"/>
-                    <circle cx="200" cy="200" r="40" fill="var(--color-accent)"/>
-                    <circle cx="200" cy="200" r="20" fill="var(--color-primary)"/>
-                  </svg>
+                  <img src="/mix-placeholder.svg" alt="" loading="lazy" width="1200" height="1200" />
                 )}
               </div>
               <button class="mix-card-play" aria-label={`Play ${mix.data.title}`} data-mix={mix.id}>
@@ -1803,6 +1798,15 @@ const coverSrc = (mix: any) => mix.data.coverImage.startsWith('/')
       console.log('=== initContent promise resolved ===');
     }).catch(err => {
       console.error('=== initContent promise rejected:', err, err.stack, '===');
+    });
+
+    document.querySelectorAll('.mix-card-play').forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const mixId = button.dataset.mix;
+        if (mixId) window.location.href = `/mixes?play=${encodeURIComponent(mixId)}`;
+      });
     });
 
     // Also set a timeout as fallback
